@@ -1151,11 +1151,11 @@ function foldedWings(body,p,rng,shader,pieces){
             cover.push({p:anchor,dir:down,n:normal.clone().multiplyScalar(surface),length:length*(.23+.12*chord),
               width:width*(.48+.15*chord),arch:.059,flight:.48,base:tint,ink,
               mode:p.features?(modes[p.design]||0):barn?3:1,strength:intensity*(.83+.16*rng()),freq:1.43,phase:.11*row+.055*u})
-            if(p.paleSnow&&outer&&row>=3&&((j*11+row*23+col*3+side+41)%19===0)){
+            if(p.paleSnow&&outer&&row>=2&&((j*11+row*23+col*3+side+41)%10===0)){
               const feather=cover.at(-1)
               cover.push({...feather,p:anchor.clone().addScaledVector(down,feather.length*.45)
                 .addScaledVector(normal,feather.length*.045+.009),base:ink,ink,mode:0,strength:0,
-                width:feather.width*.20,length:feather.length*.24})
+                width:feather.width*.13,length:feather.length*.17})
             }
             if(outer && p.features && (p.features.has('pale-spots')||p.features.has('white-scapulars')||p.features.has('mottled-mantle')) &&
                 (j+row*2+col*3)%5===0 && (!hand||row<4)){
@@ -1255,7 +1255,7 @@ function makeTail(body,p,rng,shader,pieces){
   const samples=[]
   const group=new T.Group()
   group.name='Tail'
-  group.position.set(0,-.46*p.body,-.39*p.width)
+  group.position.set(0,-.46*p.body+(p.paleSnow&&p.stance==='ground'?.10:0),-.39*p.width)
   body.add(group)
   for(let j=0;j<12;j++){
     const s=(j-5.5)/5.5
@@ -1359,7 +1359,7 @@ export function createOwl(item,shader) {
   head.name='Head'
   const lift=p.legs*.54
   const pale=color('#f3e9d6')
-  body.position.y=.84*p.body+(p.id==='Bubo_scandiacus'?.022:p.id==='Bubo_bubo'?.13:.205)+lift
+  body.position.y=.84*p.body+(p.id==='Bubo_scandiacus'?.022:p.id==='Bubo_bubo'?.13:.205)+lift+(p.bodyLift||0)
   body.rotation.x=p.restPitch||0
   root.add(body)
   downLayer(body,p,false)

@@ -85,10 +85,14 @@
       "width": 1.04,
       "body": 1.06,
       "head": 0.91,
-      "tall": 0.98,
-      "wingLength": 1.05,
+      "tall": 1.02,
+      "wingLength": 1.076,
       "eye": 0.87,
-      "paleSnow": true
+      "paleSnow": true,
+      "restPitch": -0.153,
+      "stance": "ground",
+      "tail": 0.5,
+      "bodyLift": 0.126
     },
     "variation": "雪鸮的横斑随个体而异，部分个体的翼背、尾与胸腹有更显眼的深横斑。"
   },

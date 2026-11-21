@@ -3,11 +3,11 @@ import {Vector3, MathUtils} from '../vendor/three.module.js'
 // Each point is calibrated in the original model's coordinates. +Z faces forward.
 const points = {
   Bubo_scandiacus: [
-    {id:'face', label:'面盘', center:[0,1.75,.77], yaw:8, pitch:.07, size:[1.22,.88],
+    {id:'face', label:'面盘', center:[0,1.85,.68], yaw:8, pitch:.07, size:[1.22,.88],
       note:'圆形面盘拢住亮黄色虹膜，黑喙大半藏在白色面羽中。'},
-    {id:'wing', label:'翼斑', center:[.55,1.00,-.35], yaw:111, pitch:.24, size:[1.38,1.23],
+    {id:'wing', label:'翼斑', center:[.55,1.10,-.39], yaw:111, pitch:.24, size:[1.38,1.23],
       note:'画中个体的折翼近白，只散着少量深色小斑。'},
-    {id:'feet', label:'足爪', center:[.34,.095,.42], yaw:12, pitch:.23, size:[1.24,.59],
+    {id:'feet', label:'足爪', center:[.24,.100,.12], yaw:12, pitch:.23, size:[1.24,.59],
       note:'腿和脚趾都有厚羽，黑色弯爪从羽尖之间露出来。'},
   ],
   Tyto_alba: [

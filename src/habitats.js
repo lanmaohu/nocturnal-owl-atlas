@@ -201,6 +201,22 @@ function barn(scene) {
 function driftHeight(x,z) {
   return -.56-.057*Math.min(58,Math.hypot(x,z))+.22*Math.sin(x*.64+z*.28)+.12*Math.cos(z*.82-x*.19)+.07*Math.cos(x*1.77+z*.48)
 }
+function snowBank(scene) {
+  const geometry=new T.PlaneGeometry(4.6,4.6,35,35)
+  geometry.rotateX(-Math.PI/2)
+  const positions=geometry.attributes.position
+  for(let index=0;index<positions.count;index++){
+    const x=positions.getX(index),z=positions.getZ(index)
+    const edge=clamp((Math.hypot(x*.83,z)-.44)/1.80,0,1)
+    const falloff=edge*edge*(3-2*edge)
+    const floor=lerp(.060,driftHeight(x,z)-.012,falloff)
+    positions.setY(index,floor+.029*falloff*(1-falloff)*Math.sin(8*x+4*z))
+  }
+  geometry.computeVertexNormals()
+  const bank=new T.Mesh(geometry,standard(0xc2cfd9))
+  bank.receiveShadow=true
+  scene.add(bank)
+}
 function tundra(scene) {
   scene.fog=new T.FogExp2(0xc8d3dc,.035)
   sky(scene,[-1,-.08,.04,.24,.76,1],['#909cac','#bcbdc8','#e7cdb9','#b3c7d3','#7694ad','#5d809e'],v(-.9,.13,-.35).normalize(),'#fff0c6')
@@ -257,7 +273,7 @@ function tundra(scene) {
     mound.position.set(x,driftHeight(x,z)+.045,z);mound.scale.set(scale*1.55,scale*.66,scale*.96);mound.rotation.y=x
     mound.castShadow=true;mound.receiveShadow=true;scene.add(mound)
   }
-  makeSeat(scene,'snow',timber(13,true))
+  snowBank(scene)
 }
 
 function forestUnderstory(scene, seed) {
@@ -457,7 +473,8 @@ export function habitat(id, renderer, night = false) {
   const seed = Array.from(id).reduce((n,k)=>(Math.imul(n,31)+k.charCodeAt(0))>>>0,19)
   if (night) {
     sky(scene,[-1,-.12,.16,1],['#060a15','#101b36','#162744','#090e1d'],v(-.62,.24,-.75).normalize(),'#304775')
-    makeSeat(scene,stage,timber(stage==='snow'?92:202,stage==='snow'))
+    if(stage==='snow')snowBank(scene)
+    else makeSeat(scene,stage,timber(202,false))
   }else if(stage==='barn'){
     barn(scene)
   }else if(stage==='snow'){
