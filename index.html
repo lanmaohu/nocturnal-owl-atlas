@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#172e26">
+  <title>夜行图鉴 · 鸮形目物种与三维模型</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./record.css">
+  <!-- source-entry --><script>if(location.protocol==="file:")location.replace(new URL("夜行图鉴.html",location.href))</script><!-- /source-entry -->
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" class="symbols" aria-hidden="true">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 5.5 5.5"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v15m-6-6 6 6 6-6"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 .5 5M4 5v5h5"/></symbol>
+    <symbol id="i-orbit" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5.2"/><ellipse cx="12" cy="12" rx="10.4" ry="3.5" transform="rotate(-25 12 12)"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8.5 5v14M15.5 5v14" stroke-width="3"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7Z"/></symbol>
+    <symbol id="i-wings" viewBox="0 0 24 24"><path d="M3 14 1.5 6l6 3 4.5 6 4.5-6 6-3-1.5 8-5 3-4 1-4-1-5-3Z"/><path d="m3.5 11 4.5 2m12.5-2L16 13"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M8 5h11v11M19 5 6 18"/></symbol>
+  </svg>
+  <header class="masthead">
+    <div class="brand">
+      <svg viewBox="0 0 44 44" class="owlmark" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m8 7 7 4a20 20 0 0 1 14 0l7-4-1 14c-.3 9-5.5 14-13 18C14.5 35 9.3 30 9 21Z" stroke-width="1.7"/>
+        <path d="M11 16c5 1 8 4 11 10 3-6 6-9 11-10M15 29l7 5 7-5" stroke-width="1.1"/>
+        <circle cx="15.7" cy="20" r="1.8" fill="currentColor"/><circle cx="28.3" cy="20" r="1.8" fill="currentColor"/>
+      </svg>
+      <span>夜行图鉴</span>
+    </div>
+    <span class="collection">鸮形目<span aria-hidden="true"> / </span>Strigiformes</span>
+  </header>
+
+  <main class="page">
+    <div id="atlas-home">
+      <section class="intro" aria-labelledby="intro-title">
+        <div class="intro-copy">
+          <h1 id="intro-title">夜行图鉴</h1>
+          <p>从雪原上的雪鸮到林间的乌林鸮，近距离观察 251 种鸮形目鸟类。转动三维模型，看看它们的面盘、羽纹和展翅姿态。</p>
+          <a class="explore-link" href="#gallery">开始探索</a>
+        </div>
+        <figure class="intro-image">
+          <img src="./代表画面/Strix_nebulosa.jpg" width="841" height="690" alt="乌林鸮停在针叶林中的枝头">
+          <figcaption>乌林鸮 <i lang="la">Strix nebulosa</i></figcaption>
+        </figure>
+      </section>
+      <section class="gallery" id="gallery" aria-labelledby="gallery-title" tabindex="-1">
+        <header class="gallery-header">
+          <div>
+            <h2 id="gallery-title">物种画廊</h2>
+            <p>选择一只猫头鹰，打开三维模型。</p>
+          </div>
+          <div class="catalog-tools">
+            <label class="catalog-search"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><input id="catalog-query" type="search" placeholder="搜索鸟名、学名或拼音" aria-label="搜索鸟名、学名或拼音" autocomplete="off" spellcheck="false"></label>
+            <select id="catalog-filter" aria-label="筛选物种"><option value="all">全部物种</option><option value="model">有三维模型</option><option value="guide">有中文辨识笔记</option></select>
+          </div>
+        </header>
+        <p id="catalog-count" class="catalog-count" role="status"></p>
+        <ul id="catalog-results" class="gallery-grid" aria-label="物种"></ul>
+        <button class="catalog-switch gallery-more" type="button" id="gallery-more" hidden>查看更多物种</button>
+      </section>
+    </div>
+    <div id="atlas-viewer" tabindex="-1" hidden>
+      <div class="viewer-nav">
+        <button type="button" id="catalog-open" class="catalog-switch">返回物种画廊</button>
+        <nav id="model-pages" class="model-pages" aria-label="浏览相邻模型" hidden>
+          <button type="button" id="model-prev"></button><span id="page-number"></span><button type="button" id="model-next"></button>
+        </nav>
+      </div>
+      <section id="model-spread" tabindex="-1" class="spread" aria-label="三维物种图鉴">
+        <div class="studio">
+          <div id="viewport" class="viewport">
+            <canvas id="view" tabindex="0" aria-label="三维模型。拖动旋转，滚轮或双指缩放，双击复位。聚焦后也可用方向键旋转，加减键缩放。"></canvas>
+            <img id="model-cover" class="model-cover" hidden alt="">
+            <div class="view-tools">
+              <div class="camera-switch" aria-label="取景"><button id="whole" aria-pressed="true" disabled>全身</button><button id="portrait" aria-pressed="false" disabled>特写</button></div>
+              <button class="glass" id="reset" title="恢复初始视角" aria-label="恢复初始视角"><svg class="icon"><use href="#i-home"/></svg></button>
+            </div>
+            <div class="model-state" id="model-state" hidden>
+              <p id="state-message" role="status"></p>
+              <button type="button" id="retry-model" hidden>重试加载</button>
+            </div>
+          </div>
+          <div id="file-actions" class="file-actions" hidden>
+            <div class="file-explanation"><strong>解锁全部 251 种三维模型</strong><span>点击「选择模型文件夹」，选择夜行图鉴旁的 models 文件夹。选择一次后即可连续查看。</span><small id="file-name"></small></div>
+            <div class="file-choices">
+              <button id="folder-open" type="button">选择模型文件夹</button><button id="single-open" type="button">选择单个 GLB</button>
+              <input id="folder-input" type="file" webkitdirectory multiple hidden><input id="model-input" type="file" accept=".glb" hidden>
+            </div>
+          </div>
+          <div class="studio-bar">
+            <div class="motion" aria-label="动画控制">
+              <button id="toggle-play" class="control" disabled><svg class="icon"><use href="#i-pause"/></svg><span>暂停</span></button>
+              <button id="observe" class="control" aria-pressed="false" disabled><svg class="icon"><use href="#i-play"/></svg><span>观察</span></button>
+              <button id="spread" class="control" aria-pressed="false" disabled><svg class="icon"><use href="#i-wings"/></svg><span>展翅收拢</span></button>
+            </div>
+            <span class="help"><svg class="icon"><use href="#i-orbit"/></svg><span class="desktop">拖动旋转 · 滚轮缩放</span><span class="touch">拖动旋转 · 双指缩放</span></span>
+          </div>
+        </div>
+        <aside class="record">
+          <div class="identity">
+            <div class="family" id="family"></div>
+            <h1 id="name"></h1>
+            <p id="latin" lang="la"></p>
+            <p id="form"></p>
+          </div>
+          <div class="quick-facts">
+            <dl id="model-stats"></dl>
+            <a href="#field-record">查看物种资料<svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a>
+          </div>
+          <div class="notes" id="model-notes">
+            <h3>模型辨识要点</h3>
+            <dl id="marks"></dl>
+          </div>
+          <div class="resources">
+            <button id="download" type="button"><svg class="icon"><use href="#i-download"/></svg>保存 GLB 模型</button>
+            <a id="representative" hidden>代表画面</a>
+            <a id="reference" target="_blank" rel="noopener">物种参考<svg class="icon"><use href="#i-external"/></svg></a>
+          </div>
+        </aside>
+      </section>
+      <section id="field-record" class="field-record" aria-labelledby="field-title" tabindex="-1">
+        <header class="field-header">
+          <div>
+            <div class="field-kicker" id="field-context"></div>
+            <h2 id="field-title"></h2>
+            <p class="field-latin" id="field-subtitle"></p>
+          </div>
+          <div class="field-actions">
+            <a id="field-model" href="#model-spread"><svg class="icon" aria-hidden="true"><use href="#i-orbit"/></svg>看三维模型</a>
+            <button class="catalog-switch" id="field-browse" type="button">
+              <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>查其他物种
+            </button>
+          </div>
+        </header>
+        <div id="field-content"></div>
+      </section>
+    </div>
+    <footer class="atlas-footer">
+      <details class="catalog-scope">
+        <summary>名录版本与资料覆盖</summary>
+        <p>本图鉴沿用花叔首版的 251 种鸮形目。全部有繁殖分布，228 种有体尺与生态指标，107 种有体长，16 种有翼展，212 种有 IUCN 等级，34 种有中文辨识笔记。</p>
+        <p>新版 AviList v2026 将其中 11 种并入其他种，另拆出 1 种，共 241 种。在涉及这些变动的资料卡里可以查看对应关系。<a href="https://github.com/alchaincyf/huashu-bird-sticker/blob/01264126448bd3d5d3bf69102abbfe98d9e3b489/data/crosswalk-ioc15.2-avilist2026.csv" target="_blank" rel="noopener noreferrer">新旧名录对照</a></p>
+      </details>
+    </footer>
+  </main>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

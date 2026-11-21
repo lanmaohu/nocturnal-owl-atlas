@@ -1,0 +1,96 @@
+.field-dossier {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(30px, 6vw, 100px);
+  align-items: start;
+  color: var(--ink);
+}
+.field-block {
+  min-width: 0;
+  padding: 24px 0 30px;
+  border-top: 1px solid var(--rule);
+}
+.field-block h3 {
+  font: 600 clamp(20px, 1.6vw, 26px)/1.4 var(--serif);
+  letter-spacing: .055em;
+  margin: 0 0 18px;
+}
+.field-block p {overflow-wrap: anywhere}
+.field-block a,.field-related {color:#315440; text-underline-offset:3px; text-decoration-thickness:1px}
+.field-block a:hover,.field-related:hover {color:#713f23}
+.field-block a:focus-visible,.field-block summary:focus-visible,.field-related:focus-visible {outline:2px solid #96652e; outline-offset:3px}
+.field-measures {grid-column:1/-1}
+.field-metrics {
+  display:grid; grid-template-columns: repeat(4,minmax(0,1fr));
+  margin: 0 0 18px;
+}
+.field-metric {padding:3px clamp(10px,2.5vw,36px); min-width:0; border-left:1px solid var(--rule)}
+.field-metric:first-child {border-left:0;padding-left:0}
+.field-metric dt {font:500 14px/1.5 var(--sans);color:var(--muted);margin-bottom:8px}
+.field-metric dd {display:flex;align-items:baseline;gap:5px;flex-wrap:wrap;line-height:1.15}
+.field-figure {
+  font:normal clamp(26px,3.3vw,53px)/1.1 "Baskerville","Times New Roman",serif;
+  font-variant-numeric:lining-nums tabular-nums;
+  color:var(--ink);letter-spacing:-.035em;
+}
+.field-unit {font:normal 13px/1.5 var(--sans);color:#465547}
+.field-single {flex-basis:100%;color:var(--muted);font:normal 12px/1.4 var(--sans)}
+.field-missing {font:normal clamp(17px,2.1vw,25px)/1.6 var(--serif);color:var(--muted)}
+.field-footnote,.field-muted,.field-caution,.field-source-line,.field-photos p {
+  font:normal 13px/1.75 var(--sans);color:var(--muted);margin:11px 0 0;
+}
+.field-caution {color:#744e2c;margin:0 0 11px}
+.field-impression {
+  font:500 clamp(19px,1.6vw,25px)/1.5 var(--serif);
+  color:#294335; margin:0 0 12px;
+}
+.field-marks {margin:0 0 16px;padding-inline-start:1.35em}
+.field-marks li,.field-comparisons p,.field-credits li {font:normal 15px/1.85 var(--sans)}
+.field-marks li::marker {color:#8c8867}
+.field-list {
+  display:grid;grid-template-columns:minmax(6.5em,auto) minmax(0,1fr);
+  gap:9px 18px;align-items:baseline;margin:0;
+}
+.field-list dt,.field-languages dt {font:normal 13px/1.65 var(--sans);color:#51624f}
+.field-list dd,.field-languages dd,.field-subspecies p {font:normal 15px/1.7 var(--sans);overflow-wrap:anywhere}
+.field-fold {border-top:1px solid #d5d6c7;margin-top:15px}
+.field-fold summary {
+  display:flex;align-items:center;justify-content:space-between;gap:15px;
+  color:#3c5642;list-style:none;padding:12px 0;cursor:pointer;font:500 14px/1.5 var(--sans);
+}
+.field-fold summary::-webkit-details-marker {display:none}
+.field-fold summary::after {
+  content:"";display:block;flex:none;width:7px;height:7px;margin:0 5px;
+  border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);
+}
+.field-fold[open]>summary::after {transform:rotate(225deg)}
+.field-fold summary:hover {color:#815832}
+.field-fold+.field-fold {margin-top:0}
+.field-measures>.field-fold[open]>.field-list {max-width:40rem}
+.field-footnote a,.field-source-line a,.field-photos a,.field-credits a,.field-list a {overflow-wrap:anywhere}
+.field-comparisons,.field-subspecies,.field-photos,.field-credits {list-style:none;padding:0;margin:0}
+.field-comparisons li,.field-subspecies li,.field-photos li {margin:0 0 13px}
+.field-comparisons p,.field-subspecies p,.field-photos p {margin:3px 0 0}
+.field-related {background:none;border:0;padding:0;text-decoration:underline;font:600 15px/1.6 var(--sans)}
+.field-languages {
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px 16px;
+  margin:4px 0 16px;
+}
+.field-subspecies i {font:italic 17px/1.5 "Baskerville","Times New Roman",serif}
+.field-subspecies small {font:normal 12px/1.5 var(--sans);color:var(--muted);margin-left:7px}
+.field-photos {font:normal 14px/1.6 var(--sans)}
+.field-credits {margin:10px 0 13px}
+.field-credits li {font-size:13px;margin:5px 0}
+.field-license {white-space:pre-wrap;overflow-wrap:anywhere;font:normal 12px/1.6 var(--sans);color:var(--muted)}
+@media(max-width:720px) {
+  .field-dossier {grid-template-columns:minmax(0,1fr);gap:0}
+  .field-block {padding:18px 0 22px}
+  .field-block h3 {margin-bottom:13px}
+  .field-metrics {grid-template-columns:repeat(2,minmax(0,1fr));row-gap:16px}
+  .field-metric {padding:0 16px}
+  .field-metric:nth-child(odd) {border-left:0;padding-left:0}
+  .field-metric dd {row-gap:2px}
+  .field-list {grid-template-columns:6.2em minmax(0,1fr);column-gap:9px}
+  .field-figure {font-size:31px}
+}
+.field-crosswalk {font:normal 13px/1.75 var(--sans);color:#4a604d;background:#ebeee3;border-left:2px solid #8e9e80;padding:8px 12px;margin:12px 0}
