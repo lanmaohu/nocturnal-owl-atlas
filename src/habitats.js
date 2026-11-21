@@ -408,6 +408,7 @@ function openCountry(scene, kind, seed, lowPerch) {
 
 function lights(scene, kind) {
   const palettes={
+    night:[0xd7ebff,0x4f5669,.78,0xe5f2ff,2.28,[-3.2,4.3,4.4],0x82afff,2.8,[2.2,3.6,-4.2]],
     barn:[0xf0f5ff,0x656764,1.25,0xffeac8,2.65,[-2.6,4.1,4.3],0xffd497,2.3,[1.1,3.6,-4.3]],
     snow:[0xe8f2ff,0xb0c0ce,1.25,0xffe3bd,2.25,[-4.2,3.7,2.85],0xe9f3ff,1.24,[2.0,4.0,-5.1]],
     forest:[0xdfeaf7,0x586154,.95,0xffe5bd,2.65,[3.0,5.1,3.5],0xffe0bd,2.2,[-2.1,3.45,-4.65]],
@@ -449,12 +450,15 @@ function skylight(renderer, kind) {
   pmrem.dispose();map.dispose();return target
 }
 
-export function habitat(id, renderer) {
+export function habitat(id, renderer, night = false) {
   const scene=new T.Scene()
   let glints=null
   const {stage,ground} = motionFor(id)
   const seed = Array.from(id).reduce((n,k)=>(Math.imul(n,31)+k.charCodeAt(0))>>>0,19)
-  if(stage==='barn'){
+  if (night) {
+    sky(scene,[-1,-.12,.16,1],['#060a15','#101b36','#162744','#090e1d'],v(-.62,.24,-.75).normalize(),'#304775')
+    makeSeat(scene,stage,timber(stage==='snow'?92:202,stage==='snow'))
+  }else if(stage==='barn'){
     barn(scene)
   }else if(stage==='snow'){
     tundra(scene)
@@ -483,8 +487,8 @@ export function habitat(id, renderer) {
       for(const m of [node.material].flat())m.clippingPlanes=[plantPlane]
     })
   }
-  lights(scene,stage)
+  lights(scene,night?'night':stage)
   const illumination=skylight(renderer,stage==='snow'?'snow':'shade')
-  scene.environment=illumination.texture;scene.environmentIntensity=.68
+  scene.environment=illumination.texture;scene.environmentIntensity=night?.49:.68
   return {scene,glints,illumination,plantPlane}
 }

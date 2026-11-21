@@ -1,31 +1,58 @@
 import records from '../data/records.json' with {type:'json'}
 import {renderRecord} from './record-view.js'
+import {modelMeasurements, measurementProtocol} from './measurements.js'
+import {calibrationFor} from './calibration.js'
 
 const byId = id => document.getElementById(id)
 const localName = record => record.names['zh-Hans'] || record.names.en || record.scientificName
 const normalize = text => String(text).normalize('NFKD').replace(/\p{Mark}/gu, '').toLowerCase().replace(/[^\p{Letter}\p{Number}]/gu, '')
-const numbers = new Intl.NumberFormat('zh-CN', {maximumFractionDigits:2})
-
-function lengthText(values) {
-  if (!values) return '未收录'
-  const [low, high] = values
-  return (low === high ? '约 ' + numbers.format(low) : numbers.format(low) + '–' + numbers.format(high)) + ' cm'
-}
-
 function showQuickFacts(record) {
-  const measures = [
-    ['体长', lengthText(record.size?.bodyLengthCm)],
-    ['翼展', lengthText(record.size?.wingspanCm)],
-    ['体重', record.traits?.massG == null ? '未收录' : numbers.format(record.traits.massG) + ' g'],
-  ]
-  byId('model-stats').replaceChildren(...measures.map(([label, value]) => {
-    const item = document.createElement('div')
-    const name = document.createElement('dt')
-    const fact = document.createElement('dd')
-    name.textContent = label
-    fact.textContent = value
-    item.append(name, fact)
+  const measurements=modelMeasurements(record)
+  byId('model-stats').replaceChildren(...measurements.map(({label,text})=>{
+    const item=document.createElement('div')
+    const name=document.createElement('dt')
+    const fact=document.createElement('dd')
+    name.textContent=label
+    fact.textContent=text
+    item.append(name,fact)
     return item
+  }))
+  const scope=byId('measure-scope')
+  scope.replaceChildren('物种资料值。')
+  if(record.traits){
+    const protocol=document.createElement('a')
+    protocol.href=measurementProtocol
+    protocol.target='_blank'
+    protocol.rel='noopener noreferrer'
+    protocol.textContent='AVONET 测量口径'
+    scope.append(' ',protocol,'。')
+  }
+  if(record.traits?.inferred)scope.append(' 部分分项由近缘种推算。')
+  if(record.size?.bodyLengthCm&&record.size.bodyLengthCm[0]===record.size.bodyLengthCm.at(-1))scope.append(' 体长为单值记录。')
+  byId('size-rulers').replaceChildren(...measurements.map(({label,bounds,text,max,unit})=>{
+    const row=document.createElement('div')
+    row.className='ruler'
+    const name=document.createElement('dt')
+    name.textContent=label+' · '+text
+    const display=document.createElement('dd')
+    display.setAttribute('aria-hidden','true')
+    const track=document.createElement('span')
+    track.className='ruler-track'
+    const endpoint=document.createElement('span')
+    endpoint.className='ruler-max'
+    endpoint.textContent=max+' '+unit
+    if(bounds){
+      const [low,high]=bounds
+      const fill=document.createElement('span')
+      fill.className='ruler-fill'
+      const left=low===high ? 0 : low
+      fill.style.left=left/max*100+'%'
+      fill.style.width=(high-left)/max*100+'%'
+      track.append(fill)
+    }
+    display.append(track,endpoint)
+    row.append(name,display)
+    return row
   }))
 }
 
@@ -42,7 +69,7 @@ export function createCatalog(models, order, portraitFor, choose) {
     return {
       record,
       keys: [record.scientificName, ...Object.values(record.names), ...Object.values(record.ids || {}),
-        record.zh?.pinyin, ...(record.zh?.aliases || [])].filter(Boolean).map(normalize),
+        record.zh?.pinyin, ...(record.zh?.aliases || []), calibrationFor(id)?.cue].filter(Boolean).map(normalize),
     }
   })
   let matches = []

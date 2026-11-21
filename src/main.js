@@ -5,9 +5,11 @@ import { habitat } from './habitats.js'
 import { makeOptics } from './optics.js'
 import { samples } from './samples.js'
 import { createCatalog } from './catalog.js'
-import { availableIds, catalogSequence, specimenFor, publishedModel } from './specimens.js'
+import { availableIds, catalogSequence, specimenFor, publishedModel, illustrationSource } from './specimens.js'
 import { motionFor } from './behavior.js'
 import { createModelSource } from './model-source.js'
+import { observationPoints, pointPose } from './observation-points.js'
+import { downloadBlob, saveObservationCard } from './observation-card.js'
 
 const byId = id => document.getElementById(id)
 const home = byId('atlas-home')
@@ -19,26 +21,53 @@ const pauseButton = byId('toggle-play')
 const spreadButton = byId('spread')
 const observeButton = byId('observe')
 const stateMessage = byId('state-message')
+const stationButton = byId('station-open')
+const galleryButton = byId('catalog-open')
+const featured = byId('featured-species')
+const modelPoints = byId('model-points')
+const illustration = byId('species-illustration')
+const illustrationFrame = byId('illustration-frame')
+const originalIllustration = byId('illustration-original')
+const pointButtons = byId('point-buttons')
+const pointNote = byId('point-note')
+const focusMarker = byId('focus-marker')
+const saveCardButton = byId('save-card')
+const presetButtons = [...document.querySelectorAll('[data-view]')]
+const neutralButton = byId('neutral-light')
+const modelControls = [...presetButtons, neutralButton, pauseButton, spreadButton, observeButton, byId('whole'), byId('portrait'), byId('reset'), saveCardButton]
 const loader = new GLTFLoader()
 const source = createModelSource(publishedModel)
 const readyModels = new Map()
 const params = new URLSearchParams(location.search)
 const inspecting = params.get('inspection') === '1'
 let parsing = Promise.resolve()
+const snowOwl = 'Bubo_scandiacus'
 const entrySpecies = specimenFor(params.get('species'))
+const isFeatured = id => samples.some(sample => sample.id === id)
 const galleryFeatures = [...samples.map(sample => sample.id), 'Strix_nebulosa', 'Athene_cunicularia', 'Surnia_ulula', 'Scotopelia_peli', 'Phodilus_badius']
 const showFacts = createCatalog(availableIds, [...galleryFeatures, ...catalogSequence], id => publishedModel(id)?.portrait, openSpecies)
 let selected
+let selectedPoint = null
 let lastCard
 let selectionToken = 0
-let renderer, scene, camera, controls, optics, active
+let renderer, scene, camera, controls, optics, active, neutralScene
+let neutral = false
 let paused = false
 let currentMotion = 'Perch', view = 'whole'
 let intro = false, transition = null, spreadReturn = null
 let previousTime = 0, sceneTime = 0, studioVisible = true
 const eye = new T.Vector3(), otherEye = new T.Vector3()
 const axis = new T.Vector3(), desiredTarget = new T.Vector3(), desiredPosition = new T.Vector3()
+const compact = matchMedia('(max-width: 800px)')
+function placeSpecimenPanels() {
+  const layout = compact.matches ? 'mobile' : 'desktop'
+  byId(layout + '-points').append(modelPoints)
+  byId(layout + '-identity').append(byId('model-identity'))
+}
+compact.addEventListener('change',placeSpecimenPanels)
+placeSpecimenPanels()
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches
+history.scrollRestoration = 'manual'
 
 function status(text = '', retry = false) {
   stateMessage.textContent = text
@@ -54,6 +83,8 @@ function showSection(section) {
 function displaySpecies(id, show = true) {
   home.hidden = true
   viewer.hidden = false
+  stationButton.setAttribute('aria-current','page')
+  galleryButton.removeAttribute('aria-current')
   const sample = specimenFor(id)
   if (selected?.id !== id || !active) select(sample, id)
   if (show) showSection(sample ? viewer : byId('field-record'))
@@ -72,36 +103,64 @@ function openSpecies(id, card, atModel) {
 
 function displayGallery(restore = true) {
   selectionToken++
-  if (active) active.mixer.stopAllAction()
+  if (active) {
+    active.mixer.stopAllAction()
+    active.environment.scene.add(active.root)
+  }
   active = null
   scene = null
   selected = null
   viewer.hidden = true
   home.hidden = false
+  stationButton.removeAttribute('aria-current')
+  galleryButton.setAttribute('aria-current','page')
   if (!restore) return
-  if (lastCard?.isConnected) {
-    lastCard.focus({preventScroll:true})
-    lastCard.scrollIntoView({block:'center'})
-  } else showSection(gallery)
+  requestAnimationFrame(() => {
+    if (home.hidden) return
+    if (lastCard?.isConnected) {
+      lastCard.focus({preventScroll:true})
+      lastCard.scrollIntoView({block:'center'})
+    } else showSection(gallery)
+  })
 }
 
 function returnToGallery() {
+  if (!home.hidden) {
+    showSection(gallery)
+    return
+  }
   if (history.state?.fromGallery) {
     history.back()
     return
   }
   const url = new URL(location.href)
   url.searchParams.delete('species')
-  url.hash = ''
-  history.replaceState(null, '', url)
+  url.hash = 'gallery'
+  history.pushState(null, '', url)
   displayGallery()
 }
 
-byId('catalog-open').addEventListener('click', returnToGallery)
+function openStation() {
+  const url = new URL(location.href)
+  url.searchParams.delete('species')
+  url.hash = ''
+  if (viewer.hidden) history.pushState(null, '', url)
+  else history.replaceState(null, '', url)
+  displaySpecies(snowOwl, false)
+  window.scrollTo(0,0)
+  stationButton.focus({preventScroll:true})
+}
+
+galleryButton.addEventListener('click', returnToGallery)
+stationButton.addEventListener('click', openStation)
 byId('field-browse').addEventListener('click', returnToGallery)
-document.querySelector('.explore-link').addEventListener('click', event => {
-  event.preventDefault()
-  showSection(gallery)
+featured.addEventListener('click', event => {
+  const button = event.target.closest('[data-featured]')
+  if (button) openSpecies(button.dataset.featured, null, true)
+})
+byId('habitat-grid').addEventListener('click', event => {
+  const button = event.target.closest('[data-id]')
+  if (button) openSpecies(button.dataset.id, button, true)
 })
 for (const link of viewer.querySelectorAll('a[href="#field-record"], a[href="#model-spread"]')) {
   link.addEventListener('click', event => {
@@ -111,8 +170,8 @@ for (const link of viewer.querySelectorAll('a[href="#field-record"], a[href="#mo
 }
 window.addEventListener('popstate', () => {
   const id = new URLSearchParams(location.search).get('species')
-  if (specimenFor(id)) displaySpecies(id)
-  else displayGallery()
+  if (location.hash === '#gallery' && !specimenFor(id)) displayGallery()
+  else displaySpecies(specimenFor(id)?.id || snowOwl)
 })
 
 function showPageLinks(sample) {
@@ -133,12 +192,61 @@ byId('model-pages').addEventListener('click',event=>{
   if (!button) return
   openSpecies(button.dataset.id, null, true)
 })
+function showIllustration(sample) {
+  const sourceUrl = illustrationSource(sample.id)
+  illustration.hidden = !sourceUrl || inspecting
+  if (illustration.hidden) return
+  originalIllustration.href = sourceUrl
+  const image = new Image()
+  image.alt = sample.name + '的花叔插画'
+  image.loading = 'lazy'
+  image.decoding = 'async'
+  image.addEventListener('error', () => {
+    if (image.parentElement === illustrationFrame) {
+      const message = document.createElement('p')
+      message.textContent = '本地插画未能打开，可查看原图。'
+      image.replaceWith(message)
+    }
+  }, {once:true})
+  illustrationFrame.replaceChildren(image)
+  image.src = './花叔插画/' + sample.id + '.webp'
+}
+
 function showRecord(sample) {
   showPageLinks(sample)
+  showIllustration(sample)
+  for (const button of featured.children) {
+    button.setAttribute('aria-pressed', String(button.dataset.featured === sample.id))
+  }
+  const points = observationPoints(sample.id)
+  modelPoints.hidden = !points.length
+  pointButtons.replaceChildren(...points.map(point => {
+    const button = document.createElement('button')
+    button.type = 'button'
+    button.dataset.point = point.id
+    button.textContent = point.label
+    button.disabled = true
+    button.setAttribute('aria-pressed','false')
+    return button
+  }))
+  showPoint(null)
   byId('name').textContent = sample.name
   byId('family').textContent = sample.family + ' · ' + sample.familyLatin
   byId('latin').textContent = sample.id.replace('_', ' ')
   byId('form').textContent = sample.form
+  const calibration = sample.calibration
+  byId('identification-cue').textContent = calibration.cue
+  byId('form-variation').textContent = calibration.variation
+  byId('form-variation').hidden = !calibration.variation
+  byId('alignment-evidence').textContent = calibration.cautions
+  byId('alignment-contact').href = './校准证据/' + sample.id + '.jpg'
+  const reference = byId('alignment-reference')
+  reference.hidden = !calibration.photo.url
+  if (calibration.photo.url) {
+    reference.href = calibration.photo.url
+    reference.textContent = calibration.photo.label
+  }
+  byId('model-notes').open = false
   byId('marks').replaceChildren(...sample.marks.map(([term, description]) => {
     const row = document.createElement('div')
     row.className = 'mark'
@@ -225,7 +333,7 @@ async function modelFor(sample) {
     }
     mixer.stopAllAction()
     glb.scene.updateMatrixWorld(true)
-    const environment = habitat(sample.id,renderer)
+    const environment = habitat(sample.id,renderer,!inspecting && isFeatured(sample.id))
     environment.scene.add(glb.scene)
     const head = glb.scene.getObjectByName('Head') || glb.scene
     const eyes = ['Iris_L','Iris_R'].map(name => glb.scene.getObjectByName(name) || head)
@@ -242,7 +350,12 @@ async function modelFor(sample) {
       queueMicrotask(() => {
         if (entry !== active || event.action !== active.actions[currentMotion]) return
         startMotion('Perch')
-        if (wasSpread && spreadReturn) moveCamera(spreadReturn, .55)
+        if (wasSpread && spreadReturn) {
+          view = spreadReturn.mode
+          showPoint(spreadReturn.point)
+          moveCamera(spreadReturn, .55)
+          updateLabels()
+        }
         spreadReturn = null
       })
     })
@@ -250,8 +363,37 @@ async function modelFor(sample) {
     return entry
 }
 
+function showPoint(point) {
+  selectedPoint = point
+  for (const button of pointButtons.children) {
+    button.setAttribute('aria-pressed', String(button.dataset.point === point?.id))
+  }
+  pointNote.textContent = point?.note || '选择一个部位查看细节。'
+  focusMarker.hidden = true
+}
+
+function focusPoint(point) {
+  if (!active || !point) return
+  intro = false
+  spreadReturn = null
+  startMotion('Perch')
+  view = 'point'
+  showPoint(point)
+  moveCamera(pointPose(point,camera))
+  updateLabels()
+  if (compact.matches && viewport.getBoundingClientRect().top < document.querySelector('.masthead').offsetHeight) {
+    viewport.scrollIntoView({block:'start'})
+  }
+}
+
+pointButtons.addEventListener('click', event => {
+  const button = event.target.closest('[data-point]')
+  if (button && active) focusPoint(observationPoints(active.sample.id).find(point => point.id === button.dataset.point))
+})
+
 function manualView() {
   intro = false; transition = null; spreadReturn = null
+  showPoint(null)
   view = 'manual'
   updateLabels()
 }
@@ -274,6 +416,13 @@ function initializeScene() {
     optics = makeOptics(true)
     optics.target.samples = Math.min(2, renderer.capabilities.maxSamples)
   }
+  neutralScene = new T.Scene()
+  neutralScene.background = new T.Color(0x364153)
+  const key = new T.DirectionalLight(0xffffff,2.10)
+  const rim = new T.DirectionalLight(0xffffff,1.03)
+  key.position.set(2,5,4)
+  rim.position.set(-2,2,-4)
+  neutralScene.add(new T.HemisphereLight(0xffffff,0xe5e5e5,1.52),key,rim)
   camera = new T.PerspectiveCamera(33, 1, .045, 76)
   controls = new OrbitControls(camera, canvas)
   controls.enablePan = false
@@ -303,12 +452,15 @@ function nearestEye() {
   return eye
 }
 
+const viewAngles = {front:[0,3],side:[90,3],back:[180,3]}
+
 function shot(viewName, fraction=0) {
   const { shot } = active.sample
   const box = active.resting, size = box.getSize(new T.Vector3()), target = box.getCenter(new T.Vector3())
   const portrait = viewName === 'portrait'
-  const yaw = T.MathUtils.degToRad(portrait ? shot.portrait : T.MathUtils.lerp(shot.start, shot.settle, fraction))
-  const pitch = portrait ? .07 : T.MathUtils.lerp(shot.elevation, shot.elevation+.015, fraction)
+  const preset = viewName==='matched' ? active.sample.calibration.angles : viewAngles[viewName]
+  const yaw = T.MathUtils.degToRad(preset?.[0] ?? (portrait ? shot.portrait : T.MathUtils.lerp(shot.start, shot.settle, fraction)))
+  const pitch = preset ? T.MathUtils.degToRad(preset[1]) : portrait ? .07 : T.MathUtils.lerp(shot.elevation, shot.elevation+.015, fraction)
   axis.set(Math.sin(yaw)*Math.cos(pitch),Math.sin(pitch),Math.cos(yaw)*Math.cos(pitch))
   let distance = fitDistance(currentMotion === 'Spread' ? active.spread : box)
   if (portrait) {
@@ -318,7 +470,7 @@ function shot(viewName, fraction=0) {
   } else {
     distance *= T.MathUtils.lerp(1.12,1.02,fraction)
     target.y += size.y*T.MathUtils.lerp(.015,.025,fraction)
-    const side = size.y*shot.offset*Math.min(camera.aspect,1.5)
+    const side = preset ? 0 : size.y*shot.offset*Math.min(camera.aspect,1.5)
     target.x += Math.cos(yaw)*side
     target.z -= Math.sin(yaw)*side
   }
@@ -336,9 +488,20 @@ function moveCamera(to, seconds=.65) {
   transition = {from:camera.position.clone(), target:controls.target.clone(), to, time:0, seconds}
 }
 
+function lighting(value) {
+  neutral=value
+  scene=neutral?neutralScene:active.environment.scene
+  scene.add(active.root)
+  renderer.toneMappingExposure=neutral?1:active.sample.shot.exposure
+  neutralButton.setAttribute('aria-pressed',String(neutral))
+  byId('paired-views').classList.toggle('neutral-light',neutral)
+}
+
 function setView(mode, immediate=false) {
   if (!active) return
   intro=false; spreadReturn=null; view=mode
+  showPoint(null)
+  if(mode==='matched')lighting(true)
   moveCamera(shot(mode,1),immediate ? 0 : .65)
   updateLabels()
 }
@@ -358,7 +521,10 @@ function resize() {
     optics.resize(size.x,size.y)
   }
   camera.aspect=w/h; camera.updateProjectionMatrix()
-  if (active && view!=='manual' && !intro) setView(view,true)
+  if (!active || intro) return
+  if (currentMotion === 'Spread' && spreadReturn) moveCamera(spreadPose(),0)
+  else if (selectedPoint) moveCamera(pointPose(selectedPoint,camera),0)
+  else if (view !== 'manual') moveCamera(shot(view,1),0)
 }
 
 function updateLabels() {
@@ -366,9 +532,11 @@ function updateLabels() {
   pauseButton.querySelector('use').setAttribute('href', paused ? '#i-play' : '#i-pause')
   pauseButton.setAttribute('aria-label', paused ? '继续播放动画' : '暂停当前动画')
   spreadButton.setAttribute('aria-pressed', String(currentMotion === 'Spread'))
+  spreadButton.querySelector('span').textContent = currentMotion === 'Spread' ? '正在展翅' : '展翅'
   observeButton.setAttribute('aria-pressed', String(currentMotion === 'Observe'))
   byId('whole').setAttribute('aria-pressed',String(view==='whole'))
   byId('portrait').setAttribute('aria-pressed',String(view==='portrait'))
+  for (const button of presetButtons) button.setAttribute('aria-pressed',String(view===button.dataset.view))
   viewport.dataset.motion=currentMotion
   viewport.dataset.view=view
 }
@@ -386,6 +554,7 @@ function observation() {
   if (!active) return
   paused = false
   transition = null; spreadReturn = null; view = 'whole'
+  showPoint(null)
   const name = active.actions.Observe ? 'Observe' : 'Perch'
   startMotion(name)
   intro = name === 'Observe' && !reducedMotion
@@ -408,11 +577,14 @@ let folderConnected = false
 async function select(sample, id = sample.id) {
   const version=++selectionToken
   selected=sample
-  if (active) active.mixer.stopAllAction()
+  if (active) {
+    active.mixer.stopAllAction()
+    active.environment.scene.add(active.root)
+  }
   active=null; scene=null; transition=null; intro=false; spreadReturn=null
   delete viewport.dataset.ready
   byId('model-spread').hidden = !sample
-  byId('file-actions').hidden=!source.isFile || folderConnected
+  byId('file-actions').hidden=!source.isFile || folderConnected || isFeatured(id)
   byId('view').style.visibility=''
   byId('model-pages').hidden = !sample
   showFacts(id)
@@ -423,7 +595,7 @@ async function select(sample, id = sample.id) {
   canvas.style.visibility='hidden'
   const poster=byId('model-cover')
   if(!inspecting && poster.complete && poster.naturalWidth && poster.getAttribute('src')) poster.hidden=false
-  for (const button of [pauseButton,spreadButton,observeButton,byId('whole'),byId('portrait'),byId('reset')]) button.disabled=true
+  for (const button of modelControls) button.disabled=true
   byId('download').disabled=false
   if(source.pendingLocal(id)) {localPrompt(); return}
   try {
@@ -436,18 +608,20 @@ async function select(sample, id = sample.id) {
     return
   }
   resize()
-  status('正在打开模型…')
+  status('正在加载'+sample.name+'…')
   try {
     const task=parsing.then(()=>version===selectionToken ? modelFor(sample) : null)
     parsing=task.catch(()=>{})
     const model=await task
     if (version!==selectionToken || !model) return
     active=model; scene=model.environment.scene
-    renderer.toneMappingExposure=sample.shot.exposure
+    lighting(false)
     const h=model.resting.getSize(new T.Vector3()).y
     controls.minDistance=h*.33;controls.maxDistance=h*5.8
-    for(const button of [pauseButton,spreadButton,observeButton,byId('whole'),byId('portrait'),byId('reset')]) button.disabled=false
-    if (reducedMotion) {paused=true;startMotion('Perch');setView('whole',true)} else observation()
+    for (const button of [...modelControls, ...pointButtons.children]) button.disabled=false
+    paused = reducedMotion
+    startMotion('Perch')
+    setView(new URLSearchParams(location.search).has('species')&&!inspecting?'matched':'whole',true)
     canvas.style.visibility=''
     byId('model-cover').hidden=true
     status()
@@ -503,15 +677,27 @@ function frame(now) {
   } else {
     controls.update()
   }
+  renderModel()
+  if (selectedPoint && !transition) {
+    const position = new T.Vector3(...selectedPoint.center).project(camera)
+    focusMarker.style.left = (position.x+1)*50+'%'
+    focusMarker.style.top = (1-position.y)*50+'%'
+    focusMarker.hidden = false
+  } else focusMarker.hidden = true
+}
+
+function renderModel() {
   camera.updateMatrixWorld()
-  if (active.environment.plantPlane) {
+  if (!neutral && active.environment.plantPlane) {
     camera.getWorldDirection(axis)
     active.environment.plantPlane.setFromNormalAndCoplanarPoint(axis,desiredTarget.copy(controls.target).addScaledVector(axis,.35))
   }
   if (active.environment.glints) active.environment.glints.value=canvas.height*.8
-  if (optics) {
-    const distance=-nearestEye().applyMatrix4(camera.matrixWorldInverse).z
-    optics.render(renderer,scene,camera,Math.max(.1,distance),view==='portrait'?.98:.63,sceneTime)
+  if (optics && !neutral) {
+    const focalPoint = selectedPoint ? new T.Vector3(...selectedPoint.center) : nearestEye()
+    const distance = -focalPoint.applyMatrix4(camera.matrixWorldInverse).z
+    const aperture = selectedPoint ? .22 : view === 'portrait' ? .98 : .63
+    optics.render(renderer,scene,camera,Math.max(.1,distance),aperture,sceneTime)
   } else renderer.render(scene,camera)
 }
 
@@ -543,28 +729,48 @@ pauseButton.addEventListener('click', () => {
 observeButton.addEventListener('click',observation)
 byId('whole').addEventListener('click',()=>setView('whole'))
 byId('portrait').addEventListener('click',()=>setView('portrait'))
+for (const button of presetButtons) button.addEventListener('click',()=>setView(button.dataset.view))
+neutralButton.addEventListener('click',()=>{if(active)lighting(!neutral)})
+function spreadPose() {
+  const target = active.spread.getCenter(new T.Vector3())
+  const direction = (spreadReturn?.position || camera.position).clone().sub(spreadReturn?.target || controls.target).normalize()
+  const distance = fitDistance(active.spread)
+  return {target,position:target.clone().addScaledVector(direction,distance)}
+}
+
 spreadButton.addEventListener('click', () => {
-  if (!active) return
+  if (!active || currentMotion === 'Spread') return
+  spreadReturn = {
+    position:(transition?.to.position || camera.position).clone(),
+    target:(transition?.to.target || controls.target).clone(),
+    mode:view, point:selectedPoint,
+  }
   intro=false; transition=null; paused=false
-  if (currentMotion!=='Spread') spreadReturn={position:camera.position.clone(),target:controls.target.clone()}
+  showPoint(null)
+  view = 'spread'
   startMotion('Spread')
-  const center=active.resting.getCenter(new T.Vector3())
-  const direction=camera.position.clone().sub(controls.target).normalize()
-  moveCamera({target:center, position:center.clone().addScaledVector(direction,fitDistance(active.spread))},.33)
+  moveCamera(spreadPose(),.33)
 })
+
+saveCardButton.addEventListener('click', async () => {
+  if (!active) return
+  const sample = active.sample
+  try {
+    renderModel()
+    await saveObservationCard(canvas,sample)
+  } catch (error) {
+    if (selected === sample) status('无法保存观察卡，请重试。')
+    console.error(error)
+  }
+})
+
 byId('download').addEventListener('click', async () => {
   const sample = selected
+  if (!sample) return
   try {
-    const url = URL.createObjectURL(new Blob([await source.read(sample.id)], { type: 'model/gltf-binary' }))
-    const link = document.createElement('a')
-    link.href = url
-    link.download = sample.id + '.glb'
-    document.body.append(link)
-    link.click()
-    link.remove()
-    setTimeout(() => URL.revokeObjectURL(url), 10000)
+    downloadBlob(new Blob([await source.read(sample.id)], {type:'model/gltf-binary'}),sample.id+'.glb')
   } catch (error) {
-    status('无法读取模型文件。请重新打开离线预览页。')
+    if (selected === sample) status('无法读取模型文件。请重新打开离线预览页。')
     console.error(error)
   }
 })
@@ -591,4 +797,7 @@ if (inspecting) {
     },
   }
 }
-if (!inspecting && entrySpecies) displaySpecies(entrySpecies.id)
+if (!inspecting) {
+  if (location.hash === '#gallery' && !entrySpecies) displayGallery(false)
+  else displaySpecies(entrySpecies?.id || snowOwl,false)
+}

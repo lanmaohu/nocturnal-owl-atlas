@@ -272,10 +272,11 @@ function facePigment(point,r,p,tone){
   }
   if(f.has('rings')){
     const dial=Math.hypot(dx/.36,dy/.39)
-    const ripples=smooth(.30,.90,.5+.5*Math.cos(dial*34+grain*3.9+1.9*Math.sin(Math.atan2(dy,dx)*5.1)))
-    tone.lerp(ink,ripples*(.52+.25*grain)*(1-edge)).lerp(peat,.14*smooth(.24,.66,grain))
+    const ripples=smooth(.30,.90,.5+.5*Math.cos(dial*34+grain*(p.diskRings ? 1.7 : 3.9)+.7*Math.sin(Math.atan2(dy,dx)*5.1)))
+    tone.lerp(ink,clamp(ripples*(.52+.25*grain)*(p.diskRings||1))*(1-edge*.70)).lerp(peat,.14*smooth(.24,.66,grain))
     tone.lerp(cream,(1-ripples)*.25)
   }
+  if(f.has('dark-disc'))tone.lerp(color(p.colors[2]),.74).lerp(ink,edge*.61)
   if(f.has('deep-orbits'))tone.lerp(peat,(1-smooth(.79,1.29,ellipse))*.76)
   if(f.has('facial-rim')){
     const sideMask=smooth(.264,.417,x)*(1-smooth(.455,.558,x))*smooth(-.371,-.244,y)
@@ -289,12 +290,12 @@ function facePigment(point,r,p,tone){
     const sideburn= f.has('spectacles') ? gauss((x-(.083+.33*Math.max(0,-y)))/.043)*
       smooth(-.25,-.15,y)*(1-smooth(.039,.14,y)) : 0
     const sweep=f.has('spectacles')?gauss((ellipse-1.07)/.19)*smooth(.035,-.07,dy)*smooth(.28,.14,x)*.72:0
-    tone.lerp(bone,Math.max(brow,.97*sideburn,sweep)*(.90+.08*grain))
+    tone.lerp(bone,clamp(Math.max(brow,.97*sideburn,sweep)*(.90+.08*grain)*(p.faceContrast||1)))
   }
   if(f.has('bow-tie')){
-    const band=gauss((y-(-.20-.36*x))/ .059)*smooth(.017,.11,x)*(1-smooth(.24,.34,x))
-    const knot=gauss(x/.085)*gauss((y+.201)/.096)
-    tone.lerp(peat,knot*.93).lerp(bone,band*.98)
+    const band=gauss((y-(-.186-.43*x))/.079)*smooth(.015,.080,x)*(1-smooth(.27,.38,x))
+    const knot=gauss(x/.092)*gauss((y+.204)/.117)
+    tone.lerp(carbon,knot*.99).lerp(bone,clamp(band*(p.faceContrast||1)))
   }
   if(whiteDiscs.has(p.id)){
     const cheek=gauss((x-(.40+.13*y))/.067)*smooth(-.36,-.23,y)
@@ -335,7 +336,7 @@ function facePigment(point,r,p,tone){
     tone.lerp(bone,brow*(.86+.12*grain))
   }
   if(crownTracts[p.id])tone.lerp(color(crownTracts[p.id]),.38*(1-edge))
-  if(f.has('white-throat'))tone.lerp(cream,gauss((y+.32)/.079)*gauss(x/.22)*.85)
+  if(f.has('white-throat'))tone.lerp(cream,gauss((y+.32)/.079)*gauss(x/.22)*(f.has('bow-tie')?.24:.85))
   return tone
 }
 
@@ -415,6 +416,18 @@ function coatPigment(tone,p,head,theta,phi,point,breast,mottle){
     const rr=smooth(.18,.72,.5+.5*Math.cos(theta*48+Math.sin(phi*6)*.91+mottle*1.3))
     tone.lerp(cream,.86*breast).lerp(earth,.95*rr*breast)
   }
+  if(f.has('separate-shafts')){
+    const vertical=smooth(.55,.89,.5+.5*Math.cos(phi*19+coarse*1.6+theta*2.8))
+    tone.lerp(belly,breast*.90).lerp(ink,vertical*breast*.83)
+  }
+  if(f.has('distinct-bars')){
+    const bars=smooth(.19,.77,.5+.5*Math.cos(theta*38+.94*Math.sin(phi*7)+coarse*.73))
+    tone.lerp(belly,breast*.96).lerp(ink,bars*breast*.88)
+  }
+  if(f.has('punctate-breast')){
+    const dot=shaft*smooth(.49,.78,.5+.5*Math.cos(theta*41+4.1*coarse))
+    tone.lerp(belly,breast*.89).lerp(ink,dot*breast*.93)
+  }
   if(f.has('plain-belly'))tone.lerp(belly,breast*.99)
   individualBreast(tone,p,breast,theta,phi,h,side,coarse)
   if(f.has('dark-collar')){
@@ -425,6 +438,10 @@ function coatPigment(tone,p,head,theta,phi,point,breast,mottle){
   if(p.id==='Megascops_albogularis'||eagleTracts.has(p.id)&&f.has('white-throat')||p.id.startsWith('Pulsatrix')&&darkHoods.has(p.id)){
     const visibleBib=Math.exp(-(((h-.38)/.125)**2))*Math.exp(-((side/.67)**4))*smooth(.50,.85,front)
     tone.lerp(cream,visibleBib*.96)
+  }
+  if(f.has('distinct-throat')){
+    const bib=Math.exp(-(((h-.56)/.205)**2))*Math.exp(-((side/.55)**4))
+    tone.lerp(bone,bib*smooth(.42,.87,front))
   }
   if(f.has('white-throat')||f.has('bow-tie')){
     const bib=Math.exp(-(((h-.70)/.17)**2))*Math.exp(-((side/.60)**4))
@@ -505,13 +522,13 @@ function contour(owner,p,head,rng,factors,shader,pieces,lightBase){
         const gaps=smooth(.10,.49,featherField(phi*(head?9:6),theta*8))
         const barring=band*gaps*(1-bib)*(.83+.12*(1-breast))
         rootColor.lerp(color('#b9c2bf'),.12*(1-breast)*mottling)
-        rootColor.lerp(snowInk,barring)
+        rootColor.lerp(snowInk,barring*(p.paleSnow?.035:1))
       }
       if(p.id==='Tyto_alba'){
         const pepper=(.5+.5*Math.sin(theta*17+phi*3.2))*(.5+.5*Math.cos(phi*11.2-theta*4))
         rootColor.lerp(silverBuff,pepper*(1.-breast)*.79)
         const scapular=(1-breast)*smooth(-.65,.38,top)
-        rootColor.lerp(color('#635d56'),scapular*smooth(.46,.85,mottling)*.76)
+        rootColor.lerp(color('#635d56'),scapular*smooth(.46,.85,mottling)*.76*(p.mantleContrast||1))
         rootColor.lerp(color('#f7e4c5'),scapular*smooth(.73,.93,featherField(phi*9,theta*11))*.75)
       }
       if(p.id==='Bubo_bubo'){
@@ -535,7 +552,7 @@ function contour(owner,p,head,rng,factors,shader,pieces,lightBase){
           const fleck=smooth(.38,.76,mottled)*(1-.30*breast)
           rootColor.lerp(color('#eddbc0'),.06+.88*fleck)
           const bold=smooth(.36,.67,pigment*.84 + streak*.49 + .18*mottled)
-          rootColor.lerp(color('#302624'),.97*bold)
+          rootColor.lerp(color('#302624'),.97*bold*(p.breastContrast||1))
           const oak=smooth(.50,.87,featherField(point.x*12+point.z*4,point.y*7))
           rootColor.lerp(color('#d0914e'),oak*(1-bold)*(1-fleck)*.44)
         }
@@ -550,6 +567,8 @@ function contour(owner,p,head,rng,factors,shader,pieces,lightBase){
       if(!head && p.features?.has('plain-belly')&&breast>.52)mode=0
       if(p.id==='Strix_varia'&&top>.45&&breast>.49)mode=1
       if(p.id==='Bubo_scandiacus'&&head)mode=1
+      if(p.paleSnow)mode=0
+      if(!head&&p.features?.has('punctate-breast')&&breast>.34)mode=0
       const strength=(pale?(p.disk==='heart'?.40:.76):.77)*(.67+.32*rng())*(.46+.54*factors)
       const ringSpacing=point.distanceTo(fit(theta,phi+TAU/n,p))
       const length=point.distanceTo(fit(theta+Math.PI/rows,phi,p))*(head?2.15:2.46)
@@ -995,6 +1014,7 @@ function tufts(owner,p,rng,shader,pieces){
           .21-.25*t-.033*layer)
         const to=v(side*(.42+.36*t+.071*crest+.021*fringe)*p.head,(.359+.35*crest+.085*fringe+.095*t)*p.tall,
           -.018-.333*t-.037*layer+.047*Math.sin(k))
+        if(p.crestSweep){to.z-=.15*t;to.y-=.092*(.48+t)}
         const inner=layer>1 && k%4!==0
         const edge=k%6===2&&layer<2
         const ground=inner?blend(ink,back,.045+.14*rng()):
@@ -1010,7 +1030,17 @@ function tufts(owner,p,rng,shader,pieces){
         const spread=(t-.5)
         const base=v(side*(.395+.133*m+.099*spread)*p.head,(.323+.103*m)*p.tall,.025-.17*m+spread*.20)
         const tip=v(side*(.554+.102*p.ears+spread*.08)*p.head,(.38+.53*p.ears-.126*t+.075*rng())*p.tall,-.14-.066*t)
-        const flat=lateralTufts[p.id]
+        if(p.crestRear){
+          tip.z-=p.crestRear*(.11+.13*m)
+          tip.x-=side*.04
+        }
+        if(p.id==='Ketupa_blakistoni'){
+          base.y-=.052*(1-m)
+          base.z-=.060*m
+          tip.x-=side*(.065+.070*t)
+          tip.y-=.025*t
+        }
+        const flat=p.crestSweep||lateralTufts[p.id]
         if(flat){
           const fan=p.id==='Jubula_lettii'?.15*Math.sin(j*2.399+row*1.06):.029*Math.sin(j*1.7+.19*row)
           tip.x+=side*(flat*(.22+.13*m)+fan*.48)*p.head
@@ -1021,10 +1051,14 @@ function tufts(owner,p,rng,shader,pieces){
             tip.x-=side*(.04+.09*t)*p.head
           }
         }
+        const pale=paleTufts.has(p.id)
+        const crestColor=p.features?.has('bicolored-crest')
+          ? blend(ink,bone,(j+row)%7<2?.84:.09)
+          : blend(p.features?.has('dark-tufts')?ink:back,pale?bone:face,.12+rng()*.19+(pale?.75*(1-m*.50):0))
         fan.push({p:base,dir:nd(tip,base),n:v(side*.27,.04,.959).normalize(),
           length:tip.distanceTo(base),width:.029+rng()*.017,
-          arch:.087+(rng()-.5)*.08,base:blend(back,paleTufts.has(p.id)?bone:face,.12+rng()*.19+(paleTufts.has(p.id)?.75*(1-m*.50):0)),
-          ink,mode:2,strength:paleTufts.has(p.id)?.30:.84,phase:rng(),flight:.66})
+          arch:.087+(rng()-.5)*.08,base:crestColor,
+          ink,mode:2,strength:pale||p.features?.has('bicolored-crest')?.30:.84,phase:rng(),flight:.66})
       }
     }
     fan.forEach(f=>f.p.sub(pivot.position))
@@ -1065,15 +1099,15 @@ function foldedWings(body,p,rng,shader,pieces){
       panels.push({panel,closed,open,sweep,u})
 
       const length=(.66+.255*arch+(barn?.66:snowy?.44:.48)*u-.074*hand)*p.body*(p.wingLength||1)*(1+((p.wingTip||1)-1)*hand)
-      const width=(.102+.031*arch-.018*u)*p.width
+      const width=(.103+.035*arch-.012*u)*p.width*(1+.14*hand)
       const dir=v(-.10-.14*hand,-.89,-(barn?.62:snowy?.78:.66)-.15*(1-u)).normalize()
       const normal=v(.998,.025,.045).normalize()
       const right=v(0,-dir.z,dir.y).normalize()
       const shade=blend(back,belly,snowy?.40:.10+.055*Math.cos(j*1.9))
-      if(barn)shade.lerp(silverBuff,.22+.19*Math.sin(j*1.6))
+      if(barn)shade.lerp(silverBuff,.10+.09*Math.sin(j*1.6))
       const base=v(0,0,0)
       const remiges=[{p:base,dir,n:normal,length,width,arch:.053,flight:1,base:shade,ink,
-        mode:1,strength:snowy?.89:barn?.41:.70,freq:4.3+.36*u,phase:.09+.11*u}]
+        mode:1,strength:p.paleSnow?.13:snowy?.89:barn?.41:.70,freq:4.3+.36*u,phase:.09+.11*u}]
       makeLayer(panel,remiges,'flight',shader,pieces)
       pieces.at(-1).userData.ventralTint=blend(belly,back,barn?.035:snowy?.06:.22).toArray()
 
@@ -1091,7 +1125,11 @@ function foldedWings(body,p,rng,shader,pieces){
             const angle=(col-1)*.079+(rng()-.5)*.060
             const down=dir.clone().addScaledVector(right,angle).normalize()
             const tint=coverColor.clone().multiplyScalar(.92+.13*rng())
-            if(barn&&outer)tint.lerp(silverBuff,.51*(.5+.5*Math.cos(row*1.23+j*.71)))
+            if(barn&&outer){
+              const m=featherField(j*.66+col*.09,row*.64)
+              tint.lerp(silverBuff,.42*smooth(.30,.66,m))
+              if(p.mantleContrast)tint.lerp(color('#6a645a'),.79*smooth(.44,.71,m))
+            }
             if(p.id==='Bubo_bubo'&&outer){
               const m=featherField(j*.49,row*.82+col*.09)
               tint.lerp(ink,smooth(.41,.80,m)*.80).lerp(color('#ddc59b'),smooth(.14,.03,m)*.64)
@@ -1109,10 +1147,16 @@ function foldedWings(body,p,rng,shader,pieces){
               if(p.features.has('spectacles'))tint.lerp(carbon,.31)
               tint.multiplyScalar(plumageDensity(tint))
             }
-            const intensity=(outer?(snowy?.93:.68):(barn?.08:snowy?.52:.57))*(p.design==='plain'?.28:1)
+            const intensity=(outer?(p.paleSnow?.06:snowy?.93:.68):(barn?.08:p.paleSnow?.10:snowy?.52:.57))*(p.design==='plain'?.28:1)
             cover.push({p:anchor,dir:down,n:normal.clone().multiplyScalar(surface),length:length*(.23+.12*chord),
               width:width*(.48+.15*chord),arch:.059,flight:.48,base:tint,ink,
               mode:p.features?(modes[p.design]||0):barn?3:1,strength:intensity*(.83+.16*rng()),freq:1.43,phase:.11*row+.055*u})
+            if(p.paleSnow&&outer&&row>=3&&((j*11+row*23+col*3+side+41)%19===0)){
+              const feather=cover.at(-1)
+              cover.push({...feather,p:anchor.clone().addScaledVector(down,feather.length*.45)
+                .addScaledVector(normal,feather.length*.045+.009),base:ink,ink,mode:0,strength:0,
+                width:feather.width*.20,length:feather.length*.24})
+            }
             if(outer && p.features && (p.features.has('pale-spots')||p.features.has('white-scapulars')||p.features.has('mottled-mantle')) &&
                 (j+row*2+col*3)%5===0 && (!hand||row<4)){
               const base=cover.at(-1), dotScale=p.features.has('peppered-belly')?.56:1
@@ -1162,10 +1206,10 @@ function scapulars(body,p,rng,shader,pieces){
         const width=(barn?.026:snowy?.038:.035)*(.83+.37*rng())
         const fleck=featherField(u*9+t,t*7+u*.8)
         let tone=blend(back,belly,snowy?.62+.22*rng():.08+.17*rng())
-        if(barn&&!p.features)tone.lerp(silverBuff,.79*smooth(.28,.75,fleck))
+        if(barn&&!p.features)tone.lerp(silverBuff,.72*smooth(.28,.75,fleck)*(p.mantleContrast||1))
         if(snowy){
           const stripe=smooth(.30,.88,.5+.5*Math.cos(t*34+4*fleck+Math.sin(5*u)))
-          tone.lerp(snowInk,stripe*smooth(.19,.70,fleck)*.86)
+          tone.lerp(snowInk,stripe*smooth(.19,.70,fleck)*(p.paleSnow?.045:.86))
         }
         if(p.id==='Bubo_bubo')tone.lerp(ink,.91*smooth(.29,.69,fleck)).lerp(color('#ead6af'),.52*smooth(.67,.86,featherField(u*14,t*11)))
         if(p.features){
@@ -1184,7 +1228,7 @@ function scapulars(body,p,rng,shader,pieces){
         const anchor=root.clone().sub(pivot.position)
         cover.push({p:anchor,dir:direction,n:normal,base:tone,ink,
           length,width,arch:.11+.073*rng(),mode:barn?0:snowy?1:2,
-          strength:snowy?.47:.76,freq:2.1,phase:u+row*.1,flight:.36})
+          strength:p.paleSnow?.08:snowy?.47:.76,freq:2.1,phase:u+row*.1,flight:.36})
         if(p.features && (p.features.has('pale-spots')||p.features.has('white-scapulars')) && (row*3+j*7)%19<2){
           const tip=anchor.clone().addScaledVector(direction,length*.68).addScaledVector(normal,length*.116)
           const factor=p.features.has('peppered-belly')?.48:1
@@ -1219,7 +1263,7 @@ function makeTail(body,p,rng,shader,pieces){
     const length=(p.features?.has('long-tail')?.72+p.tail*.80:.47+p.tail*.52)*(1.-(snowy?.055:.14)*Math.abs(s))
     samples.push({p:v(s*.169,.022-.031*Math.abs(s),-.011-j*.0015),dir:v(s*(p.features?.has('long-tail')?.13:.251),p.id==='Bubo_scandiacus'?-.59:-.76,-.80).normalize(),
       n:v(.1*Math.sign(s),-.48,.83).normalize(),length,width:.068-.010*Math.abs(s),
-      arch:.048,flight:.82,base:blend(back,belly,.24+rng()*.11),ink,mode:1,strength:snowy?.95:.78,freq:snowy?3.3:4.5+p.tail,phase:snowy?.22+.03*Math.floor(Math.abs(j-5.5)/2):.34+j*.035})
+      arch:.048,flight:.82,base:blend(back,belly,.24+rng()*.11),ink,mode:1,strength:p.paleSnow?.10:snowy?.95:.78,freq:snowy?3.3:4.5+p.tail,phase:snowy?.22+.03*Math.floor(Math.abs(j-5.5)/2):.34+j*.035})
   }
   makeLayer(group,samples,'flight',shader,pieces)
   return group
@@ -1228,6 +1272,7 @@ function makeTail(body,p,rng,shader,pieces){
 function feet(root,p,rng,shader,pieces){
   const snowy=p.id==='Bubo_scandiacus'
   const booted=snowy||p.id==='Bubo_bubo'||p.features?.has('feathered-toes')
+  const tarsalCover=booted||p.features?.has('feathered-tarsus')
   const bare=p.features?.has('bare-toes'),ground=p.stance==='ground'
   const fish=p.features?.has('fish-talons')||p.genus==='Scotopelia'
   const leather=std(snowy?'#d8d4c9':fish?'#ba9455':ground?'#8a8373':p.disk==='heart'?'#937668':'#776152')
@@ -1240,8 +1285,8 @@ function feet(root,p,rng,shader,pieces){
     const r=perchRadius(x)
     const heel=ground?v(x,.124,0):perch.clone().add(v(0,r+.062,-.014))
     const ankle=heel.clone().add(v(side*.015,.182+p.legs*.75,-.075))
-    const upper=ankle.clone().add(v(-side*.046,booted?.14:.22,-.064))
-    taperedCurve([heel,heel.clone().lerp(ankle,.55),ankle,upper],ground?[.027,.029,.042,.070]:fish?[.055,.060,.068,.085]:[.046,.045,.059,.081],leather,root,15,12)
+    const upper=ankle.clone().add(v(-side*.046,tarsalCover?.14:.22,-.064))
+    taperedCurve([heel,heel.clone().lerp(ankle,.55),ankle,upper],(ground?[.027,.029,.042,.070]:fish?[.055,.060,.068,.085]:[.046,.045,.059,.081]).map(radius=>radius*(p.slenderLegs||1)),leather,root,15,12)
     for(let j=0;j<4;j++){
       const back=j>1,sideAngle=back?-1:1,lane=j%2
       const path=[heel.clone().add(v((lane-.50)*.060,-.016,sideAngle*.020))]
@@ -1288,14 +1333,14 @@ function feet(root,p,rng,shader,pieces){
       taperedCurve([tip.clone().lerp(path.at(-2),.24),tip,...hook],fish?[.023,.020,.014,.0005]:[.016,.014,.010,.0005],dark,root,9,8)
     }
     const [back,belly,,ink]=p.colors.map(color)
-    const legStart=booted?heel:heel.clone().lerp(ankle,ground?.52:bare?.76:.36)
-    const legRows=booted?18:13
+    const legStart=booted?heel:heel.clone().lerp(ankle,tarsalCover?.09:ground?.52:bare?.76:.36)
+    const legRows=tarsalCover?18:13
     for(let row=0;row<legRows;row++){
       const t=row/(legRows-1)
       for(let i=0;i<15;i++){
         const phi=i/15*TAU+(row%2)*.13
         const outward=v(Math.sin(phi),.0,Math.cos(phi))
-        const radius=(snowy?.092:booted?.071:.051)+(snowy?.158:.107)*t*t
+        const radius=((snowy?.092:tarsalCover?.071:.051)+(snowy?.158:.107)*t*t)*(p.slenderLegs||1)
         const foot=legStart.clone().lerp(upper,t).addScaledVector(outward,radius)
         const terminal=(1.-p.legs*.87)
         sleeves.push({p:foot,dir:v(0,-1,.04),n:outward,base:blend(belly,back,(snowy?.10:.61)*t+rng()*.10),ink,
@@ -1315,6 +1360,7 @@ export function createOwl(item,shader) {
   const lift=p.legs*.54
   const pale=color('#f3e9d6')
   body.position.y=.84*p.body+(p.id==='Bubo_scandiacus'?.022:p.id==='Bubo_bubo'?.13:.205)+lift
+  body.rotation.x=p.restPitch||0
   root.add(body)
   downLayer(body,p,false)
   contour(body,p,false,rng,1.,shader,pieces,pale)
@@ -1322,6 +1368,7 @@ export function createOwl(item,shader) {
   const tail=makeTail(body,p,rng,shader,pieces)
   const wings=foldedWings(body,p,rng,shader,pieces)
   const barn=p.disk==='heart',snowy=p.id==='Bubo_scandiacus'
+  head.rotation.x=-(p.restPitch||0)*.61
   head.position.set(0,(barn?.815:snowy?.72:.75)*p.body,barn?.247:snowy?.323:.341)
   body.add(head)
   downLayer(head,p,true)

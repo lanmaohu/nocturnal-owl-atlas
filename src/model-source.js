@@ -38,7 +38,9 @@ export function createModelSource(buildInfo) {
       }
     } else {
       if (isFile) throw Error('请选择交付的模型文件。')
-      const response = await fetch('./models/' + encodeURIComponent(id) + '.glb')
+      const revision=buildInfo(id)?.sha256.slice(0,12)
+      const url='./models/'+encodeURIComponent(id)+'.glb'
+      const response = await fetch(revision ? url+'?rev='+revision : url)
       if (!response.ok) throw Error('未能读取模型，请检查 models 文件夹。')
       buffer = await response.arrayBuffer()
     }

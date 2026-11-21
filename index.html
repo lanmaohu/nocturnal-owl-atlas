@@ -72,9 +72,6 @@ button[disabled] {cursor:default;opacity:.52}
 .model-cover {position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#0c1525;pointer-events:none;z-index:1}
 .model-cover:not([hidden])~.view-tools {display:none}
 .view-tools {position:absolute;right:14px;top:14px;display:flex;align-items:center;gap:8px;z-index:3}
-.camera-switch {display:flex;align-items:center;border:1px solid #7f99c074;border-radius:24px;padding:3px;background:#101a2cd9}
-.camera-switch button {border:0;border-radius:20px;background:transparent;color:#ebf3ff;padding:6px 13px;min-height:36px}
-.camera-switch button[aria-pressed=true] {background:#dcecff;color:#132743}
 .glass {
   width:44px;height:44px;display:grid;place-items:center;border:1px solid #7f99c074;border-radius:50%;
   background:#101a2cda;color:#e1edff;
@@ -113,7 +110,7 @@ dl {margin:0}
 .quick-facts a,.resources a,.field-actions a,.catalog-scope a {color:var(--accent);text-underline-offset:4px}
 .quick-facts a,.field-actions a {display:inline-flex;align-items:center;gap:5px;margin-top:9px;font-size:14px}
 .quick-facts .icon,.resources .icon,.field-actions .icon {width:15px;height:15px}
-.mark {display:grid;grid-template-columns:3em 1fr;gap:8px;margin:9px 0}
+.mark {display:grid;grid-template-columns:5.2em 1fr;gap:8px;margin:9px 0}
 .resources {display:flex;align-items:center;gap:8px 13px;flex-wrap:wrap}
 .resources button {gap:6px;border:1px solid var(--rule);background:#15253e;padding:7px 11px;border-radius:4px}
 .resources a,.resources button {font-size:13px}
@@ -198,7 +195,6 @@ dl {margin:0}
   .station-head p {font-size:14px}
   .featured-species button {font-size:14px;min-height:42px}
   .view-tools {right:8px;top:8px;gap:5px}
-  .camera-switch button {font-size:14px;min-height:35px;padding:4px 9px}
   .studio-bar {gap:5px;padding:6px}
   .motion {gap:4px}
   .control {gap:4px;font-size:13px;padding-inline:7px}
@@ -217,40 +213,75 @@ dl {margin:0}
   .gallery-picture img {transition:none}
   .gallery-card:hover img {transform:none}
 }
-.species-illustration {
-  margin:18px 0 0;
-  padding-top:16px;
-  border-top:1px solid var(--rule);
+.paired-views {
+  --stage-height:clamp(355px,55svh,625px);
+  display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);
 }
-.species-illustration h3 {font-size:16px;line-height:1.4;margin:0 0 10px}
+.paired-views:has(.species-illustration[hidden]) {display:block}
+.paired-views .viewport {height:var(--stage-height)}
+.view-label,.species-illustration h3 {
+  position:absolute;z-index:2;top:12px;left:12px;margin:0;padding:4px 9px;
+  border-radius:4px;font-size:13px;font-weight:650;background:#111c30e8;color:#e4f1ff;
+  pointer-events:none;
+}
+.species-illustration {position:relative;min-width:0;margin:0;border-left:1px solid var(--rule);display:flex;flex-direction:column}
 .illustration-frame {
-  display:grid;
-  place-items:center;
-  min-height:168px;
-  padding:10px;
-  border-radius:5px;
-  background:radial-gradient(ellipse at center,#243b5a,#131f34);
+  display:grid;place-items:center;overflow:hidden;box-sizing:border-box;
+  flex:1;min-height:0;height:var(--stage-height);
+  padding:24px 9px 42px;background:radial-gradient(ellipse at center,#31465f,#172638);
 }
-.illustration-frame img {display:block;width:100%;height:168px;object-fit:contain}
+.illustration-frame img {display:block;width:100%;height:100%;min-height:0;object-fit:contain}
 .illustration-frame p {margin:0;color:var(--muted);font-size:14px;text-align:center}
 .species-illustration figcaption {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:4px 12px;
-  margin-top:9px;
-  color:var(--muted);
-  font-size:13px;
+  position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:2px 7px;padding:5px 9px;background:#111c30ed;color:var(--muted);font-size:11px;
 }
-.species-illustration a {color:var(--accent);text-underline-offset:3px}
-#illustration-original {display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
-#illustration-original .icon {width:15px;height:15px}
+.species-illustration a,.notes a {color:var(--accent);text-underline-offset:3px}
+#illustration-original {display:inline-flex;align-items:center;gap:3px;white-space:nowrap}
+#illustration-original .icon {width:12px;height:12px}
+.view-presets {display:flex;gap:5px;flex-wrap:wrap;padding:9px;border-top:1px solid var(--rule)}
+.view-presets button {
+  border:1px solid #516681;border-radius:5px;background:#17273e;color:#e6f2ff;
+  min-height:38px;font-size:13px;padding:4px 9px;
+}
+.view-presets button[aria-pressed=true] {background:#dcecff;color:#132743;border-color:#dcecff}
+.view-presets button:disabled {opacity:.54}
+.identification-cue {margin:11px 0 0;font-size:15px;line-height:1.55;color:#e0eafa}
+.quick-facts h3 {font-size:16px;margin:0 0 8px}
+.measure-scope,.size-scale p,.model-evidence {font-size:13px;color:var(--muted);line-height:1.52;margin:8px 0 0}
+.size-scale,.notes {font-size:14px;margin-top:10px}
+.size-scale summary,.notes summary {cursor:pointer;font-weight:600;color:#dfefff;padding:6px 0}
+.size-scale #size-rulers {display:block;margin-top:10px}
+.ruler {position:relative;margin-top:7px}
+.ruler dd {display:flex;align-items:center;gap:6px}
+.ruler-track {flex:1;height:8px;background:repeating-linear-gradient(90deg,#314561 0,#314561 calc(25% - 1px),#7088a1 calc(25% - 1px),#7088a1 25%);position:relative}
+.ruler-fill {position:absolute;background:#9fcaff;top:0;bottom:0}
+.ruler-max {font-size:11px;color:var(--muted);white-space:nowrap}
 @media(max-width:800px) {
-  .studio .species-illustration {margin:0;padding:12px}
-  .studio .illustration-frame img {height:150px}
-  .studio .species-illustration a {padding-block:5px}
+  .paired-views {--stage-height:clamp(245px,45svh,410px);grid-template-columns:minmax(0,1.26fr) minmax(0,1fr)}
+  .view-presets button {min-height:42px}
 }
+@media(max-width:540px) {
+  .view-label,.species-illustration h3 {left:6px;top:6px;font-size:11px;padding:3px 5px}
+  .view-tools .glass {width:34px;height:34px}
+  .species-illustration figcaption {padding:4px 5px}
+  .illustration-frame {padding-inline:4px}
+}
+.neutral-light .illustration-frame {background:#364153}
+#mobile-identity:empty,#desktop-identity:empty {display:none}
+.quick-facts .sample-compare {margin-left:12px}
+.paired-views {grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:800px) {
+  #mobile-identity {padding:9px 0 15px}
+  #mobile-identity .family {display:none}
+  #mobile-identity #name {font-size:clamp(25px,6vw,38px);margin:0}
+  #mobile-identity #latin {font-size:17px}
+  #mobile-identity #form,#mobile-identity .identification-cue {margin-top:3px}
+  .record .quick-facts {margin-top:10px}
+  .paired-views {grid-template-columns:minmax(0,1.16fr) minmax(0,1fr)}
+}
+
+.notes a {display:inline-block;font-size:13px;margin:9px 13px 0 0}
 </style>
   <style>.field-dossier {
   display: grid;
@@ -405,7 +436,7 @@ dl {margin:0}
       <header class="station-head">
         <div>
           <h1>夜视观察站</h1>
-          <p>近距离观察 251 种鸮形目鸟类。</p>
+          <p>并排观察 251 种猫头鹰的插画与 3D。</p>
         </div>
         <nav id="featured-species" class="featured-species" aria-label="精选物种">
           <button type="button" data-featured="Bubo_scandiacus" aria-pressed="true">雪鸮</button>
@@ -413,14 +444,16 @@ dl {margin:0}
           <button type="button" data-featured="Bubo_bubo" aria-pressed="false">雕鸮</button>
         </nav>
       </header>
+      <div id="mobile-identity"></div>
       <section id="model-spread" tabindex="-1" class="spread" aria-label="三维物种图鉴">
         <div class="studio">
+          <div id="paired-views" class="paired-views">
           <div id="viewport" class="viewport">
             <canvas id="view" tabindex="0" aria-label="三维模型。拖动旋转，滚轮或双指缩放，双击复位。聚焦后也可用方向键旋转，加减键缩放。"></canvas>
             <img id="model-cover" class="model-cover" src="./代表画面/雪鸮.jpg" alt="雪鸮代表画面" fetchpriority="high">
             <span id="focus-marker" class="focus-marker" aria-hidden="true" hidden></span>
+            <div class="view-label" aria-hidden="true">3D 模型</div>
             <div class="view-tools">
-              <div class="camera-switch" aria-label="取景"><button id="whole" aria-pressed="true" disabled>全身</button><button id="portrait" aria-pressed="false" disabled>特写</button></div>
               <button class="glass" id="reset" title="恢复初始视角" aria-label="恢复初始视角"><svg class="icon"><use href="#i-home"/></svg></button>
             </div>
             <div class="model-state" id="model-state">
@@ -428,12 +461,30 @@ dl {margin:0}
               <button type="button" id="retry-model" hidden>重试加载</button>
             </div>
           </div>
+            <figure id="species-illustration" class="species-illustration" aria-labelledby="illustration-title" hidden>
+              <h3 id="illustration-title">花叔插画</h3>
+              <div class="illustration-frame" id="illustration-frame"></div>
+              <figcaption>
+                <span><a href="https://github.com/alchaincyf/huashu-bird-sticker" target="_blank" rel="noopener noreferrer" aria-label="花叔的鸟类贴纸项目">花叔</a> · AI 生成插画 · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></span>
+                <a id="illustration-original" target="_blank" rel="noopener noreferrer">查看原图<svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+              </figcaption>
+            </figure>
+          </div>
           <div id="file-actions" class="file-actions" hidden>
             <div class="file-explanation"><strong>解锁全部 251 种三维模型</strong><span>点击「选择模型文件夹」，选择夜行图鉴旁的 models 文件夹。选择一次后即可连续查看。</span><small id="file-name"></small></div>
             <div class="file-choices">
               <button id="folder-open" type="button">选择模型文件夹</button><button id="single-open" type="button">选择单个 GLB</button>
               <input id="folder-input" type="file" webkitdirectory multiple hidden><input id="model-input" type="file" accept=".glb" hidden>
             </div>
+          </div>
+          <div class="view-presets" role="group" aria-label="模型视角">
+            <button type="button" data-view="matched" disabled>对齐插画</button>
+            <button type="button" data-view="front" disabled>正面</button>
+            <button type="button" data-view="side" disabled>侧面</button>
+            <button type="button" data-view="back" disabled>背面</button>
+            <button id="whole" type="button" aria-pressed="true" disabled>全身</button>
+            <button id="portrait" type="button" aria-pressed="false" disabled>特写</button>
+            <button id="neutral-light" type="button" aria-pressed="false" disabled>中性光</button>
           </div>
           <div class="studio-bar">
             <div class="motion" aria-label="动画控制">
@@ -444,15 +495,15 @@ dl {margin:0}
             <button id="save-card" class="control save-card" type="button" disabled><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>保存观察卡</button>
           </div>
           <div id="mobile-points"></div>
-          <div id="mobile-illustration"></div>
         </div>
         <aside class="record">
-          <div class="identity">
+          <div id="desktop-identity"><div class="identity" id="model-identity">
             <div class="family" id="family"></div>
             <h2 id="name"></h2>
             <p id="latin" lang="la"></p>
             <p id="form"></p>
-          </div>
+            <p id="identification-cue" class="identification-cue"></p>
+          </div></div>
           <div id="desktop-points">
             <section id="model-points" class="model-points" aria-labelledby="points-title" hidden>
               <h3 id="points-title">局部观察</h3>
@@ -462,27 +513,29 @@ dl {margin:0}
           </div>
           <p class="help"><svg class="icon"><use href="#i-orbit"/></svg><span class="desktop">拖动旋转 · 滚轮缩放</span><span class="touch">拖动旋转 · 双指缩放</span></p>
           <div class="quick-facts">
+            <h3>实际体尺</h3>
             <dl id="model-stats"></dl>
+            <p class="measure-scope" id="measure-scope"></p>
+            <details class="size-scale">
+              <summary>查看全库共用刻度</summary>
+              <p>切换物种时刻度上限相同。体长显示记录的范围。并排图像统一取景，适合比较形态。</p>
+              <dl id="size-rulers"></dl>
+            </details>
             <a href="#field-record">查看物种资料<svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a>
+            <a class="sample-compare" href="./夜行图鉴-十种猫头鹰对照.html">十种校准前后对照</a>
           </div>
-          <div class="notes" id="model-notes">
-            <h3>模型辨识要点</h3>
+          <details class="notes" id="model-notes">
+            <summary>你眼前这只</summary>
             <dl id="marks"></dl>
-          </div>
+            <p id="form-variation" class="model-evidence"></p>
+            <p id="alignment-evidence" class="model-evidence"></p>
+            <a id="alignment-contact" target="_blank" rel="noopener noreferrer">查看中性光检查图</a>
+            <a id="alignment-reference" target="_blank" rel="noopener noreferrer"></a>
+          </details>
           <div class="resources">
             <button id="download" type="button"><svg class="icon"><use href="#i-download"/></svg>保存 GLB 模型</button>
             <a id="representative" hidden>代表画面</a>
             <a id="reference" target="_blank" rel="noopener">物种参考<svg class="icon"><use href="#i-external"/></svg></a>
-          </div>
-          <div id="desktop-illustration">
-            <figure id="species-illustration" class="species-illustration" aria-labelledby="illustration-title" hidden>
-              <h3 id="illustration-title">花叔插画</h3>
-              <div class="illustration-frame" id="illustration-frame"></div>
-              <figcaption>
-                <span><a href="https://github.com/alchaincyf/huashu-bird-sticker" target="_blank" rel="noopener noreferrer" aria-label="花叔的鸟类贴纸项目">花叔</a> · AI 生成插画 · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></span>
-                <a id="illustration-original" target="_blank" rel="noopener noreferrer">查看原图<svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
-              </figcaption>
-            </figure>
           </div>
         </aside>
       </section>
@@ -509,6 +562,7 @@ dl {margin:0}
     <footer class="atlas-footer">
       <details class="catalog-scope">
         <summary>名录版本与资料覆盖</summary>
+        <p><a href="./校准记录.json" download>下载 251 种校准记录</a></p>
         <p>本图鉴沿用花叔首版的 251 种鸮形目。全部有繁殖分布，228 种有体尺与生态指标，107 种有体长，16 种有翼展，212 种有 IUCN 等级，34 种有中文辨识笔记。</p>
         <p>新版 AviList v2026 将其中 11 种并入其他种，另拆出 1 种，共 241 种。在涉及这些变动的资料卡里可以查看对应关系。<a href="https://github.com/alchaincyf/huashu-bird-sticker/blob/01264126448bd3d5d3bf69102abbfe98d9e3b489/data/crosswalk-ioc15.2-avilist2026.csv" target="_blank" rel="noopener noreferrer">新旧名录对照</a></p>
       </details>
@@ -536,6 +590,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
  -->
-<script defer src="./atlas-41234f045a330d76.js"></script>
+<script defer src="./atlas-7fb66f8019e89a14.js"></script>
 </body>
 </html>

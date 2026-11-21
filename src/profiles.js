@@ -1,4 +1,7 @@
 import {speciesMorphology} from './morphology.js'
+import calibration from '../data/calibration-pilots.json' with {type:'json'}
+import plates from '../data/calibration-plates.json' with {type:'json'}
+import details from '../data/calibration-detail.json' with {type:'json'}
 
 const brown = ['#523e30','#b89972','#c0a17d','#3b2925','#daa445','#4a423c']
 const grey = ['#625851','#ada293','#aa9e8d','#483d37','#d59d43','#58534c']
@@ -98,10 +101,27 @@ export function profileFor(item) {
     ...studies[item.id],
     seed,
   }
-  if (['Bubo_bubo','Tyto_alba','Bubo_scandiacus'].includes(item.id)) return base
+  if (['Bubo_bubo','Tyto_alba','Bubo_scandiacus'].includes(item.id)) return calibratedProfile(base,item.id)
   // Individual variation is taken from the species record. The seed only
   // controls fine placement of separate feathers and their microtexture.
   base.width=studies[item.id]?.width ?? width
   base.body=studies[item.id]?.body ?? body
-  return speciesMorphology(item,base)
+  return calibratedProfile(speciesMorphology(item,base),item.id)
+}
+
+function calibratedProfile(profile,id) {
+  const adjustment={...plates[id]?.adjust,...details[id],...calibration[id]?.adjust}
+  const {add=[], remove=[], relativeHead=1, mantleTone, breastTone, faceTone, ...measurements}=adjustment
+  const result={...profile,...measurements}
+  result.head*=relativeHead
+  result.tall*=relativeHead**.46
+  result.colors=[...result.colors]
+  if(mantleTone)result.colors[0]=mantleTone
+  if(breastTone)result.colors[1]=breastTone
+  if(faceTone)result.colors[2]=faceTone
+  if (add.length || remove.length) {
+    result.features=new Set([...(profile.features || []),...add])
+    for (const name of remove) result.features.delete(name)
+  }
+  return result
 }
