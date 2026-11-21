@@ -1,1257 +1,1257 @@
 {
   "Tyto_tenebricosa": {
-    "bytes": 17909584,
-    "sha256": "57c7bf5aefa12277b9bd2109883a5c3e8f6ea3b86ebda5999b924891de96c839",
+    "bytes": 18023240,
+    "sha256": "73edb57167c198b76701ed5053919c761d4ca255ecc30abc91f99d87738f08c5",
     "portrait": "代表画面/Tyto_tenebricosa.jpg"
   },
   "Tyto_multipunctata": {
-    "bytes": 19100124,
-    "sha256": "61c380cc27e3a4e1f04b919fb970ce1c80c098feca2fede634bd58646d21dce3",
+    "bytes": 19222340,
+    "sha256": "54a43d64ed70f1fa2c4939a8c012f86db22e598c159299cd13fc6cfe550812b2",
     "portrait": "代表画面/Tyto_multipunctata.jpg"
   },
   "Tyto_inexspectata": {
-    "bytes": 17535128,
-    "sha256": "7c240f23f26bbb2ecd908acc9db81c5ded73b05a96a26aba6b7cae1fae5929d4",
+    "bytes": 17648808,
+    "sha256": "51a609ed2b50af09a601eae2803faca50de1d5815f139ddb9edcb93b5c0334f0",
     "portrait": "代表画面/Tyto_inexspectata.jpg"
   },
   "Tyto_nigrobrunnea": {
-    "bytes": 19157136,
-    "sha256": "245c704a9ac986289fbfc751b15d8d834f7a98cabf7e43b76932bad9788ed000",
+    "bytes": 19265752,
+    "sha256": "f567a018fb27ba88d74c80c89dca8d0bcdec8b304726f9104d6b22ce7dcadb41",
     "portrait": "代表画面/Tyto_nigrobrunnea.jpg"
   },
   "Tyto_sororcula": {
-    "bytes": 19282316,
-    "sha256": "2bc56e9f1149eeeed12a7a021a43e0628c9f5154d12d0d33af1b01702315f55b",
+    "bytes": 19402932,
+    "sha256": "4259bbe8311da89477c98f6c070106a67b8dd042e690ab3b2ec310312d85ff4e",
     "portrait": "代表画面/Tyto_sororcula.jpg"
   },
   "Tyto_manusi": {
-    "bytes": 19252632,
-    "sha256": "7a790d1078430f44ee72b82f05544190478bcaf2f5a384824994ba83d34953ec",
+    "bytes": 19374432,
+    "sha256": "cdfc34b8d02ac9b3e84f799ebf7490603ea640b7867c6b5987425cd1931b92a9",
     "portrait": "代表画面/Tyto_manusi.jpg"
   },
   "Tyto_aurantia": {
-    "bytes": 19216888,
-    "sha256": "b0d38c285fa967fdb7d06d03e3ef35b75263452a2b0cd364818d5dd6b6fdaf17",
+    "bytes": 20709060,
+    "sha256": "2914c15ba78fdfe4f5ce0e7d8546c21d7c806819a63d6f87f79a22bf29dbcc5a",
     "portrait": "代表画面/Tyto_aurantia.jpg"
   },
   "Tyto_novaehollandiae": {
-    "bytes": 18873996,
-    "sha256": "d8cab1e77d3abcafe8d0521b57b96be6b1dcdbb41296de04964b42c51c71668e",
+    "bytes": 18995404,
+    "sha256": "71e898c62f995697aea9258eb72a4158449ede8f2aa00c9cea8a53cd58a896d7",
     "portrait": "代表画面/Tyto_novaehollandiae.jpg"
   },
   "Tyto_rosenbergii": {
-    "bytes": 19267796,
-    "sha256": "743d0670e938db11ed5e621d65962366c4ea098d5bae7ace02cc873f00826d88",
+    "bytes": 19389108,
+    "sha256": "2ba7e32887fe25d610d34d656c474e84f72bbf5cda2b856bc9c0ae1c15131d52",
     "portrait": "代表画面/Tyto_rosenbergii.jpg"
   },
   "Tyto_soumagnei": {
-    "bytes": 16942940,
-    "sha256": "82847f585d41b67271c5712fe3c1988efce37fa562c93f5c1d4bb57665b452e8",
+    "bytes": 18436536,
+    "sha256": "ea235470414e6fbb398f67bd78cfd0e8d466514b1e1de05281c4229347b5c1f3",
     "portrait": "代表画面/Tyto_soumagnei.jpg"
   },
   "Tyto_alba": {
-    "bytes": 17781368,
-    "sha256": "ed102d7c600bc32ea9c01dc6f9bbc9f06d478393ca99a335441e430cd33b7057",
+    "bytes": 17901964,
+    "sha256": "c8b98e1c11049c5d5a8b8176c492e6b8c2febd7aee76d39436175ac8da1fe15a",
     "portrait": "代表画面/西仓鸮.jpg"
   },
   "Tyto_furcata": {
-    "bytes": 18252128,
-    "sha256": "02f5efe15cf2d9176386858231687f3670ed3da7f18b0a28bdf4ac7ec5644cf8",
+    "bytes": 18375096,
+    "sha256": "5110aaab022360bfde327cd9ace8be3cdb0871128ed0f4c2b64fbfc24ecccb35",
     "portrait": "代表画面/Tyto_furcata.jpg"
   },
   "Tyto_javanica": {
-    "bytes": 18074756,
-    "sha256": "e35ed437b1b97d98a79fc4265e4b9fd39088ca9f35d5d98d30fb53320c73e190",
+    "bytes": 18197652,
+    "sha256": "451d11c086052de2128f15acae6dd9ef949260baca3487306494f934f22cb904",
     "portrait": "代表画面/Tyto_javanica.jpg"
   },
   "Tyto_deroepstorffi": {
-    "bytes": 18573524,
-    "sha256": "62e10c46a76699793cc9350c37ec64a215c24e0f131cb83abe2b7c3503bfaf6f",
+    "bytes": 18687316,
+    "sha256": "b22dae1b97f2d2d3d77e7ee87d78a413a86426f48931aa639954fee709bbff01",
     "portrait": "代表画面/Tyto_deroepstorffi.jpg"
   },
   "Tyto_glaucops": {
-    "bytes": 17962484,
-    "sha256": "6cf2bc8c4ed53e0e689c182fca44ecf6cafbbaa689485609882323fb07911ae5",
+    "bytes": 18084188,
+    "sha256": "ebc25c4beb224d7876bfc640451636a9b9ac5e7ba466b9ace022a79313b494f4",
     "portrait": "代表画面/Tyto_glaucops.jpg"
   },
   "Tyto_capensis": {
-    "bytes": 19243160,
-    "sha256": "7ba8fc89f5eaad03ba7b9299435f5d03eb34df353cba32f3dd75e55062d5b328",
+    "bytes": 19364700,
+    "sha256": "5768c240b3a11b21908b8878a2cb6182d8dc6f1af9a2b3fa8142adfeeb07c394",
     "portrait": "代表画面/Tyto_capensis.jpg"
   },
   "Tyto_longimembris": {
-    "bytes": 19266316,
-    "sha256": "767225a740a5b56ce9fa6d185c97a773b054d51d0e8855597a20859806bd1434",
+    "bytes": 19387688,
+    "sha256": "547087ac2cac8ddd26a0c1e408dddfa15be26756482db252f82baf947cfdd46b",
     "portrait": "代表画面/Tyto_longimembris.jpg"
   },
   "Tyto_prigoginei": {
-    "bytes": 20087624,
-    "sha256": "92b54a26e589adb42c4b12f24b5b28de330c0b878a17ab88a0b5a096bca52bbc",
+    "bytes": 20208204,
+    "sha256": "64dab81d69a2b85e7ddd943796e3a8ef66bbdcb064eaf4382eb31287f34b0d66",
     "portrait": "代表画面/Tyto_prigoginei.jpg"
   },
   "Phodilus_badius": {
-    "bytes": 19787128,
-    "sha256": "a451aeae4eff1dd14aacf26e0a989a43ea4420cb8af647760199b45dd5007bb2",
+    "bytes": 19900968,
+    "sha256": "87be835128b7e7613477083ee461aa29f0a1bf6f8ed758399316382f2c106210",
     "portrait": "代表画面/Phodilus_badius.jpg"
   },
   "Phodilus_assimilis": {
-    "bytes": 19834148,
-    "sha256": "29fdc9886004ed82959ef11b05ab20caf9d59cbd8dfc4ef92b1511a61e6b068b",
+    "bytes": 19956112,
+    "sha256": "e2ade4e12274479e3b922cd89a087c15df7d73a34e1f317873ece88f860a114c",
     "portrait": "代表画面/Phodilus_assimilis.jpg"
   },
   "Uroglaux_dimorpha": {
-    "bytes": 16474108,
-    "sha256": "fa90edb684fabe0f34b8dd577a3fbab151bcf339af5006059fcae4256fab1d2c",
+    "bytes": 16595864,
+    "sha256": "d365b06a3d36a6658f0e0e196b15dc28b15d191d9bd7fdd2e702f912b54a2d9b",
     "portrait": "代表画面/Uroglaux_dimorpha.jpg"
   },
   "Ninox_rufa": {
-    "bytes": 19477320,
-    "sha256": "c823c2c789245e9ca713b4db0630cca87b5058ed982e551a4701d87fdafae007",
+    "bytes": 19600332,
+    "sha256": "c5436ae0fe393aff20c7f8ded74131292cb6112e35c71abce8335caf0ff9a5be",
     "portrait": "代表画面/Ninox_rufa.jpg"
   },
   "Ninox_strenua": {
-    "bytes": 19432444,
-    "sha256": "0748e31e4455884d3d69972176958bb9f09ac29ba044bf5991a571f1acd429da",
+    "bytes": 19553068,
+    "sha256": "c8c07b3386df09a68c4e055bf225b2a3bc4a4f89e25ac652f923a87bd7e62bf7",
     "portrait": "代表画面/Ninox_strenua.jpg"
   },
   "Ninox_connivens": {
-    "bytes": 16937928,
-    "sha256": "d1077e847575af2a8427d3e93e4b0e6772b10bc2a31d8dd556518434d25a5603",
+    "bytes": 17060484,
+    "sha256": "3be94ce662975c88f2b5badfa4003ac60114415bbcf633ebdbd0211c01937846",
     "portrait": "代表画面/Ninox_connivens.jpg"
   },
   "Ninox_rudolfi": {
-    "bytes": 19121464,
-    "sha256": "647f619141dec8c2806e45218b9758b1ed2da8011a1dc62225c66b97f0f9348b",
+    "bytes": 19235152,
+    "sha256": "998ef7f3402c612653ff1afecdbe4ab6ec2f8445f63931c25eaffe7498580deb",
     "portrait": "代表画面/Ninox_rudolfi.jpg"
   },
   "Ninox_boobook": {
-    "bytes": 17136632,
-    "sha256": "f180619bfa25eed7180c603e0cd0550d6340efbd3677d7ec704dba7532050d07",
+    "bytes": 17260076,
+    "sha256": "33c45a4a41af2d0279a1e902c5778b4f4f0c714fe82061577824b5c615da59f6",
     "portrait": "代表画面/Ninox_boobook.jpg"
   },
   "Ninox_rotiensis": {
-    "bytes": 17185776,
-    "sha256": "f130dc6d9b775708f19d47b5159cfef24ab934f67bc5384c519ff4a851db4839",
+    "bytes": 17299480,
+    "sha256": "e2be170ef43a9f3f73bff4b3d6a6be0564ea6819f4990772d871a7b066a6a358",
     "portrait": "代表画面/Ninox_rotiensis.jpg"
   },
   "Ninox_fusca": {
-    "bytes": 17075296,
-    "sha256": "2704d6ed8973658f23745e3c3efec49289bc3e395ecb296876dbacdb9d69271d",
+    "bytes": 17198348,
+    "sha256": "a52925ea59428cc688c048f23e132b654143a0b4235132e55a07bcc81d04c495",
     "portrait": "代表画面/Ninox_fusca.jpg"
   },
   "Ninox_plesseni": {
-    "bytes": 17031768,
-    "sha256": "dfa1987eafb8ca645c7f1222ec7f289b4abd5c39c892e828d4d10a7e81e08c76",
+    "bytes": 17153076,
+    "sha256": "fc411fd8df46c2e15cc2aaab773ae463f709cdf6d70733a14b35ed944419ecfe",
     "portrait": "代表画面/Ninox_plesseni.jpg"
   },
   "Ninox_leucopsis": {
-    "bytes": 16994688,
-    "sha256": "8e38882bc842c9574f45be67e8288e22faf5e2b5431dd7a3137866f647092075",
+    "bytes": 17117304,
+    "sha256": "37abcbaf1bf15f47688189fbf18e44bfbee9aaa47541555e821017e2bb75c138",
     "portrait": "代表画面/Ninox_leucopsis.jpg"
   },
   "Ninox_novaeseelandiae": {
-    "bytes": 17194980,
-    "sha256": "e00116af3e1d506e73949c48c6e066e88952f390fcd06fa755418a158f30e93c",
+    "bytes": 17318704,
+    "sha256": "2da0f6b2ecfa78a68ece88d0c6397a5ee0cb86539282600030f8e969dc4f050e",
     "portrait": "代表画面/Ninox_novaeseelandiae.jpg"
   },
   "Ninox_japonica": {
-    "bytes": 16748688,
-    "sha256": "cd50b554bf5a91987cef469af93b748586bfbb20cd55275f24169f7b6002c27d",
+    "bytes": 16869772,
+    "sha256": "2e9a62a280ec13424ee6b29126a20a249591a77cc9b40d18209e41ee79db2dd8",
     "portrait": "代表画面/Ninox_japonica.jpg"
   },
   "Ninox_scutulata": {
-    "bytes": 16490000,
-    "sha256": "06bc1f5c92857a8d689c49da958114ddcc98531d0f296c09734b5a4c40ced2a0",
+    "bytes": 16610960,
+    "sha256": "dbdc4b37acba83b5b4b9967f249e76eff58b3e92c37f43b20498f8225eb1cd2e",
     "portrait": "代表画面/Ninox_scutulata.jpg"
   },
   "Ninox_obscura": {
-    "bytes": 15721580,
-    "sha256": "e0fb93dd7594847153190519ff37bb903b90f6c543a0456099c2da29c24458cf",
+    "bytes": 15847988,
+    "sha256": "9eb3f49eaae3a5e01628bfbf2d205625d57935a1fa5bb66b2c91bc292f4c7bf8",
     "portrait": "代表画面/Ninox_obscura.jpg"
   },
   "Ninox_randi": {
-    "bytes": 16515824,
-    "sha256": "f76c8440df9dc0842b009b57357d4af892710b14c17bebb0917c9dfbcc6feb70",
+    "bytes": 16637700,
+    "sha256": "ca338aec736738035c08adcb1bd12308d3b00cc022eba112522b8bdc5155cc00",
     "portrait": "代表画面/Ninox_randi.jpg"
   },
   "Ninox_affinis": {
-    "bytes": 16547400,
-    "sha256": "e7bfbf6777c867bc9a474133525104d223197ba4556a1652e0227f31e508e658",
+    "bytes": 16668460,
+    "sha256": "c842f2402574b18f27664625d48070b207b374e57d5f7f54e816ec8371d879ac",
     "portrait": "代表画面/Ninox_affinis.jpg"
   },
   "Ninox_philippensis": {
-    "bytes": 16596944,
-    "sha256": "daa9b123c2accbef9dfb1f2015166de2f1827e4316601c561ca13004fca213bc",
+    "bytes": 16719164,
+    "sha256": "51da58eb86f81247f943c991f31256f71595551ed7cd0958ee0b8bccf088b0b8",
     "portrait": "代表画面/Ninox_philippensis.jpg"
   },
   "Ninox_spilocephala": {
-    "bytes": 17279352,
-    "sha256": "e903cf0f6ec8bd6155d383f2ba67b9473d286599e955e38a4e17fccb459f3899",
+    "bytes": 17393056,
+    "sha256": "8752636bd6c87500f573836840ddb03dd1ca7f0fb50086e69506c5d6a19f6d91",
     "portrait": "代表画面/Ninox_spilocephala.jpg"
   },
   "Ninox_leventisi": {
-    "bytes": 19157436,
-    "sha256": "168c6c50a204c256b5674924d642e7f9977f15a7522129f853e9bf9690aa4158",
+    "bytes": 19280108,
+    "sha256": "eeb559deef448124220ecaf6511940066dabbe352209373a77fe10b7ea347bf4",
     "portrait": "代表画面/Ninox_leventisi.jpg"
   },
   "Ninox_reyi": {
-    "bytes": 17159040,
-    "sha256": "b076d543bfed414dec2efb584f2b177de64bb5af4eb725942cfbbdffcf42b654",
+    "bytes": 17281176,
+    "sha256": "348c04e59c0aa8c701f6be56014dfd46197c37bcc9e7dd46fec492388bb04907",
     "portrait": "代表画面/Ninox_reyi.jpg"
   },
   "Ninox_rumseyi": {
-    "bytes": 17188996,
-    "sha256": "11d386c796860abaebd84a8057da4e608becf1b47a6ad38e86fa526665b1b054",
+    "bytes": 17310400,
+    "sha256": "624c95767033bc21ddddbe27cca08f5bff3ec54bceb88950d6596b71acaaec0f",
     "portrait": "代表画面/Ninox_rumseyi.jpg"
   },
   "Ninox_spilonotus": {
-    "bytes": 15793836,
-    "sha256": "29b7812e95644bde7e8f419666d649cf7af8c33c67ef7be75cf3db232ff0f9c4",
+    "bytes": 17285928,
+    "sha256": "0af407a5cbefa6870db2eee482abc6a7dfac4968fe99d699581dc701299e8257",
     "portrait": "代表画面/Ninox_spilonotus.jpg"
   },
   "Ninox_mindorensis": {
-    "bytes": 16811540,
-    "sha256": "d806dc416a490a3fb34abc7156855fa3a187221e18f9ec2adb280b7f4caa7d54",
+    "bytes": 16935648,
+    "sha256": "8627b180533e083cd9cfd260625bb5cbf06e9474a03ef7b87c56b318c9e5a8b0",
     "portrait": "代表画面/Ninox_mindorensis.jpg"
   },
   "Ninox_sumbaensis": {
-    "bytes": 16243864,
-    "sha256": "add5f20abf6135efafdee7c6bfd67a3181808fee7895f2711f325315ea804ce4",
+    "bytes": 17735528,
+    "sha256": "809e9e0d94c9791ceaf9f69e1292b16206127f0b0327fac40d87750f66600418",
     "portrait": "代表画面/Ninox_sumbaensis.jpg"
   },
   "Ninox_burhani": {
-    "bytes": 19461364,
-    "sha256": "8dd858967d664b6f00fdc0f21b029cacc615f30c46ed03ec88ba6ab0e6d044b9",
+    "bytes": 19583188,
+    "sha256": "126d998604139a4d4459cc064731c3074e4c05995d94734bb2d5b1c7eea7fe9b",
     "portrait": "代表画面/Ninox_burhani.jpg"
   },
   "Ninox_ochracea": {
-    "bytes": 15782420,
-    "sha256": "49e3be141ddb90b77d935282c0fe9d3247af2c2d4b61cf654ac7c34871c073af",
+    "bytes": 15904736,
+    "sha256": "3e84f48365fed8d1f8cfcc78b57b27d5cb6d5450a1b5b5277c4bc224a8be93b4",
     "portrait": "代表画面/Ninox_ochracea.jpg"
   },
   "Ninox_ios": {
-    "bytes": 15797180,
-    "sha256": "b9bcbc3a62cb5d72e4289c8c73c82f133dc56dd220f73a83890aa6b82d60d6db",
+    "bytes": 15920984,
+    "sha256": "510dddc40e4526ce70d2c189b5d094d7aa1a8fc3de714f8498123749224f7599",
     "portrait": "代表画面/Ninox_ios.jpg"
   },
   "Ninox_hypogramma": {
-    "bytes": 19722064,
-    "sha256": "fcd256f779bd3f32d363e4bab10cfacb35d2450b2277283f18683eaa77afe2a7",
+    "bytes": 19846948,
+    "sha256": "f78da0ae2c822d214ee0ea044dd3cb8c10909252294f6dca1b47b7ce2be11e42",
     "portrait": "代表画面/Ninox_hypogramma.jpg"
   },
   "Ninox_hantu": {
-    "bytes": 19137976,
-    "sha256": "7a4cd413488961929ee668e6e8b3e795d04141e5371bcaa23a06743c0eaa68d9",
+    "bytes": 19261388,
+    "sha256": "aa73d7c81fc25a442e3504e2cbc76050ea791d7f883b15ad95cb7e38646ee407",
     "portrait": "代表画面/Ninox_hantu.jpg"
   },
   "Ninox_squamipila": {
-    "bytes": 19470072,
-    "sha256": "b7bdd697448445e2c65d2f8129fe7f40292468e3f84219f24bcdd8876e92ad42",
+    "bytes": 19583780,
+    "sha256": "768965b8e0568e43f460f815f98935d60ff31f1162ee0f527bc71a0810d9d4d2",
     "portrait": "代表画面/Ninox_squamipila.jpg"
   },
   "Ninox_forbesi": {
-    "bytes": 18302452,
-    "sha256": "52a60955705d1ac29c5bd95ce766ccbf616ae45bdfe6324e069ca1659b885039",
+    "bytes": 18426556,
+    "sha256": "61a1ee0295f3a24d649a0e07331c63f5dbffd2225194d7aab0695b2e22a2fd35",
     "portrait": "代表画面/Ninox_forbesi.jpg"
   },
   "Ninox_natalis": {
-    "bytes": 18690252,
-    "sha256": "f0f9be4aa8c48deefe64d3bc299010eccca32490f67a620f37aca0d3831986c6",
+    "bytes": 18814112,
+    "sha256": "d0857b25491c8afdadb579fa77382a07f7585c9a7eca3bd4d86482786f7d0dbb",
     "portrait": "代表画面/Ninox_natalis.jpg"
   },
   "Ninox_meeki": {
-    "bytes": 16689308,
-    "sha256": "fbe015bcdf0080b5aca45079ab065beba97488838db287d7142cb15d181db8fb",
+    "bytes": 16810840,
+    "sha256": "5d391e1737a804f23d1a715d9cbc4f10aacca2d70e482c7f06d399e5c28a8621",
     "portrait": "代表画面/Ninox_meeki.jpg"
   },
   "Ninox_theomacha": {
-    "bytes": 15771968,
-    "sha256": "11dd0bfc039abe813c2ce917ef754aa3be9c4ee30037290c322e736a7c5ae046",
+    "bytes": 15896452,
+    "sha256": "251f81f751ec52ba9d444a100f2b6b484776d9201370d9e7df06cef5cf5d24e4",
     "portrait": "代表画面/Ninox_theomacha.jpg"
   },
   "Ninox_punctulata": {
-    "bytes": 18921388,
-    "sha256": "e0eab47d90e726320a09ab3f1cceb2df3158c4d64311c8a0c455c02b7f227081",
+    "bytes": 19043264,
+    "sha256": "a7d6ed8e802f8b06ba5dbebc0fb4e78768acdce22fdeabab965402b4d23aba89",
     "portrait": "代表画面/Ninox_punctulata.jpg"
   },
   "Ninox_odiosa": {
-    "bytes": 19252840,
-    "sha256": "8a67e65a592a6ab99b291bc3827ea4f9c5d5ceb45ced0ee0a1f7fb0aca8d7e8c",
+    "bytes": 19375036,
+    "sha256": "97b5fc70b66c696375b3951b8a1e9b254d6b66e007d831e30578e8d360df302c",
     "portrait": "代表画面/Ninox_odiosa.jpg"
   },
   "Ninox_variegata": {
-    "bytes": 19623212,
-    "sha256": "3cb15b1e301f6fae6baff821a908559558e505c66efc61ea7149ca593cfd0655",
+    "bytes": 19746960,
+    "sha256": "a55b9a0f4009c3fc79270b486f21cd7a6f61a4ec71fdc7f9ce1db6e2103ec01a",
     "portrait": "代表画面/Ninox_variegata.jpg"
   },
   "Margarobyas_lawrencii": {
-    "bytes": 17033116,
-    "sha256": "60cf5758c9e38cac840f805341bab76d3cddc2a132a78bb30917da9fb08e41f6",
+    "bytes": 18525328,
+    "sha256": "82f026724dcc2cb166599dc7ca13873a703ecced3cad08e3adab9a303f27408e",
     "portrait": "代表画面/Margarobyas_lawrencii.jpg"
   },
   "Taenioptynx_brodiei": {
-    "bytes": 16625804,
-    "sha256": "364021599abc548192bb7e10ee4284bb7950f88ff7cd492ddda98723bd4d6286",
+    "bytes": 16775164,
+    "sha256": "21ec343d88894087f2f5c2f52237a5ea8d963899f322350d0c11a196564dbed0",
     "portrait": "代表画面/Taenioptynx_brodiei.jpg"
   },
   "Taenioptynx_sylvaticus": {
-    "bytes": 16648568,
-    "sha256": "37903368fcd8bcce82b11b4ee2ef7d2876eddea2a7e0f7897dae07c2e2aa2f54",
+    "bytes": 16800288,
+    "sha256": "8795960c9b6b1b3f84532332aec9caf8d5a98b506f7a2d346d8afd4403c5d256",
     "portrait": "代表画面/Taenioptynx_sylvaticus.jpg"
   },
   "Micrathene_whitneyi": {
-    "bytes": 16259712,
-    "sha256": "48e0bbfd7f3b44dd5dd12d3c4d34c73a7031ad0902ced302f0c739885edc4342",
+    "bytes": 16382624,
+    "sha256": "e2132905ef402f50fb77840189edc39ba53228858e148c44ba2b1da3d4b010a9",
     "portrait": "代表画面/Micrathene_whitneyi.jpg"
   },
   "Xenoglaux_loweryi": {
-    "bytes": 21181800,
-    "sha256": "f7f61563e05287c876e2418d3a18157f36a8d66ac95cbe8bfe1cf999698e34fe",
+    "bytes": 21333568,
+    "sha256": "a56cbe5839195607d297ba91941f7209db41100fba234b70eed69ea2fb1a30a5",
     "portrait": "代表画面/Xenoglaux_loweryi.jpg"
   },
   "Aegolius_funereus": {
-    "bytes": 17409928,
-    "sha256": "fe7712c441d1b6bd29ed509a744f21afbd7eaea121af52ff9b07a6d0342edb2b",
+    "bytes": 17531680,
+    "sha256": "e4d2e02245070f2051a4643acef0d7c71bb6a652329e42bd547bdccde8352981",
     "portrait": "代表画面/Aegolius_funereus.jpg"
   },
   "Aegolius_acadicus": {
-    "bytes": 17451964,
-    "sha256": "908a86f966bc5979b219b865ba0354b26c899d8f6ab33210adc4cdfd7867b7f8",
+    "bytes": 17565640,
+    "sha256": "5f4064be6bf83151619b1e4427bf799782e6a7015825140be69359d75419f076",
     "portrait": "代表画面/Aegolius_acadicus.jpg"
   },
   "Aegolius_ridgwayi": {
-    "bytes": 16410636,
-    "sha256": "65e3ad2cd83ee7fa6aa87946b4980d9db9194cab232500e654ae572361bd9e0e",
+    "bytes": 16524308,
+    "sha256": "37a0ec95830839654938ca8da08813d27223b2873a78a5ddf9903a2ec5f619db",
     "portrait": "代表画面/Aegolius_ridgwayi.jpg"
   },
   "Aegolius_harrisii": {
-    "bytes": 16357900,
-    "sha256": "5f861a04a698f1908e67081b55f25c20e791647ad33f269d1b3991f5fcd787de",
+    "bytes": 16478940,
+    "sha256": "d3b629477063fe8b94300619e47316ad8b5744f62c6abbfe27b6fe58f0aff063",
     "portrait": "代表画面/Aegolius_harrisii.jpg"
   },
   "Athene_blewitti": {
-    "bytes": 19130940,
-    "sha256": "e1c3de26c44ce4e05e8abcde9f3b58c83ccc24f017598c8aade3028be43b05e7",
+    "bytes": 39896064,
+    "sha256": "70e0e49a280e7b9bcbb2fe92be24a967922b64e55f61e92243f48ffc78dd9df4",
     "portrait": "代表画面/Athene_blewitti.jpg"
   },
   "Athene_superciliaris": {
-    "bytes": 19013852,
-    "sha256": "74b73b4d621ed1a01973f02a52642b06a33fdc1cb6d452a0199c159ae0bb786c",
+    "bytes": 19136056,
+    "sha256": "5d3a9f29b1c37ec94a15967aa359d4934eb8de314676fc7ed7629f510e8eff86",
     "portrait": "代表画面/Athene_superciliaris.jpg"
   },
   "Athene_cunicularia": {
-    "bytes": 16821812,
-    "sha256": "cfaf8f32b46224349fec853d316eede2c7f42d9bdfe52a2379a8ac6ad4f4513d",
+    "bytes": 18312876,
+    "sha256": "fc6d42cc36bb641e0579207c4d351988c9026722d6c0717d95e324ca122fe34f",
     "portrait": "代表画面/Athene_cunicularia.jpg"
   },
   "Athene_noctua": {
-    "bytes": 16884544,
-    "sha256": "80d044d25a4b175fb3d0ef4aef9a5fbca68aa4212131e4ad3360569fdd28169c",
+    "bytes": 17006332,
+    "sha256": "af95707cd5116f7745b92cda8cf13db270d62b6e6b32eb6d23d6565dc8ed3d82",
     "portrait": "代表画面/Athene_noctua.jpg"
   },
   "Athene_brama": {
-    "bytes": 18524684,
-    "sha256": "26c23ba702c0ec44526a33200f99ea201260e82cae258517b5c8255cd94e0b33",
+    "bytes": 18646852,
+    "sha256": "b811810932e0884302dae4e35ea480e4d796e14b204e7a0b85e6b711ed703ee2",
     "portrait": "代表画面/Athene_brama.jpg"
   },
   "Athene_jacquinoti": {
-    "bytes": 16289480,
-    "sha256": "5aee66f25e4c25eff1bb5acecc48fd6cb372ebac7612d0865aa8080a8670ecfa",
+    "bytes": 16403120,
+    "sha256": "112c996721f9215b23692b1ea1d52fdcdff9572a825206619d4136bf0dfc52aa",
     "portrait": "代表画面/Athene_jacquinoti.jpg"
   },
   "Athene_granti": {
-    "bytes": 19001448,
-    "sha256": "a93b4aa10a94a79be9eaa8123448a00bcb7e3b7d05e2313244c34cb66a0bd07b",
+    "bytes": 19115168,
+    "sha256": "c68b0baaf5d95e27a71f5f53bbefdb3e71751d230a995fb4a7bb2b27d87f14f3",
     "portrait": "代表画面/Athene_granti.jpg"
   },
   "Athene_malaitae": {
-    "bytes": 18178708,
-    "sha256": "db6df106d06b0722ad383dcc98db6035a4e87597ff6c809fd3bd8a8bb625f22e",
+    "bytes": 18301688,
+    "sha256": "0dca2ce6a27703e9907085d6634eed8b990c56933bf2dcd15e6dc9886f478d73",
     "portrait": "代表画面/Athene_malaitae.jpg"
   },
   "Athene_roseoaxillaris": {
-    "bytes": 15658516,
-    "sha256": "f5d8109e6cafd29ee17c94b9f2faf35d48664be0174362b636dd8126c9179197",
+    "bytes": 15784900,
+    "sha256": "4f298da94642b959af1a2d507cb914b75629187845756a2770db1886ca874f47",
     "portrait": "代表画面/Athene_roseoaxillaris.jpg"
   },
   "Surnia_ulula": {
-    "bytes": 19539064,
-    "sha256": "3b8455446f813075f8bf118662a88aa2f106831ad3e88503654c393e201d1478",
+    "bytes": 19660184,
+    "sha256": "a85943d1407be9383e38cb906d7177848b9ae1b5d71be01a34626d5c8efd9ccc",
     "portrait": "代表画面/Surnia_ulula.jpg"
   },
   "Glaucidium_passerinum": {
-    "bytes": 16909832,
-    "sha256": "38d47f863197514cdc3359c7cf4ac6222729e680390f5ec78b3ea5336dab5106",
+    "bytes": 17032384,
+    "sha256": "ceb09f5fe6e155865aa45c0d9802fae20a51e312629fed48cddb7d0f6e3d0c1c",
     "portrait": "代表画面/Glaucidium_passerinum.jpg"
   },
   "Glaucidium_perlatum": {
-    "bytes": 17050780,
-    "sha256": "68dc0c155ea1540ba67aeeb0e8707070a500ebb65fbf951b5600a58408c28e53",
+    "bytes": 17173724,
+    "sha256": "6715c75d9000afc854e4ab8f45926195751c0a09b377c07c5dceafc1bb34cc06",
     "portrait": "代表画面/Glaucidium_perlatum.jpg"
   },
   "Glaucidium_tephronotum": {
-    "bytes": 16447788,
-    "sha256": "c561d2872ee59f9ebadb641817024fda28e08091d5c92defa0efb3ba03b8f337",
+    "bytes": 16570408,
+    "sha256": "7d4e906e67168f5016542945bc5f95f7d0c1e69cd088a049bbf6051607614bbb",
     "portrait": "代表画面/Glaucidium_tephronotum.jpg"
   },
   "Glaucidium_sjostedti": {
-    "bytes": 19243940,
-    "sha256": "e9ecf882af7b4f61f92f0326cbeeb2baa2ee7231ccfc41fff7711ca82151d505",
+    "bytes": 19367652,
+    "sha256": "4a6317fb12c2ad092bc64b35268149b23c43d11af8a481ae8e9fedef1b53305d",
     "portrait": "代表画面/Glaucidium_sjostedti.jpg"
   },
   "Glaucidium_cuculoides": {
-    "bytes": 16443508,
-    "sha256": "be3a90c8789b404cd86f42031fef94fda3c50a1a28555932ab3a78002cc4aa20",
+    "bytes": 16566464,
+    "sha256": "2b0c7342d8241f11542b74b68c44a2fbd4fae7c87051c8a553a8003afbf840f2",
     "portrait": "代表画面/Glaucidium_cuculoides.jpg"
   },
   "Glaucidium_castanopterum": {
-    "bytes": 16980192,
-    "sha256": "067ba89ee20f7039a283dd68164caa60c9481a69552043c74aa775e55ff6114d",
+    "bytes": 17103508,
+    "sha256": "ded5cdc65f2e8758491a1756e1a55f8dccda7f93333635400d1736df278bdefd",
     "portrait": "代表画面/Glaucidium_castanopterum.jpg"
   },
   "Glaucidium_radiatum": {
-    "bytes": 18808380,
-    "sha256": "4a028662334bfe1d64dcd0c2e02336f0fd3a27ce43cbe5066ed7a07f6da79fd1",
+    "bytes": 18929760,
+    "sha256": "6250a8a9dd9cb5c7542be8d0030ef104cde9a82526640474dea781dab50f0b15",
     "portrait": "代表画面/Glaucidium_radiatum.jpg"
   },
   "Glaucidium_castanotum": {
-    "bytes": 16875732,
-    "sha256": "a9256bb17b18b975022e00c54cb34cfd7e5380fad6fdb7dc515bf899b1759067",
+    "bytes": 16997160,
+    "sha256": "14522f685bfa745040a6bb82ee35aee52326ed84ec47bb5d1800dbef78f959ca",
     "portrait": "代表画面/Glaucidium_castanotum.jpg"
   },
   "Glaucidium_capense": {
-    "bytes": 16872144,
-    "sha256": "97625be05aefe7c2ff0f82e0414ba96a2de94c9b86073944f0f7c217ef13bed6",
+    "bytes": 25250740,
+    "sha256": "335d874034392b0e311dd01964ffbb1259f4fba0dbd4e9c4a8bd5847c46a3d5d",
     "portrait": "代表画面/Glaucidium_capense.jpg"
   },
   "Glaucidium_albertinum": {
-    "bytes": 20177680,
-    "sha256": "5eb13541e827430fa2863d430b36d7f805e2b3fe35588e3c5b0b13d56692dc21",
+    "bytes": 20301020,
+    "sha256": "f4bb6ce8b946a9e52dda54359d35e721f47cacd30b6882772973c994f5eed0e2",
     "portrait": "代表画面/Glaucidium_albertinum.jpg"
   },
   "Glaucidium_californicum": {
-    "bytes": 16425084,
-    "sha256": "ec7cb2f40d3a89f91206dd4878a6c09255d80f27b8c2165975d4e4776d3453f2",
+    "bytes": 16546872,
+    "sha256": "551f291627821865fbf2108a7c271a758bbb258cd983044650411c83ccec0278",
     "portrait": "代表画面/Glaucidium_californicum.jpg"
   },
   "Glaucidium_gnoma": {
-    "bytes": 16521168,
-    "sha256": "8e139290b15887355f7bfb785470916c402652f425947ecf104024fce2a78798",
+    "bytes": 16642180,
+    "sha256": "6bb9c34ccc52e13d718a3ec12882fc243625988c5a3d14b16dc663ccf059d726",
     "portrait": "代表画面/Glaucidium_gnoma.jpg"
   },
   "Glaucidium_hoskinsii": {
-    "bytes": 16469212,
-    "sha256": "3118526b8f9a0ba308436e7d5a0ce96cbc3eff9f4d4d8a166b0dc26fc4075d3a",
+    "bytes": 16582884,
+    "sha256": "f67d26819132d0268c351f3b961e33ca99839ccac35953749e693e208c113eee",
     "portrait": "代表画面/Glaucidium_hoskinsii.jpg"
   },
   "Glaucidium_cobanense": {
-    "bytes": 16479924,
-    "sha256": "9bb0d3b3dcca93202de251b3f6d9580bc87be34ba3a9b7a5fc18a175f6378c93",
+    "bytes": 16602044,
+    "sha256": "996f392dcaad7e42dd6b2a5f596f362835cafa328005bddde1cea02dd1227130",
     "portrait": "代表画面/Glaucidium_cobanense.jpg"
   },
   "Glaucidium_costaricanum": {
-    "bytes": 17088156,
-    "sha256": "dcdd1d14cba8f6ad1fff20cf63df1a04130a2cfb49917a0d4e323940027e4ac4",
+    "bytes": 17209508,
+    "sha256": "378935fbd5de6a59424b2796b24430b6c6a02d295c6e1038a27cb7d0c6e4e7b1",
     "portrait": "代表画面/Glaucidium_costaricanum.jpg"
   },
   "Glaucidium_nubicola": {
-    "bytes": 16724332,
-    "sha256": "d3e8efbb2f1dc726ff08341242eea5b021304665772f0398f27fe883f06ddf01",
+    "bytes": 16846088,
+    "sha256": "edd233cde03814fd992ceef395665cbd5f8435e3b419f2b1b398d21a93fef59c",
     "portrait": "代表画面/Glaucidium_nubicola.jpg"
   },
   "Glaucidium_jardinii": {
-    "bytes": 17082916,
-    "sha256": "dbef3e61739d5ae591367cd528ae84c41929587b6cf254247b0ad0a6540cce70",
+    "bytes": 17203920,
+    "sha256": "b15de6bd61303bf1f19d557b77dd391144bf2fb8893f19bb2a1b510ce4e3345d",
     "portrait": "代表画面/Glaucidium_jardinii.jpg"
   },
   "Glaucidium_bolivianum": {
-    "bytes": 16701920,
-    "sha256": "204027256d1f5a380caf2e17c6c3b7de44c75ec4aa97d8abf90c66a8311ba790",
+    "bytes": 18192908,
+    "sha256": "9b2cea07361890254486b5b3e79221e1372f9893c4f45c0376b24d2dc1bed61a",
     "portrait": "代表画面/Glaucidium_bolivianum.jpg"
   },
   "Glaucidium_palmarum": {
-    "bytes": 16951324,
-    "sha256": "de346ad058264e653c7231487bd38b06788dd265f1e6fb83e766c72b9ae2a55d",
+    "bytes": 17074352,
+    "sha256": "21f77bee4d52728d9388a5a9e15fe75bd3e384223efc6866f2512e870ba6279f",
     "portrait": "代表画面/Glaucidium_palmarum.jpg"
   },
   "Glaucidium_sanchezi": {
-    "bytes": 16616932,
-    "sha256": "8dc67d0520135d80bf8bd1893385164de9655419f75c1c8e0780d4f3774cd932",
+    "bytes": 16738380,
+    "sha256": "3c4d4d0e188b078063eef24b6ac331af69b37e59fbf3b02b6b3a3f565ab4a146",
     "portrait": "代表画面/Glaucidium_sanchezi.jpg"
   },
   "Glaucidium_griseiceps": {
-    "bytes": 16735080,
-    "sha256": "5aa1969370cab7170ecbeff1c1d7dd71631a30700a54f2ab63003119d3e5687b",
+    "bytes": 16857276,
+    "sha256": "fec8c710916f080c4d7a2c76dcdd44b65dee85f2baf13b9eb0f2274f4bff8260",
     "portrait": "代表画面/Glaucidium_griseiceps.jpg"
   },
   "Glaucidium_parkeri": {
-    "bytes": 16983524,
-    "sha256": "da0f110729c68b1e3fd6cda42d1be1fea87d77063bb58cc6661dbb0d6a96edfa",
+    "bytes": 18474104,
+    "sha256": "d67a5cc476154dd88bf7e93587cc20ab2d10d99ef36bd10276c2d281b78f8b20",
     "portrait": "代表画面/Glaucidium_parkeri.jpg"
   },
   "Glaucidium_hardyi": {
-    "bytes": 16550740,
-    "sha256": "ba120ef65f52c97e0dc35476d9dca7ca74b4213e4cd539a7aed683b7c3d8a820",
+    "bytes": 16672936,
+    "sha256": "9bdc8292de9b856c752fe26bad4e2d9c1d708800993245a64e24a9d6ea132656",
     "portrait": "代表画面/Glaucidium_hardyi.jpg"
   },
   "Glaucidium_minutissimum": {
-    "bytes": 16593516,
-    "sha256": "17e727c23694a3b01ae59b460c5a714af3dfd94ea5ddde5469e8ec8627a85e3d",
+    "bytes": 16716088,
+    "sha256": "fa35d47699c972e857e07c398667d651c324a7714b17f7e45a7c2aaaf2ab9b47",
     "portrait": "代表画面/Glaucidium_minutissimum.jpg"
   },
   "Glaucidium_mooreorum": {
-    "bytes": 17001344,
-    "sha256": "69a66a53e6aa968f049b3e2170fa68fef1d21392212a0042b42b9172913a90c8",
+    "bytes": 17122752,
+    "sha256": "ead1d39975308df3cead2decf8c88360cb778aaf5ec08daba0457b7884ad04b4",
     "portrait": "代表画面/Glaucidium_mooreorum.jpg"
   },
   "Glaucidium_brasilianum": {
-    "bytes": 16602388,
-    "sha256": "e25312d1756e7a4f23f849a26f4399182b4e56beaff77daf3b8e135e023e3e6e",
+    "bytes": 16724976,
+    "sha256": "6fe5efa902afb1a00aa1ff06133b2a64ca859b73f58b71711dc4871eaeee8b77",
     "portrait": "代表画面/Glaucidium_brasilianum.jpg"
   },
   "Glaucidium_peruanum": {
-    "bytes": 16422428,
-    "sha256": "7732c790e4be58ee592908f610437fdada140bae76d27b02b3f25b98ef399532",
+    "bytes": 16544208,
+    "sha256": "1856fcf48655fc8524f75f581fa7adf778f017cff8486e40a5f8fb0b252de196",
     "portrait": "代表画面/Glaucidium_peruanum.jpg"
   },
   "Glaucidium_nana": {
-    "bytes": 16394392,
-    "sha256": "52ac218d3b8b634a34966ddcbafc442a053e8fd35c3f087ad9556a79c697dfcf",
+    "bytes": 16516192,
+    "sha256": "0f2d3bb88a3c975ea6d2a2949813371ede8c5b49897ec8029b688c097e9d19b7",
     "portrait": "代表画面/Glaucidium_nana.jpg"
   },
   "Glaucidium_siju": {
-    "bytes": 16428208,
-    "sha256": "35a494e3ddd7b80ae572f0881ed561fd6d3168601e143f852eefd5f4e8b47b88",
+    "bytes": 16550064,
+    "sha256": "fd32f8172a3df71b48925fa2c37de2fec9eb5f78489e25fe6ac1fc1d1da567e2",
     "portrait": "代表画面/Glaucidium_siju.jpg"
   },
   "Otus_gurneyi": {
-    "bytes": 17362828,
-    "sha256": "eac335cec34c17fd3d41a33ae84cabb963e9d93e096b0853a5f81f45608d5278",
+    "bytes": 17485908,
+    "sha256": "6310787a37c62a798830a36427969505a68b579f42b3cedf6bb8b0556a426b58",
     "portrait": "代表画面/Otus_gurneyi.jpg"
   },
   "Otus_sagittatus": {
-    "bytes": 17398524,
-    "sha256": "4192c498437d47a88d0b36859891efa1649ff0efc8611555fdadf06c2697c482",
+    "bytes": 17522236,
+    "sha256": "5000c55d346d39fc09f3e440b1b05dfb6c99c65ad5ae8beb9128f6aca20da8d2",
     "portrait": "代表画面/Otus_sagittatus.jpg"
   },
   "Otus_rufescens": {
-    "bytes": 17279416,
-    "sha256": "9a73668a82b020fac0c34aafa677e696c30e499a8f5117ba929263d8c6296653",
+    "bytes": 17402952,
+    "sha256": "54fc2f20d4c414303028b50f4720bd891b8eaa3dc3bb41e98984509ed936dba9",
     "portrait": "代表画面/Otus_rufescens.jpg"
   },
   "Otus_thilohoffmanni": {
-    "bytes": 15846912,
-    "sha256": "b24318c68ca4cd5781e8910713f908572feee3465770fc408063b4c95e7a9206",
+    "bytes": 15971788,
+    "sha256": "c7f6aaaec7532c506b41796ada81f5f4854f868e6198fecf41ebbb49d58911a0",
     "portrait": "代表画面/Otus_thilohoffmanni.jpg"
   },
   "Otus_icterorhynchus": {
-    "bytes": 18028872,
-    "sha256": "d62b64af471ccae2c63521b3a0d2caeb6ba7d5ca855891c1d33c3c6c4dd8fd3f",
+    "bytes": 18154084,
+    "sha256": "048b58b5150a5bc914d02d45cf736ed4cc3949b9de77588e9a69bbc2727c9dcc",
     "portrait": "代表画面/Otus_icterorhynchus.jpg"
   },
   "Otus_ireneae": {
-    "bytes": 17767528,
-    "sha256": "b31c8192524d7e6559eb6ff6155800fc9fadf94f1437257cff5be5c3985b60b8",
+    "bytes": 17890952,
+    "sha256": "74c09044834e6c14bdc59e03e716984a9085966dc03bbdcf8cdf2c8448c7e2d3",
     "portrait": "代表画面/Otus_ireneae.jpg"
   },
   "Otus_balli": {
-    "bytes": 17829584,
-    "sha256": "b08fe6fd78e630329eb03962c05d0343c7e6a582359ae2bc0d529928811b299f",
+    "bytes": 17929868,
+    "sha256": "2dc200d03cf5447124867e8079e084ac0d40acf130504b1335dd2985d303efd6",
     "portrait": "代表画面/Otus_balli.jpg"
   },
   "Otus_alfredi": {
-    "bytes": 20807676,
-    "sha256": "df6bccb81110dafe2ce4006d187be51f9a2ff45fa09b26dd1e1554abaa1c77d0",
+    "bytes": 20921488,
+    "sha256": "ba6998bd135b6d2345553ba71fa62b62d4da6dce2dae25178611b0b4cbbc35e9",
     "portrait": "代表画面/Otus_alfredi.jpg"
   },
   "Otus_spilocephalus": {
-    "bytes": 17979124,
-    "sha256": "9c2293a408c58cf4c15d966549e7036f41e753df42dbed56ab45d574a8b8687b",
+    "bytes": 18103320,
+    "sha256": "52f87c29002741081cb4965fe37efae394f30deb1ae651a22a0a1fd77a28baca",
     "portrait": "代表画面/Otus_spilocephalus.jpg"
   },
   "Otus_angelinae": {
-    "bytes": 17819968,
-    "sha256": "02bd968ea669ba491400c28d8c639c7c3d31b31eedfbd66c8f79d0f0d7626c19",
+    "bytes": 19313732,
+    "sha256": "e387b4c824b8ffc79abdfdf3b8c2af6e4250dee2945c3e6f76cb0a25a204e467",
     "portrait": "代表画面/Otus_angelinae.jpg"
   },
   "Otus_mirus": {
-    "bytes": 17945464,
-    "sha256": "6e51fabd76d11ca73a3a8985627dea01a1e419cf0131caec4655cf3f45cad28e",
+    "bytes": 18068128,
+    "sha256": "675a8f8657f73cd9ea7879e2c5b716ad626e9f6bbcfd4a903b012993adf9ffb9",
     "portrait": "代表画面/Otus_mirus.jpg"
   },
   "Otus_longicornis": {
-    "bytes": 17618620,
-    "sha256": "42b9d473f0b3ae7c170dd71017544e2271ec41e3b0b1448d34d2a6f569fe3de5",
+    "bytes": 17742304,
+    "sha256": "b63184edc2cff1e42ba522d7fc5b4b30252a48be2e30f3514d42a5994c94cc74",
     "portrait": "代表画面/Otus_longicornis.jpg"
   },
   "Otus_mindorensis": {
-    "bytes": 17302640,
-    "sha256": "d370987d4597aaacdb6f422a9b1bf35eb32630a11a349e84817ae72110eb133f",
+    "bytes": 17428908,
+    "sha256": "a6812ab6786ed3719479bf63fa0d52869698e1a9168e83de98e6e1bbc6b27f6f",
     "portrait": "代表画面/Otus_mindorensis.jpg"
   },
   "Otus_madagascariensis": {
-    "bytes": 17425512,
-    "sha256": "c254e8aa43489daf8d9782de52b73b4c19ba0112290decc055a64309726a7ad3",
+    "bytes": 17548024,
+    "sha256": "b2088b3480e66db9dd9cde778308729ccab16815d58be4faa9556d40ea4e27da",
     "portrait": "代表画面/Otus_madagascariensis.jpg"
   },
   "Otus_rutilus": {
-    "bytes": 17347012,
-    "sha256": "ae54d9f18b5e2d6fa56fa7836b15edc2cd0b800b7ca973fa653c7e34ce0ff094",
+    "bytes": 17470844,
+    "sha256": "54abe72540b2f2106b4039c219d08c5331e7897933cdb92f29520be42309fec7",
     "portrait": "代表画面/Otus_rutilus.jpg"
   },
   "Otus_mayottensis": {
-    "bytes": 17362084,
-    "sha256": "5c8d214a549ef6c3ada2817335201e15bca58e2e7bf19503ac62a1fbb9dc22ca",
+    "bytes": 17486284,
+    "sha256": "d97aef96466d7857bd8023d8e6208035c5ffc695f15911477a6a48ff5ffb89ab",
     "portrait": "代表画面/Otus_mayottensis.jpg"
   },
   "Otus_pauliani": {
-    "bytes": 17293164,
-    "sha256": "86dc469157b08b47767d3d3493f88b3047de91ba89c0411bfaecebad42633d03",
+    "bytes": 18788940,
+    "sha256": "53b04c53645e133d09f9aab8382baac0d38783657013207944844ea3df002bbb",
     "portrait": "代表画面/Otus_pauliani.jpg"
   },
   "Otus_capnodes": {
-    "bytes": 17329784,
-    "sha256": "51ba451b75adef9f3533f00d4dcd1e8bfebec8fca6647c829a76f2b20c939232",
+    "bytes": 17455516,
+    "sha256": "8102e673fd10acaab09583b54ae1de028a7f608e15bfcd1d7ae91278b9e4ee87",
     "portrait": "代表画面/Otus_capnodes.jpg"
   },
   "Otus_moheliensis": {
-    "bytes": 18127024,
-    "sha256": "75b1160043f074b82364aaeedffb0b9845191a954a17147f416f81ca20f63ceb",
+    "bytes": 18250960,
+    "sha256": "abd13d9c7d216055cd96c5e20622aafa4bec70374c74911c1ff8807926990ea3",
     "portrait": "代表画面/Otus_moheliensis.jpg"
   },
   "Otus_brucei": {
-    "bytes": 17662328,
-    "sha256": "c57953d939bcd5e6fae091a5714f8ee2be6b4ec5aaded5bed2c955e79ea809db",
+    "bytes": 17785460,
+    "sha256": "531d595aaa9365e716b5ac980282bb5d8ee1d1f1626c6244c9a761599eb2ed1d",
     "portrait": "代表画面/Otus_brucei.jpg"
   },
   "Otus_pamelae": {
-    "bytes": 17114132,
-    "sha256": "df9cd644a920baade43777dff7f69c1f8da5a33568bd4fbc0e8707bf174a20c6",
+    "bytes": 17236564,
+    "sha256": "57b808e36ea5813d299db72c53a262758a979564dd6e910f325bc56733ee46c1",
     "portrait": "代表画面/Otus_pamelae.jpg"
   },
   "Otus_scops": {
-    "bytes": 17733984,
-    "sha256": "444a39ea2068916689c728d3e3dab7339483e0a305a17826750310612ff4b2d5",
+    "bytes": 17857448,
+    "sha256": "afdd54bf0f35c65456a2683021b89ec887e8957457ddf386cec3dc4cbdda7f81",
     "portrait": "代表画面/Otus_scops.jpg"
   },
   "Otus_cyprius": {
-    "bytes": 17807648,
-    "sha256": "7c4b07985d97da6cb2c054db955966f909c42233ce89a0824e258c50fcffb50c",
+    "bytes": 17931480,
+    "sha256": "163449a64764a46558fe59cfe6a9653ede6c3708d1cad85b3dafe20b47975534",
     "portrait": "代表画面/Otus_cyprius.jpg"
   },
   "Otus_bikegila": {
-    "bytes": 18382288,
-    "sha256": "c3eec40e6adb364a0c7170adf80edb35aac9f2939c91e140b1286fb61cc3a4f0",
+    "bytes": 18496244,
+    "sha256": "5fac203c63541cd243831bca5d8c412d7484e258e7d436cbaef65921a2aca89c",
     "portrait": "代表画面/Otus_bikegila.jpg"
   },
   "Otus_pembaensis": {
-    "bytes": 15775568,
-    "sha256": "2817a26ec0cd258298d2cabc0ae2a657f21612ef9482db360b9f88b57013648e",
+    "bytes": 15898832,
+    "sha256": "2aeca754459abb14e9b518765351a66df5403537db59784e3869231331fbbd1d",
     "portrait": "代表画面/Otus_pembaensis.jpg"
   },
   "Otus_hartlaubi": {
-    "bytes": 17563900,
-    "sha256": "ce310df5f8552a9827ea769b9899b73a21f0b0d4e086166fbf413cf18d41aca1",
+    "bytes": 17688896,
+    "sha256": "9d96751d5994ad125b67a037c5bc664d37d4827c4270ecbdcf7aa922bebeffd1",
     "portrait": "代表画面/Otus_hartlaubi.jpg"
   },
   "Otus_senegalensis": {
-    "bytes": 17625128,
-    "sha256": "24f8338b63c87c55909a766b18ac3706279474bd92c0de12bc64ccfabd7c95c4",
+    "bytes": 17750900,
+    "sha256": "5b8a822e1273bccb8d8784bdb90e57faff87145b71eb91b2eaf136d4f41d0d36",
     "portrait": "代表画面/Otus_senegalensis.jpg"
   },
   "Otus_feae": {
-    "bytes": 17280304,
-    "sha256": "a7e8e37b3f52e3ef10ba8d6289c3bc813bf01a45a7f461389dffd92925fedb0c",
+    "bytes": 17404140,
+    "sha256": "0a3f0e6e1d2bb5ec2a47d69bf11985ac3ab580e4503b01944665de35baeb3727",
     "portrait": "代表画面/Otus_feae.jpg"
   },
   "Otus_socotranus": {
-    "bytes": 17765520,
-    "sha256": "c0c5a56028b42610d1e0b4d1e1ac1e964d91e936946988a0de6b2e843394ce59",
+    "bytes": 17888236,
+    "sha256": "a06b9549d03e213380058b4993854c3c385a1399caacfc4d1da2ee40968c8aa8",
     "portrait": "代表画面/Otus_socotranus.jpg"
   },
   "Otus_sunia": {
-    "bytes": 17819016,
-    "sha256": "55c789943af7108f9f98c04b6f3c89dad6bb984150755e996a1a037c8aff17c3",
+    "bytes": 17941356,
+    "sha256": "18a301bdc30fde1293445766d5b04ea79882376e0255ac70208f68307f717285",
     "portrait": "代表画面/Otus_sunia.jpg"
   },
   "Otus_elegans": {
-    "bytes": 17889404,
-    "sha256": "31747feda1dbed72a878477bcfe704d729cd656fc7bc125a47634f5b56dba6e4",
+    "bytes": 18012484,
+    "sha256": "ecb420f523cfbccac790b7bf787d031c476d502a311a7d7c0be32ac0e54607a5",
     "portrait": "代表画面/Otus_elegans.jpg"
   },
   "Otus_magicus": {
-    "bytes": 17807744,
-    "sha256": "89255c0928c735508e8c36603587b71a0130ccc589d4e70922a9682c0dbda6b1",
+    "bytes": 17930620,
+    "sha256": "668b68e7f61a6e267979f0f171f346d20bbe6c6619b6779ee594b5b09eb874f0",
     "portrait": "代表画面/Otus_magicus.jpg"
   },
   "Otus_tempestatis": {
-    "bytes": 17891124,
-    "sha256": "1fca2e6f8d6bbc9ec353b51fa865537aa89da1d694dceabf0f118df9c83784a5",
+    "bytes": 18004812,
+    "sha256": "ea8604488772a12a422fbda73573e3013ccc3caa8ed3dd6c49f384a071cac3c4",
     "portrait": "代表画面/Otus_tempestatis.jpg"
   },
   "Otus_sulaensis": {
-    "bytes": 17707820,
-    "sha256": "3bd7f787756defe400184d0b585f85a3292bfe60a90a09a1d2a35ab9b2902d7a",
+    "bytes": 17830976,
+    "sha256": "adbe51858fd24ed60893cc9356473132240d1c9ea413a659338e6ae52be22c23",
     "portrait": "代表画面/Otus_sulaensis.jpg"
   },
   "Otus_beccarii": {
-    "bytes": 18693664,
-    "sha256": "392d9c25f85e51673f48f9f2527c77d0a840b35676a9deafccfa4bed53786d61",
+    "bytes": 18817232,
+    "sha256": "f162e406342dac987db5d171f26c0d340c0002fd05d93fa9189e7e6712dd730e",
     "portrait": "代表画面/Otus_beccarii.jpg"
   },
   "Otus_manadensis": {
-    "bytes": 17853048,
-    "sha256": "abe9d54c75c91ca66c2c12de9b935edce2044bd55b31495d19afc42f952b9423",
+    "bytes": 17973876,
+    "sha256": "0ff87e1d66f031a74e5a46d2d99152fa9ce7dd172e23675b3f48be275b545527",
     "portrait": "代表画面/Otus_manadensis.jpg"
   },
   "Otus_mendeni": {
-    "bytes": 17316840,
-    "sha256": "dbe6322dba9b411a569f8b18f8cbbad0ef54c677d233a7c32c2214caa1467d86",
+    "bytes": 17439916,
+    "sha256": "05b2c64fce45ae321687f1f42c6a44ab178871ac0669c28216a774509685d002",
     "portrait": "代表画面/Otus_mendeni.jpg"
   },
   "Otus_siaoensis": {
-    "bytes": 18078320,
-    "sha256": "4c885c7e2476c5f9675d76f6973e56aca44c710f16bdc91bce36916cfd3a5bcb",
+    "bytes": 18201764,
+    "sha256": "49bf40ecc76cfc2a4bbe66ffe645fd5256e364be671b58d5bb30363902e67483",
     "portrait": "代表画面/Otus_siaoensis.jpg"
   },
   "Otus_collari": {
-    "bytes": 17632108,
-    "sha256": "a47da00001b68e1d05b24bd7b301d9e24cb8fc1e82f2887be7d548088e756019",
+    "bytes": 17745936,
+    "sha256": "fccd50d198edb7b7c7c8903c70822cf46a7afb0937678d1dfa77feb1ec193c9f",
     "portrait": "代表画面/Otus_collari.jpg"
   },
   "Otus_mantananensis": {
-    "bytes": 17972000,
-    "sha256": "52f061f92682951befeceb21243e63a7a7d9ebbff823b19a85db930b55cc7351",
+    "bytes": 18085732,
+    "sha256": "ec7ffb7a554f29cb86ab6146a39633fe1023fc581bc226645a34fb2a704c254b",
     "portrait": "代表画面/Otus_mantananensis.jpg"
   },
   "Otus_insularis": {
-    "bytes": 18261244,
-    "sha256": "4c6050fec53f58d5ca1587fe7d68f4c3f2671acbc2478c48e2927af930b3a2b3",
+    "bytes": 18384640,
+    "sha256": "9494d1e28f1dde4f562a1f70332aa3b58bf034b3e1035f8415f6bbbd6802251d",
     "portrait": "代表画面/Otus_insularis.jpg"
   },
   "Otus_alius": {
-    "bytes": 16637836,
-    "sha256": "4467706eebb30c30eebd2837568e9e4cf970aed3c893e291c8f1db0eb3a02102",
+    "bytes": 18131172,
+    "sha256": "1e9859a422fdd0d34a2df0eafd89fd9cf6e8c6d8bd73d9ae7205accc66087c44",
     "portrait": "代表画面/Otus_alius.jpg"
   },
   "Otus_umbra": {
-    "bytes": 19504348,
-    "sha256": "1bcfafb56fd20192ec47c0a7c117cd20dc1a3979a3a1d2e98e0fe905c31dc162",
+    "bytes": 19618020,
+    "sha256": "261adc13602d8f9ab9ada9d4ac27315eb7e14e784cabb72219f9857bb30da2b6",
     "portrait": "代表画面/Otus_umbra.jpg"
   },
   "Otus_enganensis": {
-    "bytes": 18232164,
-    "sha256": "967922983d22dfc760442f393ce62b5a6f0002f015fa446f51654655aa60f151",
+    "bytes": 18346056,
+    "sha256": "7f41adea9b976f4716ad99115c50422e05dce46326fb998c258f38c1381efa50",
     "portrait": "代表画面/Otus_enganensis.jpg"
   },
   "Otus_mentawi": {
-    "bytes": 19703828,
-    "sha256": "02ecf986095ad85ac841d4b6f6548b1941358094dc42c371d5d137c5b8a03e2c",
+    "bytes": 19829592,
+    "sha256": "23f924a6eed293676c721de6c31ebb671d9d55f36ec513955357ed1b2239217d",
     "portrait": "代表画面/Otus_mentawi.jpg"
   },
   "Otus_brookii": {
-    "bytes": 17630752,
-    "sha256": "c969bc8a40270b6c214acbfb7ad52cefe124026d95718efbd9b509417afa13a9",
+    "bytes": 17755348,
+    "sha256": "88c7929c10ec5198420042ceb3d102ebf07eb26ec3776b2a1c13796bc7914b4e",
     "portrait": "代表画面/Otus_brookii.jpg"
   },
   "Otus_bakkamoena": {
-    "bytes": 17258844,
-    "sha256": "8151fb3b4a7aa50dc668f77c5418dfaa458f957a29b6ab2c1b121caeebb167e9",
+    "bytes": 17381144,
+    "sha256": "19cf5cac3e0b78784e12bcf5f75eea51583b2bdf79656b3afac7c9ed77e8791a",
     "portrait": "代表画面/Otus_bakkamoena.jpg"
   },
   "Otus_lettia": {
-    "bytes": 17297840,
-    "sha256": "46178196fc59ed4ca8812de3d0b61e1e344a91bde2299e7c6024392ef11f4059",
+    "bytes": 17421336,
+    "sha256": "928a1ca83317c4f56c1f378a759e8a42744a5472c572ae6e58be669898a90935",
     "portrait": "代表画面/Otus_lettia.jpg"
   },
   "Otus_semitorques": {
-    "bytes": 17813444,
-    "sha256": "82e0830638d05127bf66a98c88cc7af13dd164476baf306bb483c3023fae8385",
+    "bytes": 17940092,
+    "sha256": "8dc2c44c5edd15f20348643577f9c0c1e1fa1b1f227b25b6bb10ab7b499bf442",
     "portrait": "代表画面/Otus_semitorques.jpg"
   },
   "Otus_lempiji": {
-    "bytes": 17829836,
-    "sha256": "7017f6bf633d04fabfae3ba1616845cf80cfbab1ea8838b4e8246a3928d33c5a",
+    "bytes": 17951744,
+    "sha256": "5bdb95b9caa5324c3dbc434988e2a80d1002d25e5c91aa6821496e358d5ad995",
     "portrait": "代表画面/Otus_lempiji.jpg"
   },
   "Otus_megalotis": {
-    "bytes": 17945424,
-    "sha256": "4fe00e1125e1904aa38e883add84dc926f9ec3e87fbe0a020adbb814c6b3fce7",
+    "bytes": 18068192,
+    "sha256": "13a1d1cf64dc1eb6a53b29cc4b45ffba2604a6687b7c2c05fd121806864f7779",
     "portrait": "代表画面/Otus_megalotis.jpg"
   },
   "Otus_nigrorum": {
-    "bytes": 18164640,
-    "sha256": "be3f465bd26097d2931132fa10606588e0c6e4a56b45905b96ddbcaade67e9c1",
+    "bytes": 18278364,
+    "sha256": "3cb4209e0e193756c66ea882501f22ae2e9b5666ab4e07f1f0bd1f7c05618b9a",
     "portrait": "代表画面/Otus_nigrorum.jpg"
   },
   "Otus_everetti": {
-    "bytes": 17356392,
-    "sha256": "5bb8daaaba479d6f9904bd4133e8dc238fc2c4bc4c0e95f9e96fbde6e91871bf",
+    "bytes": 17481488,
+    "sha256": "638aed9bf2ec4aae21b9bfed5d4b1a43d03124f8c22d3315de14fec1c958b287",
     "portrait": "代表画面/Otus_everetti.jpg"
   },
   "Otus_fuliginosus": {
-    "bytes": 17917164,
-    "sha256": "f3e3dc6b0d9217fb3f8c2c0de1993a85a9e0d80ffe7b8e2a647b86585d0846e5",
+    "bytes": 19410888,
+    "sha256": "9c91c97f06d01f62f0c6c66b4ed377c194debe9b6f794574db10f91bd11baf35",
     "portrait": "代表画面/Otus_fuliginosus.jpg"
   },
   "Otus_silvicola": {
-    "bytes": 17982292,
-    "sha256": "8cfe2f17d3e3c90a823925e6ea8a2e9b114425af6d188c60a4444bd45bd57276",
+    "bytes": 18104260,
+    "sha256": "9a0eb5798781a29796f5a6e2b7d30333438e847003aaadfeee1dab9a56d67b92",
     "portrait": "代表画面/Otus_silvicola.jpg"
   },
   "Otus_jolandae": {
-    "bytes": 17983600,
-    "sha256": "b2aec34b09be27b6e7a7ebe2f822031ca063103a959871438d07ab1265e86314",
+    "bytes": 18097404,
+    "sha256": "8c2f679ec9f66ea601dd03c94649de822d5486feff402d02e351ff135fcf933c",
     "portrait": "代表画面/Otus_jolandae.jpg"
   },
   "Otus_podarginus": {
-    "bytes": 16850716,
-    "sha256": "e1c0e0187399b5e7c524c5d43ca972bca220626549e7719c754bdb5755c60d6a",
+    "bytes": 16975336,
+    "sha256": "9c95ffafed71125e8f1999ebc1cad4f69e1812409fe2ccedd2c465d1f533b56e",
     "portrait": "代表画面/Otus_podarginus.jpg"
   },
   "Ptilopsis_leucotis": {
-    "bytes": 17639516,
-    "sha256": "6ae7bcd5ec1ea45980ae41375c77d0dd162aa8b408f7e591da0473e4a1fd5f97",
+    "bytes": 17753272,
+    "sha256": "08243d4a1c810145f0488dd12f415aa9b537461c69d52bd29a99e8c1da2424f3",
     "portrait": "代表画面/Ptilopsis_leucotis.jpg"
   },
   "Ptilopsis_granti": {
-    "bytes": 17415376,
-    "sha256": "2df63d6701733ade64e390ee41c9e6faa2b312432309a998ebf0c426930a31b7",
+    "bytes": 17515616,
+    "sha256": "af313b58402ff8bbdae214147085891fb9def83cb4afce8c975baefd01192bf3",
     "portrait": "代表画面/Ptilopsis_granti.jpg"
   },
   "Asio_grammicus": {
-    "bytes": 17633320,
-    "sha256": "09f620dffdd2fe0dd481479f2d19975df3402eb637ab505ee67593c0806ebb77",
+    "bytes": 17755472,
+    "sha256": "55422d6e40feb75ec07b1af9d700b76ed78e9df31d5d96ef7e6be7978b834aac",
     "portrait": "代表画面/Asio_grammicus.jpg"
   },
   "Asio_clamator": {
-    "bytes": 17608336,
-    "sha256": "675c86280ac747f2c55935c2e12d87f9cdb0b5a83f6a1e6877c1f45f395f3db1",
+    "bytes": 17732064,
+    "sha256": "fb2a804bd5408573400d0a518e303db5da7d5ab171ec8089b45ddabefcaf101c",
     "portrait": "代表画面/Asio_clamator.jpg"
   },
   "Asio_otus": {
-    "bytes": 17601048,
-    "sha256": "510500170d7563b96fd4989cadb1eec09b62df737b9ea35d578ea7d9559adc0f",
+    "bytes": 17723788,
+    "sha256": "d4dfbd6b41a72a2b78a2afc58d3d40986cdc9eddfb1f634e141f37eafc0ad9d2",
     "portrait": "代表画面/Asio_otus.jpg"
   },
   "Asio_abyssinicus": {
-    "bytes": 17572536,
-    "sha256": "3378fb393d67070307e573e72a649eec9f877a6b5f21836c96dda8b91a778b48",
+    "bytes": 17686236,
+    "sha256": "33404cd4876d10424b9268a08391fe4bbf04b6ca4fb3b0d82f0dae77524e71a1",
     "portrait": "代表画面/Asio_abyssinicus.jpg"
   },
   "Asio_madagascariensis": {
-    "bytes": 17525040,
-    "sha256": "13e436aebfa4b0ede70173b2e5bcb866cc2b19ef11d117e9bb96e08c6ff8d375",
+    "bytes": 17648064,
+    "sha256": "0aa9a0d14cb7300da47c30c20ab76abf731427df0944eb0917d67344a29cdc8c",
     "portrait": "代表画面/Asio_madagascariensis.jpg"
   },
   "Asio_stygius": {
-    "bytes": 17547128,
-    "sha256": "f1525c82fa74ca579c80468fb6613ec1f3a62e53866810ab0b654febe6e35817",
+    "bytes": 17660792,
+    "sha256": "088de299769cba13730be4c5bd7ac20ba2162eff37308766e206dd57297b295f",
     "portrait": "代表画面/Asio_stygius.jpg"
   },
   "Asio_flammeus": {
-    "bytes": 17507832,
-    "sha256": "0fb82c5e8ecbc4b3fe98bfafbc07f36050f5f6e552d02ed11c9532439820932e",
+    "bytes": 17630060,
+    "sha256": "5a56c249e5e461a72a774329c401554ab6c2c96432fc0596ee2761794c88fdac",
     "portrait": "代表画面/Asio_flammeus.jpg"
   },
   "Asio_capensis": {
-    "bytes": 15965204,
-    "sha256": "09a9c5c0364aec4d9472e5ed002033fbfebca4d325e7fa84cae2f779dd4d7125",
+    "bytes": 16087868,
+    "sha256": "67a5d0df6c67f2a6d2d486cc8cd9472394026b6b2f3ae294dd214e68038cff21",
     "portrait": "代表画面/Asio_capensis.jpg"
   },
   "Asio_solomonensis": {
-    "bytes": 17744980,
-    "sha256": "01da69182a5e2758f90f8185c36cb56f897053a4107df5c0e013a727d5ac7924",
+    "bytes": 17867420,
+    "sha256": "138cb5cfd7d9d06c5b395b74c0920c622e3aa635da81437421677c8e87a5667e",
     "portrait": "代表画面/Asio_solomonensis.jpg"
   },
   "Jubula_lettii": {
-    "bytes": 19565344,
-    "sha256": "3d213230641d4c3777b44f3084fcb7e771e877c96fa4fcac06ddbbbaa948009f",
+    "bytes": 19679228,
+    "sha256": "25b9aa5b0d73f9ea33b75c898da178fd3b485e588f21a08197aacbb5e8c1a937",
     "portrait": "代表画面/Jubula_lettii.jpg"
   },
   "Bubo_scandiacus": {
-    "bytes": 16614308,
-    "sha256": "40bd14b457af757cfb4883545f493199da928b7bd3a662ca51eaa080390b18ad",
+    "bytes": 20068328,
+    "sha256": "f2bfc3394c73c28750b72dc72875a4c1ff1eb98b632cf17c34aa2ac3887f6504",
     "portrait": "代表画面/雪鸮.jpg"
   },
   "Bubo_virginianus": {
-    "bytes": 19972052,
-    "sha256": "3e7c48fa40d127010508dc066518f53bbe16dae077c6acebdcd9f31ebffe3190",
+    "bytes": 21466168,
+    "sha256": "c798f79f0f82becb18de85ed20c91db4eb0e0b8c10b24489d47d73b4cadc2138",
     "portrait": "代表画面/Bubo_virginianus.jpg"
   },
   "Bubo_nigrescens": {
-    "bytes": 20286068,
-    "sha256": "17bbe7392b5bb5c6d6c9ed826a546d2be67731fd54eedbc850ace524963b7e31",
+    "bytes": 20399784,
+    "sha256": "f8c008e2ed1f79c07ae127bf2dd5dbed8fea4cea1cc52226ba9843e011681175",
     "portrait": "代表画面/Bubo_nigrescens.jpg"
   },
   "Bubo_nacurutu": {
-    "bytes": 19716136,
-    "sha256": "faf8da85681faa3c683a5d1a609434a0db2e480538021e7609221e0585075f30",
+    "bytes": 19838360,
+    "sha256": "b1ead35101120d14167b95310f95adbda185d003e245fdb96d2ba544c5278493",
     "portrait": "代表画面/Bubo_nacurutu.jpg"
   },
   "Bubo_magellanicus": {
-    "bytes": 19986260,
-    "sha256": "341a158439fe4a265d7a76456d5d3850e2a6883de1c7aa833e79f36284ee43a6",
+    "bytes": 20086536,
+    "sha256": "8c599dbb1c8926e7072549d53e6163e14cf8bab53daa9649524c266b38f16cf4",
     "portrait": "代表画面/Bubo_magellanicus.jpg"
   },
   "Bubo_bubo": {
-    "bytes": 17393400,
-    "sha256": "32cb20860b6f66be30e3ab8286435f4725a1fa3fa30034bf982c7cc7d35c8537",
+    "bytes": 17516804,
+    "sha256": "8e26eefdf0103f78b382410d14b000117220b63c2b6595e48fff190f0e35e3d2",
     "portrait": "代表画面/雕鸮.jpg"
   },
   "Bubo_bengalensis": {
-    "bytes": 18317280,
-    "sha256": "5c5370773d5533650df57d5b9ef905b031e0c20b7130fbb0665bf9a9fdeea88d",
+    "bytes": 18439912,
+    "sha256": "6a20d71fb9020eae1c23b7bbd441a91264186eefb47f90e1a3b8986d3bf5d829",
     "portrait": "代表画面/Bubo_bengalensis.jpg"
   },
   "Bubo_ascalaphus": {
-    "bytes": 17475292,
-    "sha256": "38865b67f53d1cdb83f383f8ba60756beb09f875b54c5836e00fff3b8f9e481e",
+    "bytes": 17598352,
+    "sha256": "c5fd7d38c57e0781b512ab0726cc8f769a4da4dc4f3bcad26916bdb93eb4a8a3",
     "portrait": "代表画面/Bubo_ascalaphus.jpg"
   },
   "Bubo_capensis": {
-    "bytes": 17913796,
-    "sha256": "e44f9c888aeb4dfc492e718f522e8f9472585c8d9a7c1c335191ff15798a2166",
+    "bytes": 18036824,
+    "sha256": "b3a4c7ae92c979c7e998775a0dac772f6fc699ac6049ed556bf9421f13536ba3",
     "portrait": "代表画面/Bubo_capensis.jpg"
   },
   "Bubo_milesi": {
-    "bytes": 19234384,
-    "sha256": "111896afe5cb449a7a663ea839ca74f4850aa2e682c31a0164c0cce661d36616",
+    "bytes": 19348268,
+    "sha256": "742c6739a35bf2df5f1946f23a6399142d5299af46726132cbf1e179ceea2de5",
     "portrait": "代表画面/Bubo_milesi.jpg"
   },
   "Bubo_cinerascens": {
-    "bytes": 19101180,
-    "sha256": "62856108c8b9d9289a5ccb03d7636d799d0c4361515d6e5dfb727758251752e6",
+    "bytes": 19223788,
+    "sha256": "485de88cc2a1e107fba490293e86c03f3f011cdae0765509ecdb7c9da0d22128",
     "portrait": "代表画面/Bubo_cinerascens.jpg"
   },
   "Bubo_africanus": {
-    "bytes": 20877992,
-    "sha256": "dfbbe59fcea631147bc0d1901ebac4f5dffd6caeaa9f9adaf837331e64d23518",
+    "bytes": 21000576,
+    "sha256": "8f7e1e2866962d091b6588ea1ffa13e4827e0551f39b76e89a5881bf5719aaa0",
     "portrait": "代表画面/Bubo_africanus.jpg"
   },
   "Ketupa_poensis": {
-    "bytes": 19889704,
-    "sha256": "fa527f36640ef9f59caf89aed7843a86c409166b98cba6364af9b7b31137b7b4",
+    "bytes": 20013892,
+    "sha256": "ea49af1f7aeeca3000fa02fbe6db65ade8cf0b17e949c06d7cc9ba0545a2a8ff",
     "portrait": "代表画面/Ketupa_poensis.jpg"
   },
   "Ketupa_leucosticta": {
-    "bytes": 18043080,
-    "sha256": "b14b2a1d80d89038fab85579883edf620943aa664aaa111723ab9a10123b9c46",
+    "bytes": 18164964,
+    "sha256": "01963863c98d6e7d5848e09462392a322411cb75199dd6748c1fa24585286ebb",
     "portrait": "代表画面/Ketupa_leucosticta.jpg"
   },
   "Ketupa_lactea": {
-    "bytes": 16683844,
-    "sha256": "627a2b28cf7e24742d24c77082b1e3636870fbbe0b0f12ebd67decd39f3d876f",
+    "bytes": 16808820,
+    "sha256": "0d3ea5e051fdc497049aa32a76725f17ed3f644a30c717d556dca06ed1ebf437",
     "portrait": "代表画面/Ketupa_lactea.jpg"
   },
   "Ketupa_shelleyi": {
-    "bytes": 19691672,
-    "sha256": "193a92391245a84b389a766eef5da8ae224e81dfacbceb0f288599b13ff65af6",
+    "bytes": 19805408,
+    "sha256": "cf5ed44f667c1f8c78b6995f27792827a1781a53c5a5dbde1c97925166d80af4",
     "portrait": "代表画面/Ketupa_shelleyi.jpg"
   },
   "Ketupa_blakistoni": {
-    "bytes": 17499180,
-    "sha256": "76306a67331a61225e0ebebcb53908a0aab8b0284b6fa130281299662168eb65",
+    "bytes": 20543828,
+    "sha256": "89e129ca1b5291474b00f8831202e53ffe2352eeaa57964e6f97690d324ca8c8",
     "portrait": "代表画面/Ketupa_blakistoni.jpg"
   },
   "Ketupa_zeylonensis": {
-    "bytes": 17560512,
-    "sha256": "e99de44ac02378462b44feef5dedbc2f008f316656be5f92686d662b87718fef",
+    "bytes": 17685472,
+    "sha256": "20d0ad81c392495d3f878411cc7dcba2990d78246d68fe7e5ba75a540615a27c",
     "portrait": "代表画面/Ketupa_zeylonensis.jpg"
   },
   "Ketupa_flavipes": {
-    "bytes": 17605820,
-    "sha256": "7a9a76db1703990f4bff982455b41c8b72a1f70e46d4c46672e45c3a9b716d0c",
+    "bytes": 17706052,
+    "sha256": "2297b2052e51b0f1652083b7511a82159287733ad3c0d4cda5356ca05ea53f02",
     "portrait": "代表画面/Ketupa_flavipes.jpg"
   },
   "Ketupa_ketupu": {
-    "bytes": 17393764,
-    "sha256": "71cb5ce9e00f63412defd4f9ad3bc384a25d5f6fe59927854d67a908c3610c95",
+    "bytes": 17515204,
+    "sha256": "1a347102fbce006b213e9cc7902f6676e27d3fa7aae268bacd048cd66c823541",
     "portrait": "代表画面/Ketupa_ketupu.jpg"
   },
   "Ketupa_sumatrana": {
-    "bytes": 19521900,
-    "sha256": "16cab40f49e7921aeff1eae8f8461d9297e567121eda81d5d442c4b9b3038875",
+    "bytes": 19643360,
+    "sha256": "650c8b75dd2b6cda6854b2a31d9642e9fbcea37b2e270d15368d21e77661f525",
     "portrait": "代表画面/Ketupa_sumatrana.jpg"
   },
   "Ketupa_nipalensis": {
-    "bytes": 17715976,
-    "sha256": "c1ad02dc2fb2066b205ca5bc5d432195c8401d44a68f844541eed32416be52e6",
+    "bytes": 17838268,
+    "sha256": "f43dfb956032c4c61ee52a6ec95d2af54d71ffd5276d7f90726b8458f6ec087f",
     "portrait": "代表画面/Ketupa_nipalensis.jpg"
   },
   "Ketupa_coromanda": {
-    "bytes": 17379448,
-    "sha256": "6b4ec5e639e62c44929e4b291474a64dbdd717206844b324b1364ce7019de189",
+    "bytes": 17502468,
+    "sha256": "ae9fb0144a2e8f97b15af45c8c36d84204319a5d529b43c5fefdb891e705b96c",
     "portrait": "代表画面/Ketupa_coromanda.jpg"
   },
   "Ketupa_philippensis": {
-    "bytes": 17657208,
-    "sha256": "9fd26a74dd4db17211a348efae8bb060c157a42a06248e91a46dd2480a81e196",
+    "bytes": 17779232,
+    "sha256": "a09fcec4b0e00e70fa5827196c8eca98b2b379d1c06ea2e502dbe81fa54ee1d1",
     "portrait": "代表画面/Ketupa_philippensis.jpg"
   },
   "Scotopelia_peli": {
-    "bytes": 20250504,
-    "sha256": "d00f59befe5955f9687baf8195d8de484c99360a0bd1df05f23a9eef4e9ca6b2",
+    "bytes": 20373440,
+    "sha256": "3cbef6545968283481574baa3aed40ebdc23646833f633bed899161f132f4fc2",
     "portrait": "代表画面/Scotopelia_peli.jpg"
   },
   "Scotopelia_ussheri": {
-    "bytes": 16953128,
-    "sha256": "1d18a905307f930470b89286311462a3362f48b74100af41f74f8ce374171895",
+    "bytes": 17076408,
+    "sha256": "30fb5fe6293de760386647ca373df3976da29d9bd4143644dbf2e9e47cd1eded",
     "portrait": "代表画面/Scotopelia_ussheri.jpg"
   },
   "Scotopelia_bouvieri": {
-    "bytes": 16395328,
-    "sha256": "7b6e7903dfc248d70904ab0c1581232a8a36caf0c31f6530d8039ddddef6bca4",
+    "bytes": 16517180,
+    "sha256": "8a2bc61800c0fe77aa0190ae892a567084f3202675536ef74c6d0bd3ffe5ff5c",
     "portrait": "代表画面/Scotopelia_bouvieri.jpg"
   },
   "Psiloscops_flammeolus": {
-    "bytes": 17224808,
-    "sha256": "0cafd92816caef3488ce5a2d2c37179db4705817b346d153f364afe04163771a",
+    "bytes": 17346776,
+    "sha256": "8815d8b91e678e32d9c5310041c27ff51ed9eb571cf9dbacf73b4418116c7491",
     "portrait": "代表画面/Psiloscops_flammeolus.jpg"
   },
   "Gymnasio_nudipes": {
-    "bytes": 19203480,
-    "sha256": "1d388087003d2cc9f8456fd01589b36d09f3d7f2018568702947b9f119075b91",
+    "bytes": 19317260,
+    "sha256": "52e197296297cb7467e80bfdabb1e7799441ea1441814d68b80736374f265936",
     "portrait": "代表画面/Gymnasio_nudipes.jpg"
   },
   "Megascops_trichopsis": {
-    "bytes": 17313872,
-    "sha256": "f58b732454604100b2029009027fbb01692d2c0a7a44fdcc98a9988ee15f8681",
+    "bytes": 17437760,
+    "sha256": "433103e6b93ee15a3efd5bf8c4f4cd9f21f46ad0c10dba1b8fff3b2c3764d496",
     "portrait": "代表画面/Megascops_trichopsis.jpg"
   },
   "Megascops_clarkii": {
-    "bytes": 18165612,
-    "sha256": "8d3b933cbdb858dfb64c7577459d744d918dcf4d6a1305fe406c9b778618046b",
+    "bytes": 18289096,
+    "sha256": "7dfabc6f6ef0111f2e08bc5feb2835cd975cb3c08b64a582c15afd3205ababcb",
     "portrait": "代表画面/Megascops_clarkii.jpg"
   },
   "Megascops_albogularis": {
-    "bytes": 17588200,
-    "sha256": "aed3d33958bd64c9c1ea8b59b44e6d9d64a6f777e063252517f34a77cf94b5fc",
+    "bytes": 19081672,
+    "sha256": "8ef91185963f63f91f8abae76513e44bab479292d3a08f9e96a4bb488e166ce0",
     "portrait": "代表画面/Megascops_albogularis.jpg"
   },
   "Megascops_choliba": {
-    "bytes": 17383084,
-    "sha256": "f10da26fb1695a1242011483f89d18b4e515f85f4d72d8bea411cd89e4965461",
+    "bytes": 17505256,
+    "sha256": "a99f24ea4229ce81a7d73c14cfc062ab36ef9b67d564df5c8c9f189c6aba2135",
     "portrait": "代表画面/Megascops_choliba.jpg"
   },
   "Megascops_barbarus": {
-    "bytes": 18118048,
-    "sha256": "712b6abe0b6dd353fa06646d6d0065dee43154edf5f46c2c7869464e34b60b24",
+    "bytes": 18241492,
+    "sha256": "6f541e171be71de660ffcd3b4f54406f5ac35e3baee163c84b0075814f08a252",
     "portrait": "代表画面/Megascops_barbarus.jpg"
   },
   "Megascops_cooperi": {
-    "bytes": 19662168,
-    "sha256": "b7e6a6a497e34c482755dd7b4975b7409e8a6d1b2a24ca63b1531717a588795d",
+    "bytes": 19784616,
+    "sha256": "892d63d677cc82cab7363c30e934fbfc0d48ac888a6d98f0f93733a9d779b9c0",
     "portrait": "代表画面/Megascops_cooperi.jpg"
   },
   "Megascops_kennicottii": {
-    "bytes": 17837352,
-    "sha256": "1996c364de85b5306521577ea809c1a0657f581f96d4a6486449f45b4d078946",
+    "bytes": 17960444,
+    "sha256": "197985182d869c5c189559bff1c22f265192da3968375491e8300d70e928c690",
     "portrait": "代表画面/Megascops_kennicottii.jpg"
   },
   "Megascops_asio": {
-    "bytes": 17721860,
-    "sha256": "981c9da3d1076925a1f13062e5fa71d7cbbf6358d259e9ef78f6c4a097a5d545",
+    "bytes": 17844996,
+    "sha256": "67622b626acb704e86fbf25eeb4115046ff59ad7c2cda14c3bc1604792327bda",
     "portrait": "代表画面/Megascops_asio.jpg"
   },
   "Megascops_seductus": {
-    "bytes": 17785036,
-    "sha256": "60708e068ab631de598a1cc477a40ac90f35c99c24a0f88289b26d272c0e4e66",
+    "bytes": 17908132,
+    "sha256": "d8c31ea04c0889d92acaa1dfab981ef40b4f4f86435bdb7d75afdf3f8efae876",
     "portrait": "代表画面/Megascops_seductus.jpg"
   },
   "Megascops_guatemalae": {
-    "bytes": 17426984,
-    "sha256": "1dfbe7ee7005cbba4da8f9d3ed88ca85219f509a4a4fdff60d3a3ccc38d9df28",
+    "bytes": 18919200,
+    "sha256": "66d7de972f566c4f4dabf25b7d5c167dd24785c653061d05225f4affc2ede830",
     "portrait": "代表画面/Megascops_guatemalae.jpg"
   },
   "Megascops_koepckeae": {
-    "bytes": 17815816,
-    "sha256": "45f3dac67b5099f3583cde4c9e2f6698d19d516b098a13a0940fb04717884197",
+    "bytes": 17938452,
+    "sha256": "350924a99dbabc4d8024f35f16326d41af1296f8fe1be43b1b581707604c2caa",
     "portrait": "代表画面/Megascops_koepckeae.jpg"
   },
   "Megascops_ingens": {
-    "bytes": 19126456,
-    "sha256": "d447668e39d10ca378cbbcfa22fa50428d3aa7047f33836656d3fa8ed90e93bd",
+    "bytes": 19249576,
+    "sha256": "20cee09b2d128ddb9b31b442f69f1b6180a3a57c83df43776396b69143a6ea45",
     "portrait": "代表画面/Megascops_ingens.jpg"
   },
   "Megascops_petersoni": {
-    "bytes": 17346972,
-    "sha256": "68d85a4e5c0569ce49bef1f7704a81fd91567f60b7738e59391046cbde7d9870",
+    "bytes": 17469400,
+    "sha256": "d40803798abf4d937aed9eaac5344f6b5591f3e35f847c48c6accfecd460ae29",
     "portrait": "代表画面/Megascops_petersoni.jpg"
   },
   "Megascops_marshalli": {
-    "bytes": 21385072,
-    "sha256": "12c5a7006f1359bb52385a91315581a0ca5a93d6e25bcb4bef654c4c3ff5706e",
+    "bytes": 21498904,
+    "sha256": "307beddbb03ae723623d4138b07096c9c835e64a580c0502b6ad97fdacc73b5b",
     "portrait": "代表画面/Megascops_marshalli.jpg"
   },
   "Megascops_hoyi": {
-    "bytes": 19645972,
-    "sha256": "a9b0f6d57524e8fdd821e93d0df10e93282cfc75a0b3a152e32ff2d9b5eec3a6",
+    "bytes": 19759832,
+    "sha256": "a90d949e52f28c750a14c564888bf7b924d68f15aa01a4159df1c4c32c40763d",
     "portrait": "代表画面/Megascops_hoyi.jpg"
   },
   "Megascops_centralis": {
-    "bytes": 17410712,
-    "sha256": "fd1f70a1e685803451fdfcb49ba171a65696d7f0ee5a5227be50e3748f6f6d74",
+    "bytes": 17532712,
+    "sha256": "f0266c88e62eb585b2d8468582a40ed0186d5b389c0e08722b12e0ae63327937",
     "portrait": "代表画面/Megascops_centralis.jpg"
   },
   "Megascops_roraimae": {
-    "bytes": 17510284,
-    "sha256": "9c401cb91ebeb1519bbbf79d83dde7385967dba5bcbb3341a02ac6522609ceb8",
+    "bytes": 17633412,
+    "sha256": "4bcacc1ef562b1cd8685dc430fb2db1605427bf6c51feb6b274b27233d5ce35f",
     "portrait": "代表画面/Megascops_roraimae.jpg"
   },
   "Megascops_sanctaecatarinae": {
-    "bytes": 17823380,
-    "sha256": "0e641575d8a2bd26c756139d1ce0ba90808c5377171ef03a0ef3f04cc662b342",
+    "bytes": 17945940,
+    "sha256": "d845b5c926cb7c2ea8895101b15affa8a85c5e1dabeb513e2dda9f961cef0932",
     "portrait": "代表画面/Megascops_sanctaecatarinae.jpg"
   },
   "Megascops_gilesi": {
-    "bytes": 17496688,
-    "sha256": "66091c8c844c4942726525e4d95631f2053553feb4e333259c4102301667ee9a",
+    "bytes": 17618660,
+    "sha256": "47993ee592c67045b1bfc941939713af577e608ac6d28ae0156bdb3051c92ec1",
     "portrait": "代表画面/Megascops_gilesi.jpg"
   },
   "Megascops_roboratus": {
-    "bytes": 17811152,
-    "sha256": "6c7595c3b2ffde159fb4e2ccb4a8905ca97baafa25b2eb80d4f5c77cb34ff96c",
+    "bytes": 17933464,
+    "sha256": "0894d5d894980a6552856ae84645f3b50363b4bee748e61424644e35cca58614",
     "portrait": "代表画面/Megascops_roboratus.jpg"
   },
   "Megascops_watsonii": {
-    "bytes": 17658056,
-    "sha256": "c708f8effd055daf7f9daf9fd73790a09e9883932fcf1cd722f5006ccc13f0c1",
+    "bytes": 17781240,
+    "sha256": "8e0230906226e9c1ccc8ef3cd3b44c36d4ec9f8bf7d55a1ab9daec041ad44d1f",
     "portrait": "代表画面/Megascops_watsonii.jpg"
   },
   "Megascops_atricapilla": {
-    "bytes": 17565208,
-    "sha256": "6dfdc99e765dfafcf8cab7e607db691a19cd5fa9164929cc3ee6546e66a4c87f",
+    "bytes": 17686656,
+    "sha256": "8a15c684fa85083b589eb3082f03f547ef518395403ec2ca353d1dfe6acc1f90",
     "portrait": "代表画面/Megascops_atricapilla.jpg"
   },
   "Pulsatrix_perspicillata": {
-    "bytes": 15962232,
-    "sha256": "d87d30c6973d0981542063eb7a9fb2a991e4ea7d2a1b65a40b79270893733bb2",
+    "bytes": 16083264,
+    "sha256": "f6b01e6c00520126ebacd7846d7e7e76364488d698b1ca41766d0e0aa10271c2",
     "portrait": "代表画面/Pulsatrix_perspicillata.jpg"
   },
   "Pulsatrix_koeniswaldiana": {
-    "bytes": 15981552,
-    "sha256": "42f1050edcbac7f6ca5825c4471cc1d2739e999ce43733135cb132554963d38c",
+    "bytes": 16102564,
+    "sha256": "7d4018f9979ed3a8115881b9d33af920f31e8503bdd64c346f1c662e0df3eecc",
     "portrait": "代表画面/Pulsatrix_koeniswaldiana.jpg"
   },
   "Pulsatrix_melanota": {
-    "bytes": 18722412,
-    "sha256": "61171427b12fe142306b72c6d0ca05201fe04b71de454e738eed36bbe6b90963",
+    "bytes": 18844600,
+    "sha256": "47eb051967d3f1c24768150feb257d5d155409dcaeced6c9ef8cec338a74b917",
     "portrait": "代表画面/Pulsatrix_melanota.jpg"
   },
   "Lophostrix_cristata": {
-    "bytes": 17578576,
-    "sha256": "7fdd787c0633abea65a357eb44648815268abe296be115b3b6ea9d9e93059282",
+    "bytes": 17703236,
+    "sha256": "d3c7e78f3384d3fb1586e26d2c949dcf34b34ff431a668e566dec7148afddac0",
     "portrait": "代表画面/Lophostrix_cristata.jpg"
   },
   "Strix_seloputo": {
-    "bytes": 20429396,
-    "sha256": "9f4f53f183581d90ad661e3502dc4b889a548541cd93a17e6e5e168b70bca62d",
+    "bytes": 20551160,
+    "sha256": "4d41c0be83f7eb90f54608675efb48b7e06b0138df48decf3c251e10fcd31bbc",
     "portrait": "代表画面/Strix_seloputo.jpg"
   },
   "Strix_ocellata": {
-    "bytes": 19787272,
-    "sha256": "194e591f7b30a2d91a7ca28c136c2a989d90fc2418aeace85e82dfbd095e3dab",
+    "bytes": 19911356,
+    "sha256": "29e772a9c03fd29a620186fd441466a123707c4bcd61dd570fbe186366ce7d3c",
     "portrait": "代表画面/Strix_ocellata.jpg"
   },
   "Strix_leptogrammica": {
-    "bytes": 19033076,
-    "sha256": "d4820c46809f4ce5d8a437ea454cab2c42e0483ed077dbb068385b0573fbbea5",
+    "bytes": 19155580,
+    "sha256": "3beef47dbbf18aea20b116065fcc577f2874098698d5be621f40ce404cfb964e",
     "portrait": "代表画面/Strix_leptogrammica.jpg"
   },
   "Strix_aluco": {
-    "bytes": 16833904,
-    "sha256": "79472b3681b0d16e58bc12173657dd214599193c072edacd3e9fc60b0d8a9c9d",
+    "bytes": 16956540,
+    "sha256": "2d975010d88daa7abed00cbe20a6a97eb81339f1dcae5bb9fc00dc918e003a3d",
     "portrait": "代表画面/Strix_aluco.jpg"
   },
   "Strix_mauritanica": {
-    "bytes": 17256952,
-    "sha256": "5fd31b29f41bdd83d7f2937c3195f88008913c58f40069cd234bedeb5b8c78ca",
+    "bytes": 17380300,
+    "sha256": "6dd0bfe018143ec6f76f14d5503a976eecc5a6699d92edca5aae911fc5e3c69f",
     "portrait": "代表画面/Strix_mauritanica.jpg"
   },
   "Strix_nivicolum": {
-    "bytes": 18547256,
-    "sha256": "267a92eb9c1096fdaa582002ac4d9727c26b79301accdb05ee8ffedb4cd27b70",
+    "bytes": 18669808,
+    "sha256": "e76d11a73fb93bd137a81ae7e2ccc8c94936262856a291becb32d2c958a20e27",
     "portrait": "代表画面/Strix_nivicolum.jpg"
   },
   "Strix_hadorami": {
-    "bytes": 18313108,
-    "sha256": "4d65190f0c76cabcb102d6d4c6dabfc6cee31f08326f23cee74d01c97ea2392a",
+    "bytes": 18435244,
+    "sha256": "c016479208bb9c651f7c953e0c4fe3bc7c71b113c17f8a5d9130c08d82ad2474",
     "portrait": "代表画面/Strix_hadorami.jpg"
   },
   "Strix_butleri": {
-    "bytes": 17361148,
-    "sha256": "fdf5f348554c76e43d7050856f29ad9840fc6a61df96c6ae72a95729116282d2",
+    "bytes": 17482896,
+    "sha256": "09e92e79c60b05171230a913589231e3da5dc0c457d51ac6a351fe2de4211bd3",
     "portrait": "代表画面/Strix_butleri.jpg"
   },
   "Strix_occidentalis": {
-    "bytes": 17333828,
-    "sha256": "5b903282fb2430178fc0dc2831697ca88f88e2e1ad0b85a45392d06d81535229",
+    "bytes": 17457956,
+    "sha256": "749fe148467f10e41f1db6f189d45f5d596c5c30cf2b513bcdf1710b01456862",
     "portrait": "代表画面/Strix_occidentalis.jpg"
   },
   "Strix_varia": {
-    "bytes": 18054228,
-    "sha256": "e7ab79d6aad88bbed31ec653051569881871b313c8ba5911654fb53567c8f295",
+    "bytes": 18176868,
+    "sha256": "eb099c39c97993a8d702f42996508da34a62ebf53d8561f25c7a8b23cca2e3ca",
     "portrait": "代表画面/Strix_varia.jpg"
   },
   "Strix_sartorii": {
-    "bytes": 16884992,
-    "sha256": "5cd531a1c0f77de9545d2636bbf23b893af67b0f6b9017c2522c223c9aa73ae6",
+    "bytes": 17008336,
+    "sha256": "584ec892c32574e75929ccf63a3253be13558c204e639036d14216076b900bbb",
     "portrait": "代表画面/Strix_sartorii.jpg"
   },
   "Strix_fulvescens": {
-    "bytes": 17432820,
-    "sha256": "853812a012bf7b9ee85bb69955ee9c2fcd3b0fc170061fe8e58f6fb784375294",
+    "bytes": 17546500,
+    "sha256": "4a7d301aad3c5e1f5d433c80a853f8382e950bf5cedf58c54c9543bb4fc4ef6e",
     "portrait": "代表画面/Strix_fulvescens.jpg"
   },
   "Strix_hylophila": {
-    "bytes": 19423376,
-    "sha256": "1d13d4a96e002fa84258b048396c7552ba09e9f275db9f8fce66f36d4127b7a2",
+    "bytes": 19545628,
+    "sha256": "986af381bcc601b323df1d84ca59c17f2fb076fec26331eb2394b79423f79c26",
     "portrait": "代表画面/Strix_hylophila.jpg"
   },
   "Strix_chacoensis": {
-    "bytes": 18012848,
-    "sha256": "eea6a379e1bc131275c6d44899704009983bb4b003c43ed5ca281fd583748362",
+    "bytes": 18126632,
+    "sha256": "31870bf5cd2772f4f4abe0ca1537d14796ca9e1ea02f2cceac3fdf317a09756b",
     "portrait": "代表画面/Strix_chacoensis.jpg"
   },
   "Strix_rufipes": {
-    "bytes": 19620800,
-    "sha256": "67a774eb8c90ee6581b0fdadf55124c0806f76799026acd8aeafc0db128fcf30",
+    "bytes": 19742192,
+    "sha256": "b140a9627ee26cf4f9b41269da13bb9470c14f102006b551ecf20ec0375dd07d",
     "portrait": "代表画面/Strix_rufipes.jpg"
   },
   "Strix_uralensis": {
-    "bytes": 17305348,
-    "sha256": "0f4d01b1e1c2e1fb59ae1322093dd4d5d7f9c46ab3fac8a3de5c95ae062b7cfb",
+    "bytes": 17426312,
+    "sha256": "9c2f710de1683a2e61fcdb7e0d2a8088690c8517122a21fd8190710ae7fecd40",
     "portrait": "代表画面/Strix_uralensis.jpg"
   },
   "Strix_nebulosa": {
-    "bytes": 17778504,
-    "sha256": "abc11bb20339d38d0fd97d43f8a7f6d454e3724f85cd525a95fadc68c550b477",
+    "bytes": 19657292,
+    "sha256": "978b7433539c461f13580c47e503471c039382c99db71d610134253eb32684f6",
     "portrait": "代表画面/Strix_nebulosa.jpg"
   },
   "Strix_woodfordii": {
-    "bytes": 19710332,
-    "sha256": "3022134644ee7de622abcc8466f5f40a938f823310255273cde35834e9e1ff26",
+    "bytes": 19831700,
+    "sha256": "ae4bff0031b140796f6b572f77332957607294f989ebe0817605a0c016445130",
     "portrait": "代表画面/Strix_woodfordii.jpg"
   },
   "Strix_virgata": {
-    "bytes": 17143836,
-    "sha256": "b6572d148ac7d1c182f426943830a9e810dc660fc476090a12815aeb26e9617d",
+    "bytes": 17257632,
+    "sha256": "637cb91f43c181510ef4fa5a17dc7acfa8366ad9f18e4d53f03c7dec8888083e",
     "portrait": "代表画面/Strix_virgata.jpg"
   },
   "Strix_nigrolineata": {
-    "bytes": 18084772,
-    "sha256": "9592d0f6a03cd3d04f1a9a6deef76c70af98d3826208505bf758783b435916fa",
+    "bytes": 18198564,
+    "sha256": "ae4e8b8dd7dc17d69b839ea042d5b7637cf1951c0e860f9ab9cf4344ed5c97ed",
     "portrait": "代表画面/Strix_nigrolineata.jpg"
   },
   "Strix_huhula": {
-    "bytes": 19297000,
-    "sha256": "c5bdbec2fdb502769f320ac3a7603211bc13c3a94ecd4557e5551e41a559e7c6",
+    "bytes": 19421604,
+    "sha256": "9e45c5362ef7d03d9076f33e9c93ba62c6818b657628cc3d6f03d4de7dfac975",
     "portrait": "代表画面/Strix_huhula.jpg"
   },
   "Strix_albitarsis": {
-    "bytes": 19350192,
-    "sha256": "8ba5a449fecbf28995480a05f458ecefb59e51a0ed4be795fbc8b6ae1274a785",
+    "bytes": 19472500,
+    "sha256": "2360010ef832e1c879a465d8bb39cfecd44285bfb8b6df9e712c20f745fb4c07",
     "portrait": "代表画面/Strix_albitarsis.jpg"
   }
 }

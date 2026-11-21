@@ -2,6 +2,8 @@ import production from '../data/production.json' with {type:'json'}
 import records from '../data/records.json' with {type:'json'}
 import pilots from '../data/calibration-pilots.json' with {type:'json'}
 import plates from '../data/calibration-plates.json' with {type:'json'}
+import poses from '../data/illustrated-poses.json' with {type:'json'}
+import audits from '../data/illustrated-audit.json' with {type:'json'}
 import visualSources from '../data/visual-sources.json' with {type:'json'}
 
 const traitNames=['头身比例','面盘与耳羽','虹膜与喙','腿足与尾','收翼轮廓','羽色与纹样']
@@ -38,15 +40,26 @@ export function calibrationFor(id) {
   if(!appearance)return null
   const pilot=pilots[id], plate=plates[id]
   const evidence=visualSources[id]
-  const traits=pilot?.traits || modelledDetails(appearance,plate)
+  const pose=poses[id], audit=audits[id]
+  const originalMarks=pilot?.traits || modelledDetails(appearance,plate)
+  const uncertainty=pose?.uncertain?.join('、')
+  const marks=audit && pose ? [
+    ['辨识要点',audit.cue],
+    ['头部朝向',pose.visible[0]],
+    ['躯干与收翼',pose.visible[1]],
+    ['羽衣特征',pose.visible.slice(2).join(' ') || '插画中可见的翼面偏'+colorFamily(pose.colors.wing)+'，胸腹偏'+colorFamily(pose.colors.breast)+'。'],
+    ['实物对照',audit.result],
+    ['原画看不全的部位',uncertainty || '远侧折翼及展开后的翼下。'],
+  ] : traitNames.map((label,index)=>[label,originalMarks[index]])
   return {
-    id, form:illustratedForm, plateSource:appearance.plateSource,
-    angles:pilot?.view || [67,3],
-    cue:pilot?.cue || appearance.note,
-    marks:traitNames.map((label,index)=>[label,traits[index]]),
+    id,form:illustratedForm,plateSource:appearance.plateSource,
+    angles:audit?.angles || (pose ? [-pose.bodyYaw,pose.cameraPitch] : pilot?.view || [67,3]),
+    cue:audit?.cue || pilot?.cue || appearance.note,
+    marks, rounds:audit?.rounds || [],
+    searchTerms:[appearance.note,pilot?.cue,...(pose?.visible || []),audit?.cue].filter(Boolean),
     variation:pilot?.variation || '',
     photo:{url:evidence?.page,label:sourceNames[evidence?.kind] || '外观参考'},
     sourceDescription:records[id]?.guide,
-    cautions: [evidence?.note,'插画遮住背面和翼下的部分按同种资料复原。资料未显示的羽区纹样待核。'].filter(Boolean).join(' '),
+    cautions:[evidence?.note,'背面和翼下另参考同种资料，未能核实的细纹保留为待核。'].filter(Boolean).join(' '),
   }
 }

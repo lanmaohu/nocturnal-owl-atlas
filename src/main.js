@@ -45,7 +45,7 @@ const snowOwl = 'Bubo_scandiacus'
 const entrySpecies = specimenFor(params.get('species'))
 const isFeatured = id => samples.some(sample => sample.id === id)
 const galleryFeatures = [...samples.map(sample => sample.id), 'Strix_nebulosa', 'Athene_cunicularia', 'Surnia_ulula', 'Scotopelia_peli', 'Phodilus_badius']
-const showFacts = createCatalog(availableIds, [...galleryFeatures, ...catalogSequence], id => publishedModel(id)?.portrait, openSpecies)
+const showFacts = createCatalog(availableIds, [...galleryFeatures, ...catalogSequence], id => versionedAsset(publishedModel(id)?.portrait,id), openSpecies)
 let selected
 let selectedPoint = null
 let lastCard
@@ -238,8 +238,20 @@ function showRecord(sample) {
   byId('identification-cue').textContent = calibration.cue
   byId('form-variation').textContent = calibration.variation
   byId('form-variation').hidden = !calibration.variation
+  const topics = ['全身轮廓','脸和眼睛','羽毛形状','羽色与花纹','整只与动作']
+  byId('round-review').hidden = !calibration.rounds.length
+  byId('round-notes').replaceChildren(...calibration.rounds.map((note,index) => {
+    const item=document.createElement('li')
+    const label=document.createElement('strong')
+    label.textContent=topics[index]+'　'
+    item.append(label,note)
+    return item
+  }))
   byId('alignment-evidence').textContent = calibration.cautions
-  byId('alignment-contact').href = './校准证据/' + sample.id + '.jpg'
+  byId('alignment-contact').href = versionedAsset('./校准证据/'+sample.id+'.jpg',sample.id)
+  const actionsLink=byId('alignment-actions')
+  actionsLink.hidden=!calibration.rounds.length
+  if (!actionsLink.hidden) actionsLink.href=versionedAsset('./校准证据/动作/'+sample.id+'.jpg',sample.id)
   const reference = byId('alignment-reference')
   reference.hidden = !calibration.photo.url
   if (calibration.photo.url) {
@@ -261,7 +273,7 @@ function showRecord(sample) {
   byId('reference').hidden = !sample.reference
   if (sample.reference) byId('reference').href = sample.reference
   byId('model-notes').hidden = !sample.marks.length
-  const poster = publishedModel(sample.id)?.portrait
+  const poster = versionedAsset(publishedModel(sample.id)?.portrait,sample.id)
   const plate = byId('representative')
   plate.hidden = !poster
   if (poster) {plate.href=poster;plate.download=sample.id+'.jpg'}
@@ -454,6 +466,12 @@ function nearestEye() {
 
 const viewAngles = {front:[0,3],side:[90,3],back:[180,3]}
 
+function versionedAsset(path,id) {
+  const entry=publishedModel(id)
+  if (!path || !entry || location.protocol==='file:') return path
+  return path+'?rev='+entry.sha256.slice(0,12)
+}
+
 function shot(viewName, fraction=0) {
   const { shot } = active.sample
   const box = active.resting, size = box.getSize(new T.Vector3()), target = box.getCenter(new T.Vector3())
@@ -501,7 +519,10 @@ function setView(mode, immediate=false) {
   if (!active) return
   intro=false; spreadReturn=null; view=mode
   showPoint(null)
-  if(mode==='matched')lighting(true)
+  if(mode==='matched') {
+    if(currentMotion!=='Perch')startMotion('Perch')
+    lighting(true)
+  }
   moveCamera(shot(mode,1),immediate ? 0 : .65)
   updateLabels()
 }
@@ -621,7 +642,7 @@ async function select(sample, id = sample.id) {
     for (const button of [...modelControls, ...pointButtons.children]) button.disabled=false
     paused = reducedMotion
     startMotion('Perch')
-    setView(new URLSearchParams(location.search).has('species')&&!inspecting?'matched':'whole',true)
+    setView(inspecting?'whole':'matched',true)
     canvas.style.visibility=''
     byId('model-cover').hidden=true
     status()

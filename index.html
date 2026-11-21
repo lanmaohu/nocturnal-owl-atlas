@@ -278,6 +278,11 @@ dl {margin:0}
 }
 
 .notes a {display:inline-block;font-size:13px;margin:9px 13px 0 0}
+
+.round-review {margin-top:12px}
+.round-review ol {padding-inline-start:1.7em;color:var(--muted);line-height:1.6}
+.round-review li+li {margin-top:.5em}
+.round-review strong {color:var(--ink)}
 </style>
   <style>.field-dossier {
   display: grid;
@@ -524,8 +529,13 @@ dl {margin:0}
             <summary>你眼前这只</summary>
             <dl id="marks"></dl>
             <p id="form-variation" class="model-evidence"></p>
+            <details id="round-review" class="round-review" hidden>
+              <summary>五轮实物对照笔记</summary>
+              <ol id="round-notes"></ol>
+            </details>
             <p id="alignment-evidence" class="model-evidence"></p>
             <a id="alignment-contact" target="_blank" rel="noopener noreferrer">查看中性光检查图</a>
+            <a id="alignment-actions" target="_blank" rel="noopener noreferrer" hidden>查看展翅、闭眼与复位</a>
             <a id="alignment-reference" target="_blank" rel="noopener noreferrer"></a>
           </details>
           <div class="resources">
@@ -586,6 +596,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
  -->
-<script defer src="./atlas-bdb1bcb503247210.js"></script>
+<script defer src="./atlas-f6560208541e9679.js"></script>
 </body>
 </html>

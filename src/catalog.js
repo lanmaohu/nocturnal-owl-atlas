@@ -69,7 +69,7 @@ export function createCatalog(models, order, portraitFor, choose) {
     return {
       record,
       keys: [record.scientificName, ...Object.values(record.names), ...Object.values(record.ids || {}),
-        record.zh?.pinyin, ...(record.zh?.aliases || []), calibrationFor(id)?.cue].filter(Boolean).map(normalize),
+        record.zh?.pinyin, ...(record.zh?.aliases || []), ...(calibrationFor(id)?.searchTerms || [])].filter(Boolean).map(normalize),
     }
   })
   let matches = []

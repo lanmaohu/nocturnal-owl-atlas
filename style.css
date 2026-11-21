@@ -271,3 +271,8 @@ dl {margin:0}
 }
 
 .notes a {display:inline-block;font-size:13px;margin:9px 13px 0 0}
+
+.round-review {margin-top:12px}
+.round-review ol {padding-inline-start:1.7em;color:var(--muted);line-height:1.6}
+.round-review li+li {margin-top:.5em}
+.round-review strong {color:var(--ink)}
