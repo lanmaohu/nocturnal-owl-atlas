@@ -3,11 +3,353 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#172e26">
-  <title>夜行图鉴 · 鸮形目物种与三维模型</title>
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./record.css">
-  <!-- source-entry --><script>if(location.protocol==="file:")location.replace(new URL("夜行图鉴.html",location.href))</script><!-- /source-entry -->
+  <meta name="theme-color" content="#080d18">
+  <title>夜视观察站 · 夜行图鉴</title>
+  <style>:root {
+  color-scheme:dark;
+  --paper:#090f1c;
+  --panel:#101a2c;
+  --ink:#f2f6ff;
+  --muted:#aabbd4;
+  --rule:#2c405e;
+  --accent:#a9d0ff;
+  --bright:#d8e9ff;
+  --sans:"Source Sans 3","PingFang SC","Microsoft YaHei",sans-serif;
+  --serif:"Baskervville","Songti SC","STSong","Noto Serif CJK SC",serif;
+  font:16px/1.55 var(--sans);
+  color:var(--ink);
+  background:var(--paper);
+}
+* {box-sizing:border-box}
+body {margin:0;min-width:280px;background:radial-gradient(ellipse at 70% -5%,#172740 0%,transparent 52rem)}
+button,a,input,select {-webkit-tap-highlight-color:transparent;font:inherit}
+button {color:inherit;cursor:pointer}
+button[disabled] {cursor:default;opacity:.52}
+:focus-visible {outline:2px solid #b7d8ff;outline-offset:4px}
+[hidden],.symbols,.touch {display:none!important}
+.icon {width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.masthead {
+  position:sticky;top:0;z-index:12;backdrop-filter:blur(12px);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:12px clamp(16px,4vw,82px);
+  min-height:68px;background:#080e1ad9;border-bottom:1px solid #324662;
+}
+.brand {display:flex;align-items:center;gap:10px;font:600 20px/1.1 var(--serif);letter-spacing:.09em;white-space:nowrap}
+.owlmark {display:block;width:30px;height:30px;color:#acd0ff}
+.site-nav {display:flex;align-items:center;gap:8px}
+.site-nav button,.featured-species button,.point-buttons button,.control,.catalog-switch {
+  border:1px solid var(--rule);background:#142238;color:var(--bright);border-radius:5px;
+}
+.site-nav button,.featured-species button,.point-buttons button,.catalog-switch {min-height:44px;padding:7px 14px}
+.site-nav button:first-child {border-color:transparent;background:transparent}
+.site-nav button[aria-current=page]:first-child {color:#fff;text-decoration:underline;text-underline-offset:6px}
+.site-nav button:last-child {background:#a9d0ff;color:#0c2039;border-color:#a9d0ff;font-weight:700}
+.site-nav button:last-child:hover {background:#d5e9ff}
+.site-nav button:last-child[aria-current=page] {background:#223a5b;color:#e4efff}
+.page {padding:0 clamp(16px,4vw,82px) 38px;max-width:1820px;margin:auto}
+.station-head,.gallery-header {
+  display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:16px 26px;
+}
+.station-head {padding:clamp(24px,3vw,48px) 0 18px}
+.station-head h1 {margin:0;font:600 clamp(36px,4.2vw,64px)/1.16 var(--serif);letter-spacing:.065em}
+.station-head p,.gallery-header p {margin:6px 0 0;color:var(--muted)}
+.featured-species {display:flex;flex-wrap:wrap;gap:7px}
+.featured-species button {min-width:76px}
+.featured-species button:hover,.point-buttons button:hover,.control:hover,.catalog-switch:hover {background:#223958}
+.featured-species button[aria-pressed=true],.point-buttons button[aria-pressed=true],.control[aria-pressed=true] {
+  background:#213b62;border-color:#80aacd;color:#fff;
+}
+.spread {display:grid;grid-template-columns:minmax(0,1fr) clamp(270px,26vw,375px);gap:clamp(15px,2vw,28px)}
+.studio,.record {min-width:0;border:1px solid var(--rule);border-radius:8px;background:#10192a;overflow:hidden}
+.studio {align-self:start}
+.viewport {
+  position:relative;isolation:isolate;height:clamp(395px,60svh,740px);overflow:hidden;
+  background:radial-gradient(ellipse at 50% 47%,#20385a,#080e1c 78%);
+}
+#view {display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+#view:active {cursor:grabbing}
+#view:focus-visible {outline-offset:-3px}
+.model-cover {position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#0c1525;pointer-events:none;z-index:1}
+.model-cover:not([hidden])~.view-tools {display:none}
+.view-tools {position:absolute;right:14px;top:14px;display:flex;align-items:center;gap:8px;z-index:3}
+.camera-switch {display:flex;align-items:center;border:1px solid #7f99c074;border-radius:24px;padding:3px;background:#101a2cd9}
+.camera-switch button {border:0;border-radius:20px;background:transparent;color:#ebf3ff;padding:6px 13px;min-height:36px}
+.camera-switch button[aria-pressed=true] {background:#dcecff;color:#132743}
+.glass {
+  width:44px;height:44px;display:grid;place-items:center;border:1px solid #7f99c074;border-radius:50%;
+  background:#101a2cda;color:#e1edff;
+}
+.focus-marker {position:absolute;z-index:2;pointer-events:none;width:20px;height:20px;transform:translate(-50%,-50%);border:1px solid #d4e7ff;border-radius:50%;box-shadow:0 0 0 3px #111c306f,0 0 14px #b3d3ffb3}
+.focus-marker::after {content:"";position:absolute;inset:7px;background:#fff;border-radius:50%}
+.model-state {
+  position:absolute;z-index:4;left:50%;bottom:18px;transform:translateX(-50%);
+  width:max-content;max-width:calc(100% - 30px);padding:8px 14px;color:#fff;
+  background:#111c30ed;border:1px solid #536886;border-radius:5px;text-align:center;
+}
+.model-state p {margin:0}
+.model-state button {margin-top:6px;padding:5px 14px;border:1px solid #d9e7ff;background:transparent;color:inherit}
+.studio-bar,.motion,.control,.help,.resources a,.resources button {display:flex;align-items:center}
+.studio-bar {justify-content:space-between;flex-wrap:wrap;gap:8px;padding:10px 12px;border-top:1px solid var(--rule)}
+.motion {gap:7px;flex-wrap:wrap}
+.control {gap:6px;min-height:44px;padding:6px 12px;font-size:14px}
+.control .icon {width:16px;height:16px}
+.save-card {background:#d8e9ff;color:#142946;border-color:#d8e9ff}
+.save-card:hover {background:#a9d0ff;color:#142946}
+.help {gap:8px;color:var(--muted);font-size:13px;margin:15px 0 0}
+.record {padding:clamp(19px,2.2vw,30px)}
+.family {color:var(--accent);font-size:13px;font-weight:600;letter-spacing:.075em}
+#name {margin:9px 0 2px;font:600 clamp(35px,3.5vw,61px)/1.2 var(--serif);letter-spacing:.045em;overflow-wrap:anywhere}
+#latin,.field-latin {font:italic 22px/1.35 Baskerville,Georgia,serif;color:var(--accent);margin:0}
+#form {margin:8px 0 0;color:var(--muted);font-size:14px}
+.model-points,.quick-facts,.notes,.resources {border-top:1px solid var(--rule);margin-top:18px;padding-top:16px}
+.model-points h3,.notes h3 {font:600 16px/1.4 var(--sans);margin:0 0 10px}
+.point-buttons {display:flex;flex-wrap:wrap;gap:6px}
+.point-buttons button {font-size:14px;padding:6px 9px}
+.point-note {margin:8px 0 0;color:var(--muted);font-size:14px;line-height:1.6;min-height:3em}
+.quick-facts dl {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+dt {font-size:13px;color:var(--muted)}
+dd {margin:0;font-size:14px}
+dl {margin:0}
+.quick-facts a,.resources a,.field-actions a,.catalog-scope a {color:var(--accent);text-underline-offset:4px}
+.quick-facts a,.field-actions a {display:inline-flex;align-items:center;gap:5px;margin-top:9px;font-size:14px}
+.quick-facts .icon,.resources .icon,.field-actions .icon {width:15px;height:15px}
+.mark {display:grid;grid-template-columns:3em 1fr;gap:8px;margin:9px 0}
+.resources {display:flex;align-items:center;gap:8px 13px;flex-wrap:wrap}
+.resources button {gap:6px;border:1px solid var(--rule);background:#15253e;padding:7px 11px;border-radius:4px}
+.resources a,.resources button {font-size:13px}
+.file-actions {
+  background:#142440;border-top:1px solid var(--rule);padding:13px 16px;
+  display:flex;align-items:center;justify-content:space-between;gap:9px 18px;flex-wrap:wrap;
+}
+.file-explanation {display:grid;gap:3px;color:var(--muted);font-size:14px}
+.file-explanation strong {color:var(--ink);font-size:16px}
+.file-explanation small {color:var(--accent);font-family:monospace;overflow-wrap:anywhere}
+.file-choices {display:flex;gap:7px;flex-wrap:wrap}
+.file-choices button {min-height:44px;background:#172a46;border:1px solid #718db5;border-radius:5px;font-size:14px;padding:6px 10px}
+.file-choices button:first-child {background:#a9d0ff;color:#132743;border-color:#a9d0ff;font-weight:700}
+.model-pages {display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:15px;margin-top:13px}
+.model-pages button {border:0;background:none;font-size:14px;color:var(--accent);padding:8px 0;min-height:44px;text-align:left}
+.model-pages button:last-child {text-align:right}
+.model-pages button:hover {text-decoration:underline;text-underline-offset:4px}
+.model-pages span {font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+#atlas-viewer:focus,.gallery:focus,#model-spread:focus,.field-record:focus {outline:none}
+#atlas-viewer,#model-spread,.field-record,.gallery,.viewport {scroll-margin-top:78px}
+.field-record {margin-top:clamp(25px,4vw,55px);padding-top:22px;border-top:1px solid var(--rule)}
+.field-header {display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin:0 0 24px}
+.field-kicker {color:var(--muted);font-size:14px}
+.field-header h2,.gallery-header h2 {margin:3px 0 0;font:600 clamp(28px,3vw,44px)/1.25 var(--serif);letter-spacing:.035em}
+.field-latin {font-size:18px}
+.field-actions {display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.field-actions a {margin:0}
+.field-actions button {display:inline-flex;align-items:center;gap:7px}
+.field-block :is(a,.field-related,.field-fold summary,.field-impression) {color:var(--accent)}
+.field-block :is(a,.field-related,.field-fold summary):hover {color:#fff}
+.field-block :is(.field-list dt,.field-languages dt,.field-unit,.field-caution) {color:var(--muted)}
+.field-block .field-fold {border-color:var(--rule)}
+.field-block .field-crosswalk {background:#17263c;border-color:#6b96c5;color:var(--bright)}
+.gallery {padding-top:clamp(18px,3vw,42px)}
+.habitat-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,1.6vw,22px);margin-bottom:clamp(20px,4vw,48px)}
+.habitat-grid button {position:relative;text-align:left;isolation:isolate;padding:0;overflow:hidden;border:1px solid var(--rule);border-radius:7px;background:#15253f}
+.habitat-grid img {display:block;width:100%;height:clamp(112px,17vw,242px);object-fit:cover;object-position:center 39%}
+.habitat-grid span {position:absolute;inset:auto 0 0;display:grid;padding:22px 14px 11px;background:linear-gradient(transparent,#0b1325f5);color:#fff}
+.habitat-grid strong {font:600 clamp(16px,2vw,28px)/1.3 var(--serif)}
+.habitat-grid small {font-size:13px;color:#d8e9ff}
+.habitat-grid button:hover,.gallery-card:hover {border-color:#8aaed4}
+.catalog-tools {width:min(100%,490px);display:flex;gap:8px;min-width:0}
+.catalog-search {display:flex;align-items:center;flex:1;min-width:0;padding:0 8px;gap:7px}
+.catalog-tools select,.catalog-search {border:1px solid var(--rule);border-radius:5px;background:#121e31;color:var(--ink)}
+.catalog-tools select {max-width:45%;padding:7px 10px}
+.catalog-search:focus-within {outline:2px solid var(--accent)}
+.catalog-search input {width:100%;min-width:0;border:0;outline:none;background:transparent;padding:9px 0;min-height:46px;color:var(--ink)}
+.catalog-search input::placeholder {color:var(--muted)}
+.catalog-count {margin:13px 0;color:var(--muted);font-size:14px}
+.gallery-grid {list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr));gap:clamp(10px,1.5vw,22px);margin:0;padding:0}
+.gallery-card {display:block;width:100%;height:100%;padding:0;border:1px solid var(--rule);border-radius:7px;overflow:hidden;background:#111a2b;text-align:left}
+.gallery-picture {aspect-ratio:5/4;background:#172843;overflow:hidden}
+.gallery-picture img {display:block;width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+.gallery-card:hover img {transform:scale(1.04)}
+.gallery-caption {display:grid;gap:2px;padding:10px 13px 12px;overflow-wrap:anywhere}
+.gallery-caption strong {font:600 18px/1.4 var(--serif)}
+.gallery-caption i {font:italic 15px/1.3 Baskerville,Georgia,serif;color:var(--muted)}
+.card-action {margin-top:4px;color:var(--accent);font-size:14px}
+.gallery-more {display:block;margin:20px auto 0}
+.atlas-footer {margin-top:34px}
+.catalog-scope {border-top:1px solid var(--rule);padding:5px 0;color:var(--muted);font-size:14px}
+.catalog-scope summary {cursor:pointer;min-height:44px;padding:10px 0}
+.catalog-scope p {margin:0 0 8px}
+@media(max-width:800px) {
+  .spread {grid-template-columns:minmax(0,1fr)}
+  .record {padding:17px}
+  .studio .model-points {margin:0;padding:10px 12px}
+  .studio .model-points h3 {font-size:14px;margin:0 0 6px}
+  .studio .point-note {min-height:0}
+  .station-head {padding-top:19px}
+  .viewport {height:clamp(290px,46svh,510px)}
+}
+@media(max-width:540px) {
+  .masthead {min-height:58px;padding:7px 12px}
+  #atlas-viewer,#model-spread,.field-record,.gallery,.viewport {scroll-margin-top:64px}
+  .page {padding-inline:12px}
+  .brand {font-size:16px;gap:5px}
+  .owlmark {width:24px;height:24px}
+  .site-nav {gap:3px}
+  .site-nav button {font-size:13px;padding-inline:8px}
+  .station-head {gap:10px;padding-bottom:10px}
+  .station-head p {font-size:14px}
+  .featured-species button {font-size:14px;min-height:42px}
+  .view-tools {right:8px;top:8px;gap:5px}
+  .camera-switch button {font-size:14px;min-height:35px;padding:4px 9px}
+  .studio-bar {gap:5px;padding:6px}
+  .motion {gap:4px}
+  .control {gap:4px;font-size:13px;padding-inline:7px}
+  .gallery-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gallery-caption {padding:7px 8px 10px}
+  .gallery-caption strong {font-size:16px}
+  .gallery-caption i {font-size:13px}
+  .habitat-grid span {padding-inline:7px}
+  .catalog-tools select {font-size:14px}
+}
+@media(pointer:coarse) {
+  .help .desktop {display:none}
+  .help .touch {display:inline!important}
+}
+@media(prefers-reduced-motion:reduce) {
+  .gallery-picture img {transition:none}
+  .gallery-card:hover img {transform:none}
+}
+.species-illustration {
+  margin:18px 0 0;
+  padding-top:16px;
+  border-top:1px solid var(--rule);
+}
+.species-illustration h3 {font-size:16px;line-height:1.4;margin:0 0 10px}
+.illustration-frame {
+  display:grid;
+  place-items:center;
+  min-height:168px;
+  padding:10px;
+  border-radius:5px;
+  background:radial-gradient(ellipse at center,#243b5a,#131f34);
+}
+.illustration-frame img {display:block;width:100%;height:168px;object-fit:contain}
+.illustration-frame p {margin:0;color:var(--muted);font-size:14px;text-align:center}
+.species-illustration figcaption {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:4px 12px;
+  margin-top:9px;
+  color:var(--muted);
+  font-size:13px;
+}
+.species-illustration a {color:var(--accent);text-underline-offset:3px}
+#illustration-original {display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+#illustration-original .icon {width:15px;height:15px}
+@media(max-width:800px) {
+  .studio .species-illustration {margin:0;padding:12px}
+  .studio .illustration-frame img {height:150px}
+  .studio .species-illustration a {padding-block:5px}
+}
+</style>
+  <style>.field-dossier {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(30px, 6vw, 100px);
+  align-items: start;
+  color: var(--ink);
+}
+.field-block {
+  min-width: 0;
+  padding: 24px 0 30px;
+  border-top: 1px solid var(--rule);
+}
+.field-block h3 {
+  font: 600 clamp(20px, 1.6vw, 26px)/1.4 var(--serif);
+  letter-spacing: .055em;
+  margin: 0 0 18px;
+}
+.field-block p {overflow-wrap: anywhere}
+.field-block a,.field-related {color:#315440; text-underline-offset:3px; text-decoration-thickness:1px}
+.field-block a:hover,.field-related:hover {color:#713f23}
+.field-block a:focus-visible,.field-block summary:focus-visible,.field-related:focus-visible {outline:2px solid #96652e; outline-offset:3px}
+.field-measures {grid-column:1/-1}
+.field-metrics {
+  display:grid; grid-template-columns: repeat(4,minmax(0,1fr));
+  margin: 0 0 18px;
+}
+.field-metric {padding:3px clamp(10px,2.5vw,36px); min-width:0; border-left:1px solid var(--rule)}
+.field-metric:first-child {border-left:0;padding-left:0}
+.field-metric dt {font:500 14px/1.5 var(--sans);color:var(--muted);margin-bottom:8px}
+.field-metric dd {display:flex;align-items:baseline;gap:5px;flex-wrap:wrap;line-height:1.15}
+.field-figure {
+  font:normal clamp(26px,3.3vw,53px)/1.1 "Baskerville","Times New Roman",serif;
+  font-variant-numeric:lining-nums tabular-nums;
+  color:var(--ink);letter-spacing:-.035em;
+}
+.field-unit {font:normal 13px/1.5 var(--sans);color:#465547}
+.field-single {flex-basis:100%;color:var(--muted);font:normal 12px/1.4 var(--sans)}
+.field-missing {font:normal clamp(17px,2.1vw,25px)/1.6 var(--serif);color:var(--muted)}
+.field-footnote,.field-muted,.field-caution,.field-source-line,.field-photos p {
+  font:normal 13px/1.75 var(--sans);color:var(--muted);margin:11px 0 0;
+}
+.field-caution {color:#744e2c;margin:0 0 11px}
+.field-impression {
+  font:500 clamp(19px,1.6vw,25px)/1.5 var(--serif);
+  color:#294335; margin:0 0 12px;
+}
+.field-marks {margin:0 0 16px;padding-inline-start:1.35em}
+.field-marks li,.field-comparisons p,.field-credits li {font:normal 15px/1.85 var(--sans)}
+.field-marks li::marker {color:#8c8867}
+.field-list {
+  display:grid;grid-template-columns:minmax(6.5em,auto) minmax(0,1fr);
+  gap:9px 18px;align-items:baseline;margin:0;
+}
+.field-list dt,.field-languages dt {font:normal 13px/1.65 var(--sans);color:#51624f}
+.field-list dd,.field-languages dd,.field-subspecies p {font:normal 15px/1.7 var(--sans);overflow-wrap:anywhere}
+.field-fold {border-top:1px solid #d5d6c7;margin-top:15px}
+.field-fold summary {
+  display:flex;align-items:center;justify-content:space-between;gap:15px;
+  color:#3c5642;list-style:none;padding:12px 0;cursor:pointer;font:500 14px/1.5 var(--sans);
+}
+.field-fold summary::-webkit-details-marker {display:none}
+.field-fold summary::after {
+  content:"";display:block;flex:none;width:7px;height:7px;margin:0 5px;
+  border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);
+}
+.field-fold[open]>summary::after {transform:rotate(225deg)}
+.field-fold summary:hover {color:#815832}
+.field-fold+.field-fold {margin-top:0}
+.field-measures>.field-fold[open]>.field-list {max-width:40rem}
+.field-footnote a,.field-source-line a,.field-photos a,.field-credits a,.field-list a {overflow-wrap:anywhere}
+.field-comparisons,.field-subspecies,.field-photos,.field-credits {list-style:none;padding:0;margin:0}
+.field-comparisons li,.field-subspecies li,.field-photos li {margin:0 0 13px}
+.field-comparisons p,.field-subspecies p,.field-photos p {margin:3px 0 0}
+.field-related {background:none;border:0;padding:0;text-decoration:underline;font:600 15px/1.6 var(--sans)}
+.field-languages {
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px 16px;
+  margin:4px 0 16px;
+}
+.field-subspecies i {font:italic 17px/1.5 "Baskerville","Times New Roman",serif}
+.field-subspecies small {font:normal 12px/1.5 var(--sans);color:var(--muted);margin-left:7px}
+.field-photos {font:normal 14px/1.6 var(--sans)}
+.field-credits {margin:10px 0 13px}
+.field-credits li {font-size:13px;margin:5px 0}
+.field-license {white-space:pre-wrap;overflow-wrap:anywhere;font:normal 12px/1.6 var(--sans);color:var(--muted)}
+@media(max-width:720px) {
+  .field-dossier {grid-template-columns:minmax(0,1fr);gap:0}
+  .field-block {padding:18px 0 22px}
+  .field-block h3 {margin-bottom:13px}
+  .field-metrics {grid-template-columns:repeat(2,minmax(0,1fr));row-gap:16px}
+  .field-metric {padding:0 16px}
+  .field-metric:nth-child(odd) {border-left:0;padding-left:0}
+  .field-metric dd {row-gap:2px}
+  .field-list {grid-template-columns:6.2em minmax(0,1fr);column-gap:9px}
+  .field-figure {font-size:31px}
+}
+.field-crosswalk {font:normal 13px/1.75 var(--sans);color:#4a604d;background:#ebeee3;border-left:2px solid #8e9e80;padding:8px 12px;margin:12px 0}
+</style>
+  
 </head>
 <body>
   <svg xmlns="http://www.w3.org/2000/svg" class="symbols" aria-hidden="true">
@@ -30,23 +372,20 @@
       </svg>
       <span>夜行图鉴</span>
     </div>
-    <span class="collection">鸮形目<span aria-hidden="true"> / </span>Strigiformes</span>
+    <nav class="site-nav" aria-label="图鉴导航">
+      <button id="station-open" type="button" aria-current="page">观察站</button>
+      <button id="catalog-open" type="button">浏览 251 种</button>
+    </nav>
   </header>
 
   <main class="page">
-    <div id="atlas-home">
-      <section class="intro" aria-labelledby="intro-title">
-        <div class="intro-copy">
-          <h1 id="intro-title">夜行图鉴</h1>
-          <p>从雪原上的雪鸮到林间的乌林鸮，近距离观察 251 种鸮形目鸟类。转动三维模型，看看它们的面盘、羽纹和展翅姿态。</p>
-          <a class="explore-link" href="#gallery">开始探索</a>
-        </div>
-        <figure class="intro-image">
-          <img src="./代表画面/Strix_nebulosa.jpg" width="841" height="690" alt="乌林鸮停在针叶林中的枝头">
-          <figcaption>乌林鸮 <i lang="la">Strix nebulosa</i></figcaption>
-        </figure>
-      </section>
+    <div id="atlas-home" hidden>
       <section class="gallery" id="gallery" aria-labelledby="gallery-title" tabindex="-1">
+        <div class="habitat-grid" id="habitat-grid" aria-label="按栖息地开始探索">
+          <button type="button" data-id="Bubo_scandiacus"><img src="./代表画面/雪鸮.jpg" loading="lazy" alt=""><span><strong>雪原</strong><small>雪鸮</small></span></button>
+          <button type="button" data-id="Strix_nebulosa"><img src="./代表画面/Strix_nebulosa.jpg" loading="lazy" alt=""><span><strong>林间</strong><small>乌林鸮</small></span></button>
+          <button type="button" data-id="Ketupa_blakistoni"><img src="./代表画面/Ketupa_blakistoni.jpg" loading="lazy" alt=""><span><strong>河岸</strong><small>毛腿渔鸮</small></span></button>
+        </div>
         <header class="gallery-header">
           <div>
             <h2 id="gallery-title">物种画廊</h2>
@@ -62,24 +401,30 @@
         <button class="catalog-switch gallery-more" type="button" id="gallery-more" hidden>查看更多物种</button>
       </section>
     </div>
-    <div id="atlas-viewer" tabindex="-1" hidden>
-      <div class="viewer-nav">
-        <button type="button" id="catalog-open" class="catalog-switch">返回物种画廊</button>
-        <nav id="model-pages" class="model-pages" aria-label="浏览相邻模型" hidden>
-          <button type="button" id="model-prev"></button><span id="page-number"></span><button type="button" id="model-next"></button>
+    <div id="atlas-viewer" tabindex="-1">
+      <header class="station-head">
+        <div>
+          <h1>夜视观察站</h1>
+          <p>近距离观察 251 种鸮形目鸟类。</p>
+        </div>
+        <nav id="featured-species" class="featured-species" aria-label="精选物种">
+          <button type="button" data-featured="Bubo_scandiacus" aria-pressed="true">雪鸮</button>
+          <button type="button" data-featured="Tyto_alba" aria-pressed="false">西仓鸮</button>
+          <button type="button" data-featured="Bubo_bubo" aria-pressed="false">雕鸮</button>
         </nav>
-      </div>
+      </header>
       <section id="model-spread" tabindex="-1" class="spread" aria-label="三维物种图鉴">
         <div class="studio">
           <div id="viewport" class="viewport">
             <canvas id="view" tabindex="0" aria-label="三维模型。拖动旋转，滚轮或双指缩放，双击复位。聚焦后也可用方向键旋转，加减键缩放。"></canvas>
-            <img id="model-cover" class="model-cover" hidden alt="">
+            <img id="model-cover" class="model-cover" src="./代表画面/雪鸮.jpg" alt="雪鸮代表画面" fetchpriority="high">
+            <span id="focus-marker" class="focus-marker" aria-hidden="true" hidden></span>
             <div class="view-tools">
               <div class="camera-switch" aria-label="取景"><button id="whole" aria-pressed="true" disabled>全身</button><button id="portrait" aria-pressed="false" disabled>特写</button></div>
               <button class="glass" id="reset" title="恢复初始视角" aria-label="恢复初始视角"><svg class="icon"><use href="#i-home"/></svg></button>
             </div>
-            <div class="model-state" id="model-state" hidden>
-              <p id="state-message" role="status"></p>
+            <div class="model-state" id="model-state">
+              <p id="state-message" role="status">正在加载雪鸮…</p>
               <button type="button" id="retry-model" hidden>重试加载</button>
             </div>
           </div>
@@ -94,18 +439,28 @@
             <div class="motion" aria-label="动画控制">
               <button id="toggle-play" class="control" disabled><svg class="icon"><use href="#i-pause"/></svg><span>暂停</span></button>
               <button id="observe" class="control" aria-pressed="false" disabled><svg class="icon"><use href="#i-play"/></svg><span>观察</span></button>
-              <button id="spread" class="control" aria-pressed="false" disabled><svg class="icon"><use href="#i-wings"/></svg><span>展翅收拢</span></button>
+              <button id="spread" class="control" aria-pressed="false" disabled><svg class="icon"><use href="#i-wings"/></svg><span>展翅</span></button>
             </div>
-            <span class="help"><svg class="icon"><use href="#i-orbit"/></svg><span class="desktop">拖动旋转 · 滚轮缩放</span><span class="touch">拖动旋转 · 双指缩放</span></span>
+            <button id="save-card" class="control save-card" type="button" disabled><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>保存观察卡</button>
           </div>
+          <div id="mobile-points"></div>
+          <div id="mobile-illustration"></div>
         </div>
         <aside class="record">
           <div class="identity">
             <div class="family" id="family"></div>
-            <h1 id="name"></h1>
+            <h2 id="name"></h2>
             <p id="latin" lang="la"></p>
             <p id="form"></p>
           </div>
+          <div id="desktop-points">
+            <section id="model-points" class="model-points" aria-labelledby="points-title" hidden>
+              <h3 id="points-title">局部观察</h3>
+              <div id="point-buttons" class="point-buttons"></div>
+              <p id="point-note" class="point-note" role="status">选择一个部位查看细节。</p>
+            </section>
+          </div>
+          <p class="help"><svg class="icon"><use href="#i-orbit"/></svg><span class="desktop">拖动旋转 · 滚轮缩放</span><span class="touch">拖动旋转 · 双指缩放</span></p>
           <div class="quick-facts">
             <dl id="model-stats"></dl>
             <a href="#field-record">查看物种资料<svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a>
@@ -119,8 +474,21 @@
             <a id="representative" hidden>代表画面</a>
             <a id="reference" target="_blank" rel="noopener">物种参考<svg class="icon"><use href="#i-external"/></svg></a>
           </div>
+          <div id="desktop-illustration">
+            <figure id="species-illustration" class="species-illustration" aria-labelledby="illustration-title" hidden>
+              <h3 id="illustration-title">花叔插画</h3>
+              <div class="illustration-frame" id="illustration-frame"></div>
+              <figcaption>
+                <span><a href="https://github.com/alchaincyf/huashu-bird-sticker" target="_blank" rel="noopener noreferrer" aria-label="花叔的鸟类贴纸项目">花叔</a> · AI 生成插画 · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></span>
+                <a id="illustration-original" target="_blank" rel="noopener noreferrer">查看原图<svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+              </figcaption>
+            </figure>
+          </div>
         </aside>
       </section>
+      <nav id="model-pages" class="model-pages" aria-label="浏览相邻模型" hidden>
+        <button type="button" id="model-prev"></button><span id="page-number"></span><button type="button" id="model-next"></button>
+      </nav>
       <section id="field-record" class="field-record" aria-labelledby="field-title" tabindex="-1">
         <header class="field-header">
           <div>
@@ -146,6 +514,28 @@
       </details>
     </footer>
   </main>
-  <script type="module" src="./src/main.js"></script>
+  <!-- Three.js | The MIT License
+
+Copyright © 2010-2026 three.js authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+ -->
+<script defer src="./atlas-41234f045a330d76.js"></script>
 </body>
 </html>
