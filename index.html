@@ -215,7 +215,7 @@ dl {margin:0}
 }
 .paired-views {
   --stage-height:clamp(355px,55svh,625px);
-  display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
 }
 .paired-views:has(.species-illustration[hidden]) {display:block}
 .paired-views .viewport {height:var(--stage-height)}
@@ -224,13 +224,11 @@ dl {margin:0}
   border-radius:4px;font-size:13px;font-weight:650;background:#111c30e8;color:#e4f1ff;
   pointer-events:none;
 }
-.species-illustration {position:relative;min-width:0;margin:0;border-left:1px solid var(--rule);display:flex;flex-direction:column}
+.species-illustration {position:relative;min-width:0;margin:0;border-left:1px solid var(--rule);height:var(--stage-height)}
 .illustration-frame {
-  display:grid;place-items:center;overflow:hidden;box-sizing:border-box;
-  flex:1;min-height:0;height:var(--stage-height);
-  padding:24px 9px 42px;background:radial-gradient(ellipse at center,#31465f,#172638);
+  position:absolute;inset:0;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at center,#31465f,#172638);
 }
-.illustration-frame img {display:block;width:100%;height:100%;min-height:0;object-fit:contain}
+.illustration-frame img {position:absolute;display:block;inset:9% 5% 11%;width:90%;height:80%;object-fit:contain}
 .illustration-frame p {margin:0;color:var(--muted);font-size:14px;text-align:center}
 .species-illustration figcaption {
   position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;
@@ -258,19 +256,17 @@ dl {margin:0}
 .ruler-fill {position:absolute;background:#9fcaff;top:0;bottom:0}
 .ruler-max {font-size:11px;color:var(--muted);white-space:nowrap}
 @media(max-width:800px) {
-  .paired-views {--stage-height:clamp(245px,45svh,410px);grid-template-columns:minmax(0,1.26fr) minmax(0,1fr)}
+  .paired-views {--stage-height:clamp(245px,45svh,410px)}
   .view-presets button {min-height:42px}
 }
 @media(max-width:540px) {
   .view-label,.species-illustration h3 {left:6px;top:6px;font-size:11px;padding:3px 5px}
   .view-tools .glass {width:34px;height:34px}
   .species-illustration figcaption {padding:4px 5px}
-  .illustration-frame {padding-inline:4px}
 }
 .neutral-light .illustration-frame {background:#364153}
 #mobile-identity:empty,#desktop-identity:empty {display:none}
 .quick-facts .sample-compare {margin-left:12px}
-.paired-views {grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:800px) {
   #mobile-identity {padding:9px 0 15px}
   #mobile-identity .family {display:none}
